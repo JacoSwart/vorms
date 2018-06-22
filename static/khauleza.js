@@ -110,8 +110,6 @@
       }
 
       $scope.signoff = {
-        itworks: false,
-        itsnotworking: false,
         name: "",
         samename: false,
         date: "" , 
