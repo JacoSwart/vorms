@@ -3,7 +3,7 @@
 
     jobcardapp.controller('Jobcard_controller', function($scope) { 
       $scope.padZeros = function(str_p) {
-          if (str_p.length >= 2) {
+          if (str_p.length = 2) {
             return str_p;
           } else {
             return "0" + str_p;
@@ -37,8 +37,8 @@
       } 
       $scope.sla = { 
         reported: "" + now.getFullYear() + "/" + $scope.padZeros("" + (now.getMonth() + 1)) + "/" + $scope.padZeros("" + now.getDate()), 
-        arrival:"" + now.getFullYear() + "/" + $scope.padZeros("" + (now.getMonth() + 1)) + "/" + $scope.padZeros("" + now.getDate()), 
-        arrivetime: "",
+        arrival: now.getFullYear() + "/" + $scope.padZeros((now.getMonth() + 1)) + "/" + $scope.padZeros(now.getDate()), 
+        arrivetime: $scope.padZeros(now.getHours()) + ":" + $scope.padZeros(now.getMinutes()),
         completed: "" + now.getFullYear() + "/" + $scope.padZeros("" + (now.getMonth() + 1)) + "/" + $scope.padZeros("" + now.getDate()), 
         completedtime: "",
         arrive: false,
@@ -111,6 +111,8 @@
 
       $scope.signoff = {
         name: "",
+        completed: false,
+        notcompleted: false,
         samename: false,
         date: "" , 
       }
@@ -119,17 +121,17 @@
 
 
 
-      $scope.setarrivaltime = function() {
-        if ($scope.sla.arrivetime === "") {
-          $scope.sla.arrivetime = "" + $scope.padZeros(""+now.getHours()) + ":" + $scope.padZeros("" + now.getMinutes());
-        } else {
-          $scope.sla.arrivetime = "";
-        }
-      }
+      // $scope.setarrivaltime = function() {
+      //   if ($scope.sla.arrivetime === "") {
+      //     $scope.sla.arrivetime = $scope.padZeros(now.getHours()) + ":" + $scope.padZeros(now.getMinutes());
+      //   } else {
+      //     $scope.sla.arrivetime = "";
+      //   }
+      // }
 
       $scope.setcompletedtime = function() {
         if ($scope.sla.completedtime === "") {
-          $scope.sla.completedtime = "" + $scope.padZeros(""+now.getHours()) + ":" + $scope.padZeros("" + now.getMinutes());
+          $scope.sla.completedtime = $scope.padZeros(now.getHours()) + ":" + $scope.padZeros(now.getMinutes());
         } else {
           $scope.sla.completedtime = "";
         }
@@ -137,7 +139,7 @@
 
       $scope.setBackupTime = function() { 
         if ($scope.backup.time === "") { 
-          $scope.backup.time = "" + $scope.padZeros(""+now.getHours()) + ":" + $scope.padZeros("" + now.getMinutes());
+          $scope.backup.time = $scope.padZeros(now.getHours()) + ":" + $scope.padZeros(now.getMinutes());
         } else { 
           $scope.backup.time = ""; 
         }
@@ -145,14 +147,14 @@
 
       $scope.setRemovedTime = function() { 
         if ($scope.equipmentrem.time === "") { 
-          $scope.equipmentrem.time = "" + $scope.padZeros(""+now.getHours()) + ":" + $scope.padZeros("" + now.getMinutes());
+          $scope.equipmentrem.time = $scope.padZeros(now.getHours()) + ":" + $scope.padZeros(now.getMinutes());
         } else { 
           $scope.equipmentrem.time = ""; 
         }
       } 
       $scope.setReturnTime = function() { 
         if ($scope.equipmentret.time === "") { 
-          $scope.equipmentret.time = "" + $scope.padZeros("" + now.getHours()) + ":" + $scope.padZeros("" + now.getMinutes());
+          $scope.equipmentret.time = $scope.padZeros(now.getHours()) + ":" + $scope.padZeros(now.getMinutes());
         } else { 
           $scope.equipmentret.time = ""; 
         } 

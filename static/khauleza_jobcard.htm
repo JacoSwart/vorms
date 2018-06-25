@@ -285,12 +285,10 @@
           </tr>
           <tr >
               <td class="tableleft">
-                  <input class="hide_on_print" type="checkbox" ng-model="sla.arrive" ng-click="setarrivaltime()">Arrival: 
+                  Arrival: 
               </td>
               <td  colspan="4">
-                <span ng-if="sla.arrive">
                   {{sla.arrival}}  {{sla.arrivetime}}
-                </span>                  
               </td>
               <td >
                   Serial:
@@ -306,10 +304,13 @@
           </tr>
           <tr >
               <td class="tableleft">
-                  <input class="hide_on_print" type="checkbox" ng-model="sla.complete" ng-click="setcompletedtime()">Completed:
+                  Completed:
               </td>
               <td colspan="4">
-                 <span ng-if="sla.complete">
+                 <span ng-if="signoff.completed">
+                  {{sla.completed}}  {{sla.completedtime}}
+                </span>
+                <span ng-if="signoff.notcompleted">
                   {{sla.completed}}  {{sla.completedtime}}
                 </span>
               </td>
@@ -654,7 +655,11 @@
                     I have tested the equipment and am satisfied that  it works
                   </td>
                 <td>
-                    <input  type="checkbox" ng-model="sla.complete" ng-click="setcompletedtime()"> 
+                    <input  type="checkbox" ng-model="signoff.completed" ng-click="setcompletedtime()">
+                    <span ng-if="signoff.completed">
+                      <div ng-value="signoff.notcompleted=false"></div>
+                      <div ng-value="signoff.completed=true"></div>
+                    </span>
                   </td>
             </tr>
             <tr >
@@ -662,7 +667,11 @@
                     The equipment is non-operational due to other  factors
                   </td>
                 <td>
-                    <input  type="checkbox" ng-checked="!sla.complete" ng-click="setcompletedtime()"> 
+                    <input  type="checkbox" ng-model="signoff.notcompleted" ng-click="setcompletedtime()"> 
+                    <span ng-if="signoff.notcompleted">
+                      <div ng-value="signoff.completed=false"></div>
+                      <div ng-value="signoff.notcomplete=true"></div>
+                    </span>
                   </td>
             </tr>
             <tr >
@@ -704,7 +713,7 @@
                  </span>
                 </td>
                 <td class="servicelevel">
-                  <input  type="checkbox" ng-model="slalvlsel.avg" ng-value="slalvlsel.avg">
+                  <input  type="checkbox" ng-model="slalvlsel.avg" >
                    <span ng-if="slalvlsel.avg" >
                    <div ng-value="slalvlsel.excellent=false"></div> 
                    <div ng-value="slalvlsel.good=false"></div>
@@ -713,7 +722,7 @@
                  </span>
                 </td>
                 <td class="servicelevel">
-                  <input  type="checkbox" ng-model="slalvlsel.poor" ng-value="slalvlsel.poor">
+                  <input  type="checkbox" ng-model="slalvlsel.poor" >
                    <span ng-if="slalvlsel.poor" >
                    <div ng-value="slalvlsel.excellent=false"></div> 
                    <div ng-value="slalvlsel.good=false"></div>
@@ -740,8 +749,10 @@
               <td id="callClosedTechSignatureBackground" class="signature_holder signoffcell"> 
                 </td>
               <td class="signoffcell" >
-              <div  ng-if="sla.complete">{{sla.completed}}</div> 
-              <div  ng-if="!sla.complete"></div>  
+              <div  ng-if="signoff.completed">{{sla.completed}}</div> 
+              <div  ng-if="!signoff.completed"></div>  
+              <div  ng-if="signoff.notcompleted">{{sla.completed}}</div> 
+              <div  ng-if="!signoff.notcompleted"></div> 
               </td>
             </tr>
             <tr>
