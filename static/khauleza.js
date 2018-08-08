@@ -14,7 +14,7 @@
       setInterval(function() { 
         now = new Date();
       }, 3000);
-      $scope.SMS = 'HEATRef:00362735/CustRef:1808070667/User:JP PYPER/Tel:049 - 802 1105 - 084 780 7678/Site:MIDDELBURG - SAPS BUILDING - OPERATIONAL SUPPORT/Floor:G/Room:27/Asset:617859 -  - PRINTER - BROTHER - HL5250DN/ Issue:PRINTER DOES NOT FEED PAPERS- IT ONLY PRINTS FEW PAGES AND STOP PRINTING. - 4HOURSSLA Ti...';
+      $scope.SMS = '';
       $scope.issue = '';
       $scope.fsa = false; 
       $scope.reporter = { 
