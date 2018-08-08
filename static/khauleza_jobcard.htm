@@ -474,7 +474,7 @@
         </table>
 
 <!-- Problem Reported and repaired Comments -->
-        <textarea tabindex="19" rows="3" cols="85">Problem Reported : </textarea>
+        <textarea ng-model='issue' tabindex="19" rows="3" cols="85">Problem Reported : </textarea>
         <textarea tabindex="20" rows="3" cols="75">Problem Resolution : </textarea>
 
 <!-- Service Up Section -->
@@ -786,6 +786,12 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div id="call" class="hide_on_print">
+      <label>Paste your Call SMS Here</label>
+      <textarea ng-model='SMS'></textarea>
+      <input type="button" name="submit" value="Submit" ng-click="parseCallSMS()">
     </div>
 
 <!-- Script Links -->

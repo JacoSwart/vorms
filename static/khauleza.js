@@ -14,6 +14,8 @@
       setInterval(function() { 
         now = new Date();
       }, 3000);
+      $scope.SMS = 'HEATRef:00362735/CustRef:1808070667/User:JP PYPER/Tel:049 - 802 1105 - 084 780 7678/Site:MIDDELBURG - SAPS BUILDING - OPERATIONAL SUPPORT/Floor:G/Room:27/Asset:617859 -  - PRINTER - BROTHER - HL5250DN/ Issue:PRINTER DOES NOT FEED PAPERS- IT ONLY PRINTS FEW PAGES AND STOP PRINTING. - 4HOURSSLA Ti...';
+      $scope.issue = '';
       $scope.fsa = false; 
       $scope.reporter = { 
         name: "", 
@@ -117,10 +119,6 @@
         date: "" , 
       }
 
-
-
-
-
       // $scope.setarrivaltime = function() {
       //   if ($scope.sla.arrivetime === "") {
       //     $scope.sla.arrivetime = $scope.padZeros(now.getHours()) + ":" + $scope.padZeros(now.getMinutes());
@@ -159,5 +157,43 @@
           $scope.equipmentret.time = ""; 
         } 
       } 
+
+      $scope.parseCallSMS = function() {
+
+        $scope.SMS = $scope.SMS.split('/');
+        for (let line of $scope.SMS) {
+          line = line.split(':');
+          if (line[0].trim().toLowerCase() === 'heatref') $scope.doc.callid = line[1];
+          else if (line[0].trim().toLowerCase() === 'custref') $scope.doc.sitaref = line[1];
+          else if (line[0].trim().toLowerCase() === 'user') $scope.reporter.name = line[1];
+          else if (line[0].trim().toLowerCase() === 'tel') {
+            line[1] = line[1].replace(/ /g, "");
+            line[1] = line[1].replace(/-/g, "");
+            line[1] = line[1].replace(/NONE/g, "          ");
+            $scope.reporter.tel = line[1].slice(0, 10);
+            $scope.reporter.cell = line[1].slice(10);
+          }
+          else if (line[0].trim().toLowerCase() === 'site') {
+            let address = line[1].split(' - ');
+            $scope.site.town = address[0];
+            $scope.site.building = address[1];
+            $scope.site.site = address[2];
+          }
+          else if (line[0].trim().toLowerCase() === 'floor') $scope.site.floor = line[1];
+          else if (line[0].trim().toLowerCase() === 'room') $scope.site.room = line[1];
+          else if (line[0].trim().toLowerCase() === 'asset') {
+            let asset = [];
+            for (let assetAttribute of line[1].split('-')) {
+              asset.push(assetAttribute.trim());
+            }
+            console.log(asset);
+            $scope.equipment.asset = asset[0];
+            $scope.equipment.make = asset[2] + ' ' + asset[3];
+            $scope.equipment.model = asset[4];
+          }
+          else if (line[0].trim().toLowerCase() === 'issue') $scope.issue = 'Problem Reported :\n' + line[1];
+        }
+        document.querySelector("div#call").classList.add("hide_on_screen");
+      }
     });
  
