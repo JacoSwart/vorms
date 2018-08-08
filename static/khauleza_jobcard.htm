@@ -59,7 +59,7 @@
                 Name
               </td>
               <td class="entry">
-                <input tabindex="3" class="input hide_on_print"  ng-model="reporter.name">
+                <input tabindex="3" class="input hide_on_print textinput"  ng-model="reporter.name">
                 <span class="hide_on_screen entry">{{reporter.name}}</span> </td>
               <td class="label" >
                 Name  :
@@ -71,7 +71,7 @@
                 Tel  :
               </td>
               <td>
-                <input tabindex="4" class="hide_on_print input" ng-model="reporter.tel">
+                <input tabindex="4" class="hide_on_print input textinput" ng-model="reporter.tel">
                 <span class="hide_on_screen">{{reporter.tel}}</span> 
                 </td>
               <td class="label">
@@ -84,7 +84,7 @@
                 Cell:
               </td>
               <td>
-                <input tabindex="5" class="hide_on_print input" ng-model="reporter.cell">
+                <input tabindex="5" class="hide_on_print input textinput" ng-model="reporter.cell">
                 <span class="hide_on_screen">{{reporter.cell}}</span>
               </td>
               <td class="label">
@@ -109,14 +109,14 @@
                 Street:
               </td>
               <td class="entry">
-                  <input tabindex="6"  class="hide_on_print" ng-model="site.street">
+                  <input tabindex="6"  class="hide_on_print textinput" ng-model="site.street">
                   <span class="hide_on_screen">{{site.street}}</span>
                   </td>
               <td class="label">
                  Asset  #:
               </td>
               <td class="entry">
-                <input tabindex="12"  class="hide_on_print" ng-model="equipment.asset">
+                <input tabindex="12"  class="hide_on_print textinput" ng-model="equipment.asset">
                 <span class="hide_on_screen">{{equipment.asset}}</span></td>
           </tr>
           <tr >
@@ -124,14 +124,14 @@
                 Building:
               </td>
               <td class="entry">
-                  <input tabindex="7"  class="hide_on_print" ng-model="site.building">
+                  <input tabindex="7"  class="hide_on_print textinput" ng-model="site.building">
                   <span class="hide_on_screen">{{site.building}}</span>
                   </td>
               <td class="label">
                 Make:
               </td>
               <td class="entry">
-                <input tabindex="13"  class="hide_on_print" ng-model="equipment.make">
+                <input tabindex="13"  class="hide_on_print textinput" ng-model="equipment.make">
                 <span class="hide_on_screen">{{equipment.make}}</span></td>
           </tr>
           <tr >
@@ -139,14 +139,14 @@
                  Site:
               </td>
               <td class="entry">
-                  <input tabindex="8"  class="hide_on_print" ng-model="site.site">
+                  <input tabindex="8"  class="hide_on_print textinput" ng-model="site.site">
                   <span class="hide_on_screen">{{site.site}}</span>
                   </td>
               <td class="label">
                   Model:
               </td>
               <td class="entry">
-                <input tabindex="14"  class="hide_on_print" ng-model="equipment.model">
+                <input tabindex="14"  class="hide_on_print textinput" ng-model="equipment.model">
                 <span class="hide_on_screen">{{equipment.model}}</span></td>
           </tr>
           <tr >
@@ -154,14 +154,14 @@
                   Floor  #:
               </td>
               <td class="entry">
-                  <input tabindex="9"  class="hide_on_print" ng-model="site.floor">
+                  <input tabindex="9"  class="hide_on_print textinput" ng-model="site.floor">
                   <span class="hide_on_screen">{{site.room}}</span>
                   </td>
               <td class="label">
                   Serial  #:
               </td>
               <td class="entry">
-                <input tabindex="15"  class="hide_on_print" ng-model="equipment.serial">
+                <input tabindex="15"  class="hide_on_print textinput" ng-model="equipment.serial">
                 <span class="hide_on_screen">{{equipment.serial}}</span></td>
           </tr>
           <tr >
@@ -169,14 +169,14 @@
                   Room  #:
               </td>
               <td class="entry">
-                  <input tabindex="10"  class="hide_on_print" ng-model="site.room">
+                  <input tabindex="10"  class="hide_on_print textinput" ng-model="site.room">
                   <span class="hide_on_screen">{{site.room}}</span>
                   </td>
               <td class="label">
                   Barcode  #:
               </td>
               <td class="entry">
-                <input tabindex="16"  class="hide_on_print" ng-model="equipment.barcode">
+                <input tabindex="16"  class="hide_on_print textinput" ng-model="equipment.barcode">
                 <span class="hide_on_screen">{{equipment.barcode}}</span></td>  
               </td>
           </tr>
@@ -185,7 +185,7 @@
                   Town:
               </td>
               <td class="entry">
-                  <input tabindex="11"  class="hide_on_print" ng-model="site.town">
+                  <input tabindex="11"  class="hide_on_print textinput" ng-model="site.town">
                   <span class="hide_on_screen">{{site.town}}</span>
                   </td>
               <td rowspan="2" class="label">
@@ -255,11 +255,11 @@
                   Make:
               </td>
               <td >
-                  <input tabindex="24"  class="hide_on_print input" ng-model="faulty.make1" size="10">
+                  <input tabindex="24"  class="hide_on_print input textinput" ng-model="faulty.make1" size="10">
                   <span class="hide_on_screen">{{faulty.make1}}</span>
               </td>
               <td colspan="2">
-                  <input tabindex="27"  class="hide_on_print input" ng-model="replacement.make1" size="18">
+                  <input tabindex="27"  class="hide_on_print input textinput" ng-model="replacement.make1" size="18">
                   <span class="hide_on_screen">{{replacement.make1}}</span>
               </td>
           </tr>
@@ -268,18 +268,18 @@
                   Reported:
               </td>
               <td colspan="4" class="entry">
-                  <input class="hide_on_print input" ng-model="sla.reported" >
+                  <input class="hide_on_print input textinput" ng-model="sla.reported" >
                   <span class="hide_on_screen">{{sla.reported}}</span>
               </td>
               <td >
                   Model:
               </td>
               <td >
-                  <input tabindex="25" class="hide_on_print input" ng-model="faulty.model1" size="10" >
+                  <input tabindex="25" class="hide_on_print input textinput" ng-model="faulty.model1" size="10" >
                   <span class="hide_on_screen">{{faulty.model1}}</span>
               </td>
               <td colspan="2">
-                  <input tabindex="28"  class="hide_on_print input" ng-model="replacement.model1" size="18">
+                  <input tabindex="28"  class="hide_on_print input textinput" ng-model="replacement.model1" size="18">
                   <span class="hide_on_screen">{{replacement.model1}}</span> 
               </td>
           </tr>
@@ -294,11 +294,11 @@
                   Serial:
               </td>
               <td >
-                  <input tabindex="26" class="hide_on_print input" ng-model="faulty.serial1" size="10" >
+                  <input tabindex="26" class="hide_on_print input textinput" ng-model="faulty.serial1" size="10" >
                   <span class="hide_on_screen">{{faulty.serial1}}</span> 
               </td>
               <td colspan="2">
-                  <input tabindex="29" class="hide_on_print input" ng-model="replacement.serial1" size="18" >
+                  <input tabindex="29" class="hide_on_print input textinput" ng-model="replacement.serial1" size="18" >
                   <span class="hide_on_screen">{{replacement.serial1}}</span>
               </td>
           </tr>
@@ -318,11 +318,11 @@
                   Make:
               </td>
               <td >
-                  <input tabindex="30" class="hide_on_print input" ng-model="faulty.make2" size="10" >
+                  <input tabindex="30" class="hide_on_print input textinput" ng-model="faulty.make2" size="10" >
                   <span class="hide_on_screen">{{faulty.make2}}</span>
               </td>
               <td colspan="2">
-                  <input tabindex="33" class="hide_on_print input" ng-model="replacement.make2" size="18" >
+                  <input tabindex="33" class="hide_on_print input textinput" ng-model="replacement.make2" size="18" >
                   <span class="hide_on_screen">{{replacement.make2}}</span>
               </td>
           </tr>
@@ -340,11 +340,11 @@
                   Model:
               </td>
               <td >
-                  <input tabindex="31" class="hide_on_print input" ng-model="faulty.model2" size="10" >
+                  <input tabindex="31" class="hide_on_print input textinput" ng-model="faulty.model2" size="10" >
                   <span class="hide_on_screen">{{faulty.model2}}</span>
               </td>
               <td colspan="2">
-                  <input tabindex="34" class="hide_on_print input" ng-model="replacement.model2" size="18" >
+                  <input tabindex="34" class="hide_on_print input textinput" ng-model="replacement.model2" size="18" >
                   <span class="hide_on_screen">{{replacement.model2}}</span>
               </td>
           </tr>
@@ -368,11 +368,11 @@
                   Serial:
               </td>
               <td >
-                  <input tabindex="32" class="hide_on_print input" ng-model="faulty.serial2" size="10" >
+                  <input tabindex="32" class="hide_on_print input textinput" ng-model="faulty.serial2" size="10" >
                   <span class="hide_on_screen">{{faulty.serial2}}</span>
               </td>
               <td colspan="2">
-                  <input tabindex="35" class="hide_on_print input" ng-model="replacement.serial2" size="18" >
+                  <input tabindex="35" class="hide_on_print input textinput" ng-model="replacement.serial2" size="18" >
                   <span class="hide_on_screen">{{replacement.serial2}}</span>
               </td>
           </tr>
@@ -381,11 +381,11 @@
                   Start
               </td>
               <td >
-                  <input tabindex="17" class="hide_on_print input" ng-model="ov.ss" size="5" >
+                  <input tabindex="17" class="hide_on_print input textinput" ng-model="ov.ss" size="5" >
                   <span class="hide_on_screen">{{ov.ss}}</span>
               </td>
               <td >
-                  <input class="hide_on_print input" ng-model="ov.rs" size="5">
+                  <input class="hide_on_print input textinput" ng-model="ov.rs" size="5">
                   <span class="hide_on_screen">{{ov.rs}}</span>
               </td>
               <td >
@@ -398,11 +398,11 @@
                   Make:
               </td>
               <td>
-                  <input tabindex="36" class="hide_on_print input" ng-model="faulty.make3" size="10" >
+                  <input tabindex="36" class="hide_on_print input textinput" ng-model="faulty.make3" size="10" >
                   <span class="hide_on_screen">{{faulty.make3}}</span>
               </td>
               <td colspan="2">
-                  <input tabindex="39" class="hide_on_print input" ng-model="replacement.make3" size="18" >
+                  <input tabindex="39" class="hide_on_print input textinput" ng-model="replacement.make3" size="18" >
                   <span class="hide_on_screen">{{replacement.make3}}</span>
               </td>
           </tr>
@@ -411,11 +411,11 @@
                   End
               </td>
               <td >
-                  <input tabindex="18" class="hide_on_print input" ng-model="ov.se" size="5">
+                  <input tabindex="18" class="hide_on_print input textinput" ng-model="ov.se" size="5">
                   <span class="hide_on_screen">{{ov.se}}</span>
               </td>
               <td >
-                  <input class="hide_on_print input" ng-model="ov.re" size="5">
+                  <input class="hide_on_print input textinput" ng-model="ov.re" size="5">
                   <span class="hide_on_screen">{{ov.re}}</span> 
               </td>
               <td>
@@ -428,11 +428,11 @@
                   Model:
               </td>
               <td >
-                  <input tabindex="37" class="hide_on_print input" ng-model="faulty.model3" size="10" >
+                  <input tabindex="37" class="hide_on_print input textinput" ng-model="faulty.model3" size="10" >
                   <span class="hide_on_screen">{{faulty.model3}}</span>
               </td>
               <td colspan="2">
-                  <input tabindex="40" class="hide_on_print input" ng-model="replacement.model3" size="18" >
+                  <input tabindex="40" class="hide_on_print input textinput" ng-model="replacement.model3" size="18" >
                   <span class="hide_on_screen">{{replacement.model3}}</span>
               </td>
           </tr>
@@ -447,11 +447,11 @@
                   Serial:
               </td>
               <td >
-                  <input tabindex="38" class="hide_on_print input" ng-model="faulty.serial3" size="10" >
+                  <input tabindex="38" class="hide_on_print input textinput" ng-model="faulty.serial3" size="10" >
                   <span class="hide_on_screen">{{faulty.serial3}}</span>
               </td>
               <td colspan="2">
-                  <input tabindex="41" class="hide_on_print input" ng-model="replacement.serial3" size="18" >
+                  <input tabindex="41" class="hide_on_print input textinput" ng-model="replacement.serial3" size="18" >
                   <span class="hide_on_screen">{{replacement.serial3}}</span>
               </td>
           </tr>
@@ -506,7 +506,7 @@
                 <td class="serviceupentry">
                    <span ng-if="backup.backupautorefill">{{equipment.make}}</span>
                    <span ng-if="!backup.backupautorefill">
-                     <input tabindex="21" type="text" ng-model="backup.make">
+                     <input class="textinput" tabindex="21" type="text" ng-model="backup.make">
                   </span>
                    
                 </td>
@@ -530,7 +530,7 @@
                 <td>
                    <span ng-if="backup.backupautorefill">{{equipment.model}}</span>
                    <span ng-if="!backup.backupautorefill">
-                     <input tabindex="22" type="text" ng-model="backup.model">
+                     <input class="textinput" tabindex="22" type="text" ng-model="backup.model">
                   </span>
                 </td>
                 <td>
@@ -553,7 +553,7 @@
                 <td>
                    <span ng-if="backup.backupautorefill">{{equipment.serial}}</span>
                    <span ng-if="!backup.backupautorefill">
-                     <input tabindex="23" type="text" ng-model="backup.serial">
+                     <input class="textinput" tabindex="23" type="text" ng-model="backup.serial">
                   </span>
                 </td>
                 <td>
@@ -576,7 +576,7 @@
                 <td>
                     <span ng-if="backup.backupautorefill">{{sla.arrival}}</span>
                     <span ng-if="!backup.backupautorefill">
-                        <input type="text" >{{backup.date}}
+                        <input class="textinput" type="text" >{{backup.date}}
                     </span>
                 </td>
                 <td>
@@ -599,7 +599,7 @@
                 <td>
                     <span ng-if="backup.backupautorefill">{{backup.time}}</span>
                     <span ng-if="!backup.backupautorefill">
-                      <input type="text" ng-model="backup.time">
+                      <input class="textinput" type="text" ng-model="backup.time">
                     </span>
 
                   </td>
@@ -640,13 +640,13 @@
                 <td style="border-right: none;" class="tableleft tabletop" >I, 
                     <span ng-if="signoff.samename"> {{reporter.name}}  , agree that :</span>
                     <span ng-if="!signoff.samename">
-                      <input  size="25" type="text" ng-model="signoff.name">  ,agree that :
+                      <input class="textinput"  size="25" type="text" ng-model="signoff.name">  ,agree that :
                     </span>
                   </td>
                     
                   <td colspan="4" style="border-left: none;" class="tabletop">  
                     
-                    <input  class="hide_on_print" type="checkbox" ng-model="signoff.samename">
+                    <input  class="hide_on_print textinput" type="checkbox" ng-model="signoff.samename">
                       <span class="hide_on_print">Auto fill Reported Name</span>
                   </td>
             </tr>
@@ -774,7 +774,7 @@
             <canvas></canvas>
         </div>
         <div class="signature-pad--footer">
-            <div class="description">Sign above</div>
+            <div style="font-size: 15pt;" class="description">Sign above</div>
             <div class="signature-pad--actions">
                 <div>
                     <button type="button" class="button clear" data-action="clear">Clear</button>
@@ -790,7 +790,7 @@
 
     <div id="call" class="hide_on_print">
       <label>Paste your Call SMS Here</label>
-      <textarea ng-model='SMS'></textarea>
+      <textarea style="font-size: 10pt;" rows="5" ng-model='SMS'></textarea>
       <input type="button" name="submit" value="Submit" ng-click="parseCallSMS()">
     </div>
 

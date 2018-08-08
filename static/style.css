@@ -28,10 +28,11 @@
 
 #call {
   width: 50%;
-  height: 30%;
+/*  height: 135pt;*/
   background-color: #fff;
   border: 1px solid #838380;
   border-radius: 3px;
+  overflow: auto;
 }
 
 
@@ -43,7 +44,7 @@ textarea {
     width: 100%;
 }
 
-input {
+input.textinput {
     border-top: none;
     border-bottom: none;
     border-right: none;
@@ -222,6 +223,7 @@ table  {
 
 * {
   font-size: 8.0pt;
+  zoom:200%;
 }
 
 h2 {

@@ -3,7 +3,7 @@
 
     jobcardapp.controller('Jobcard_controller', function($scope) { 
       $scope.padZeros = function(str_p) {
-          if (str_p.length = 2) {
+          if (str_p > '9') {
             return str_p;
           } else {
             return "0" + str_p;
@@ -38,10 +38,10 @@
         barcode: "" ,
       } 
       $scope.sla = { 
-        reported: "" + now.getFullYear() + "/" + $scope.padZeros("" + (now.getMonth() + 1)) + "/" + $scope.padZeros("" + now.getDate()), 
+        reported: now.getFullYear() + "/" + $scope.padZeros((now.getMonth() + 1)) + "/" + $scope.padZeros(now.getDate()), 
         arrival: now.getFullYear() + "/" + $scope.padZeros((now.getMonth() + 1)) + "/" + $scope.padZeros(now.getDate()), 
         arrivetime: $scope.padZeros(now.getHours()) + ":" + $scope.padZeros(now.getMinutes()),
-        completed: "" + now.getFullYear() + "/" + $scope.padZeros("" + (now.getMonth() + 1)) + "/" + $scope.padZeros("" + now.getDate()), 
+        completed: now.getFullYear() + "/" + $scope.padZeros((now.getMonth() + 1)) + "/" + $scope.padZeros(now.getDate()), 
         completedtime: "",
         arrive: false,
         complete: false,
@@ -54,7 +54,7 @@
         make2: "", 
         model2: "", 
         serial2: "", 
-        make3: "", 
+        make3: "",  
         model3: "", 
         serial3: "", 
       } 
@@ -119,13 +119,13 @@
         date: "" , 
       }
 
-      // $scope.setarrivaltime = function() {
-      //   if ($scope.sla.arrivetime === "") {
-      //     $scope.sla.arrivetime = $scope.padZeros(now.getHours()) + ":" + $scope.padZeros(now.getMinutes());
-      //   } else {
-      //     $scope.sla.arrivetime = "";
-      //   }
-      // }
+      $scope.setarrivaltime = function() {
+        if ($scope.sla.arrivetime === "") {
+          $scope.sla.arrivetime = $scope.padZeros(now.getHours()) + ":" + $scope.padZeros(now.getMinutes());
+        } else {
+          $scope.sla.arrivetime = "";
+        }
+      }
 
       $scope.setcompletedtime = function() {
         if ($scope.sla.completedtime === "") {
