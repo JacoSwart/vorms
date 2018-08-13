@@ -17,6 +17,10 @@ nav ul li {
     display: inline;
 }
 
+nav_fontsize {
+    font-size: 20pt;
+}
+
 nav .flex-grow {
     flex-grow: 1;
 }
