@@ -21,7 +21,6 @@ body {
       -ms-user-select: none;
           user-select: none;
   margin: 0;
-  padding: 32px 16px;
 }
 
 .signature-pad {

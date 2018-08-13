@@ -1,104 +1,116 @@
     var jobcardapp = angular.module('Jobcard_app', []);
+    var wrapper = document.getElementById("signature-pad");
 
+    function toTitleCase(str) {
+      return str.replace(
+        /\w\S*/g,
+        function (txt) {
+          return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+        }
+      );
+    }
 
-    jobcardapp.controller('Jobcard_controller', function($scope) { 
-      $scope.padZeros = function(str_p) {
-          if (str_p > '9') {
-            return str_p;
-          } else {
-            return "0" + str_p;
-          }
+    jobcardapp.controller('Jobcard_controller', function ($scope) {
+      let forms = ['JOBCARD', 'PARTS_REPLACEMENT', 'USER_DAMAGE', 'EQUIPMENT_REMOVAL', 'FUEL'];
+      $scope.activeForm = forms[0];
+
+      $scope.padZeros = function (str_p) {
+        if (str_p > 9) {
+          return str_p;
+        } else {
+          return "0" + str_p;
+        }
       }
 
       let now = new Date();
-      setInterval(function() { 
+      setInterval(() => {
         now = new Date();
       }, 3000);
       $scope.SMS = '';
-      $scope.issue = '';
-      $scope.fsa = false; 
-      $scope.reporter = { 
-        name: "", 
-        tel: "", 
-        cell: "" 
-      } 
-      $scope.site = { 
-        street: "", 
-        building: "", 
-        site: "", 
-        floor: "", 
-        room: "", 
-        town: "", 
-      } 
-      $scope.equipment = { 
-        asset: "", 
-        make: "", 
-        model: "", 
+      $scope.issue = 'Problem Reported: ';
+      $scope.fsa = false;
+      $scope.reporter = {
+        name: "",
+        tel: "",
+        cell: ""
+      }
+      $scope.site = {
+        street: "",
+        building: "",
+        site: "",
+        floor: "",
+        room: "",
+        town: "",
+      }
+      $scope.equipment = {
+        asset: "",
+        make: "",
+        model: "",
         serial: "",
-        barcode: "" ,
-      } 
-      $scope.sla = { 
-        reported: now.getFullYear() + "/" + $scope.padZeros((now.getMonth() + 1)) + "/" + $scope.padZeros(now.getDate()), 
-        arrival: now.getFullYear() + "/" + $scope.padZeros((now.getMonth() + 1)) + "/" + $scope.padZeros(now.getDate()), 
+        barcode: "",
+      }
+      $scope.sla = {
+        reported: now.getFullYear() + "/" + $scope.padZeros((now.getMonth() + 1)) + "/" + $scope.padZeros(now.getDate()),
+        arrival: now.getFullYear() + "/" + $scope.padZeros((now.getMonth() + 1)) + "/" + $scope.padZeros(now.getDate()),
         arrivetime: $scope.padZeros(now.getHours()) + ":" + $scope.padZeros(now.getMinutes()),
-        completed: now.getFullYear() + "/" + $scope.padZeros((now.getMonth() + 1)) + "/" + $scope.padZeros(now.getDate()), 
+        completed: now.getFullYear() + "/" + $scope.padZeros((now.getMonth() + 1)) + "/" + $scope.padZeros(now.getDate()),
         completedtime: "",
         arrive: false,
         complete: false,
-      } 
+      }
 
-      $scope.faulty = { 
-        make1: "", 
-        model1: "", 
-        serial1: "", 
-        make2: "", 
-        model2: "", 
-        serial2: "", 
-        make3: "",  
-        model3: "", 
-        serial3: "", 
-      } 
-      $scope.replacement = { 
-        make1: "", 
-        model1: "", 
-        serial1: "", 
-        make2: "", 
-        model2: "", 
-        serial2: "", 
-        make3: "", 
-        model3: "", 
-        serial3: "", 
-      } 
-      $scope.ov = { 
-        ss: "", 
-        sse: "", 
-        rs: "", 
-        re: "", 
-      } 
-      $scope.equipmentrem = { 
-        make: "", 
-        model: "", 
-        serial: "", 
-        date: "", 
-        time: "", 
-        eqremautofill: false 
-      } 
-      $scope.backup = { 
-        make: "", 
-        model: "", 
-        serial: "", 
-        date: "", 
+      $scope.faulty = {
+        make1: "",
+        model1: "",
+        serial1: "",
+        make2: "",
+        model2: "",
+        serial2: "",
+        make3: "",
+        model3: "",
+        serial3: "",
+      }
+      $scope.replacement = {
+        make1: "",
+        model1: "",
+        serial1: "",
+        make2: "",
+        model2: "",
+        serial2: "",
+        make3: "",
+        model3: "",
+        serial3: "",
+      }
+      $scope.ov = {
+        ss: "",
+        sse: "",
+        rs: "",
+        re: "",
+      }
+      $scope.equipmentrem = {
+        make: "",
+        model: "",
+        serial: "",
+        date: "",
         time: "",
-        backupautorefill: false, 
-      } 
-      $scope.equipmentret = { 
-        make: "", 
-        model: "", 
-        serial: "", 
-        date: "", 
-        time: "", 
-        eqretautofill: false 
-      } 
+        eqremautofill: false
+      }
+      $scope.backup = {
+        make: "",
+        model: "",
+        serial: "",
+        date: "",
+        time: "",
+        backupautorefill: false,
+      }
+      $scope.equipmentret = {
+        make: "",
+        model: "",
+        serial: "",
+        date: "",
+        time: "",
+        eqretautofill: false
+      }
       $scope.slalvlsel = {
         excellent: true,
         good: false,
@@ -116,10 +128,10 @@
         completed: false,
         notcompleted: false,
         samename: false,
-        date: "" , 
+        date: "",
       }
 
-      $scope.setarrivaltime = function() {
+      $scope.setarrivaltime = () => {
         if ($scope.sla.arrivetime === "") {
           $scope.sla.arrivetime = $scope.padZeros(now.getHours()) + ":" + $scope.padZeros(now.getMinutes());
         } else {
@@ -127,39 +139,38 @@
         }
       }
 
-      $scope.setcompletedtime = function() {
+      $scope.setcompletedtime = () => {
         if ($scope.sla.completedtime === "") {
           $scope.sla.completedtime = $scope.padZeros(now.getHours()) + ":" + $scope.padZeros(now.getMinutes());
         } else {
           $scope.sla.completedtime = "";
         }
-      } 
+      }
 
-      $scope.setBackupTime = function() { 
-        if ($scope.backup.time === "") { 
+      $scope.setBackupTime = () => {
+        if ($scope.backup.time === "") {
           $scope.backup.time = $scope.padZeros(now.getHours()) + ":" + $scope.padZeros(now.getMinutes());
-        } else { 
-          $scope.backup.time = ""; 
+        } else {
+          $scope.backup.time = "";
         }
       }
 
-      $scope.setRemovedTime = function() { 
-        if ($scope.equipmentrem.time === "") { 
+      $scope.setRemovedTime = () => {
+        if ($scope.equipmentrem.time === "") {
           $scope.equipmentrem.time = $scope.padZeros(now.getHours()) + ":" + $scope.padZeros(now.getMinutes());
-        } else { 
-          $scope.equipmentrem.time = ""; 
+        } else {
+          $scope.equipmentrem.time = "";
         }
-      } 
-      $scope.setReturnTime = function() { 
-        if ($scope.equipmentret.time === "") { 
+      }
+      $scope.setReturnTime = () => {
+        if ($scope.equipmentret.time === "") {
           $scope.equipmentret.time = $scope.padZeros(now.getHours()) + ":" + $scope.padZeros(now.getMinutes());
-        } else { 
-          $scope.equipmentret.time = ""; 
-        } 
-      } 
+        } else {
+          $scope.equipmentret.time = "";
+        }
+      }
 
-      $scope.parseCallSMS = function() {
-
+      $scope.parseCallSMS = () => {
         $scope.SMS = $scope.SMS.split('/');
         for (let line of $scope.SMS) {
           line = line.split(':');
@@ -172,14 +183,12 @@
             line[1] = line[1].replace(/NONE/g, "          ");
             $scope.reporter.tel = line[1].slice(0, 10);
             $scope.reporter.cell = line[1].slice(10);
-          }
-          else if (line[0].trim().toLowerCase() === 'site') {
+          } else if (line[0].trim().toLowerCase() === 'site') {
             let address = line[1].split(' - ');
             $scope.site.town = address[0];
             $scope.site.building = address[1];
             $scope.site.site = address[2];
-          }
-          else if (line[0].trim().toLowerCase() === 'floor') $scope.site.floor = line[1];
+          } else if (line[0].trim().toLowerCase() === 'floor') $scope.site.floor = line[1];
           else if (line[0].trim().toLowerCase() === 'room') $scope.site.room = line[1];
           else if (line[0].trim().toLowerCase() === 'asset') {
             let asset = [];
@@ -190,10 +199,27 @@
             $scope.equipment.asset = asset[0];
             $scope.equipment.make = asset[2] + ' ' + asset[3];
             $scope.equipment.model = asset[4];
-          }
-          else if (line[0].trim().toLowerCase() === 'issue') $scope.issue = 'Problem Reported :\n' + line[1];
+          } else if (line[0].trim().toLowerCase() === 'issue') $scope.issue = 'Problem Reported :\n' + line[1];
         }
         document.querySelector("div#call").classList.add("hide_on_screen");
       }
+
+      $scope.navigateTo = (page) => {
+        page = Math.min(page, forms.length);
+        $scope.activeForm = forms[page];
+      };
+
+      $scope.print = () => {
+        window.print();
+      };
+
+      $scope.sign = (id) => {
+        wrapper.classList.remove("hide_on_screen");
+        resizeCanvas();
+        active_signature = document.body.querySelector(id);
+      };
+
+      $scope.getTitle = () => {
+        return $scope.doc.callid + ' ' + toTitleCase($scope.activeForm);
+      };
     });
- 

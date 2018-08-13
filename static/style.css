@@ -35,7 +35,11 @@
   overflow: auto;
 }
 
-
+.imagedisplay {
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto;
+}
 
 textarea {
     display: block;
@@ -87,7 +91,13 @@ th {
   border:0.5px solid;
 }
 
-#toplevel table {
+h6 {
+    text-decoration-line: underline;
+    font-weight: bold;
+}
+
+.page table
+ {
   width: 450.8pt;
   padding:0;
   border-spacing: 0;
@@ -98,8 +108,6 @@ th {
 }
 
 #callidsection, #callidsection td {
-  width: 20%;
-
   text-align: center;
 }
 
@@ -203,7 +211,27 @@ input:focus, textarea:focus {
     border-left:none;}
 
 .noborder, .noborder * {
-  border:none;
+    border: none;
+    /* border: 0.5px solid black; */
+}
+
+.inside_border {
+    border-right: 0.5px solid black;
+    border-bottom: 0.5px solid black;
+}
+
+.right_BorderNone {
+    border-right: none; 
+    border-bottom: none;
+}
+
+.right_tablecell {
+    border-bottom: 0.5px solid black;
+}
+
+.bottom-border {
+    /* border:none; */
+    border-bottom: 0.5px solid;
 }
 
 table  {
