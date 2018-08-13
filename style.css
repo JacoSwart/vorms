@@ -1,0 +1,264 @@
+
+/* Font Definitions */
+
+@media screen {
+    * {
+        font-family: sans-serif;
+    }
+    .hide_on_screen {
+        display: none;
+    }
+}
+
+@media print {
+    * {
+        font-family: "Times New Roman";
+    }
+    .hide_on_print {
+        display: none;
+     }
+}
+
+#signature-pad, #call {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#call {
+  width: 50%;
+/*  height: 135pt;*/
+  background-color: #fff;
+  border: 1px solid #838380;
+  border-radius: 3px;
+  overflow: auto;
+}
+
+.imagedisplay {
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+textarea {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+input.textinput {
+    border-top: none;
+    border-bottom: none;
+    border-right: none;
+    border-left: none;
+    font-size: 8.0pt;
+    height: 13px;
+}
+
+td {
+  border-bottom: 0.5px solid;
+  border-right: 0.5px solid;
+  padding-left: 5px;
+  height: 28px;
+}
+
+th {
+  text-align: left;
+  border-bottom: 0.5px solid;
+  border-right: 0.5px solid;
+  padding-left: 10px;
+  /*background-color: lightgrey;*/
+}
+
+
+
+.sladetailsdatetime {
+    width: 35%;
+}
+
+.sladetailsCol1 {
+    width: 15%;
+}        
+
+.sitetable {
+    border-top: 0.5px solid;
+    border-left: 0.5px solid;
+    border-bottom: none;
+}
+
+.border1px, .border1px > td {
+  border:0.5px solid;
+}
+
+h6 {
+    text-decoration-line: underline;
+    font-weight: bold;
+    text-align: center;
+}
+
+.page table
+ {
+  width: 700pt;
+  padding:0;
+  border-spacing: 0;
+}
+
+#callidsection input {
+  border-bottom: 0.5px solid;
+}
+
+#callidsection, #callidsection td {
+  text-align: center;
+}
+
+.label {
+  width: 15%;
+}
+
+#reportersection .entry {
+  width: 35%;
+
+}
+
+
+.cellcenter {
+    text-align: center;
+}
+
+.replace {
+    width: 20%;
+}
+
+.faulty {
+    width: 15%;
+}
+
+.kilos {
+    max-width: 8.75%;
+
+}
+
+
+.entry {
+    width: 35%;
+}
+
+.tablespacing {
+    margin-bottom: 1em;
+}
+
+.serviceuplabel {
+    width: 10%;
+}
+
+.serviceupentry {
+    width: 23%;
+}
+
+.serviceupsigntag1 {
+    border-bottom: none;
+}
+
+.serviceupsigntag2 {
+    border-top: none;
+}
+
+.signoffcell {
+    border:none;
+    width: 33.3%
+}
+
+.usercomments {
+    border:0.5px dotted;
+    width: 60%;
+}
+
+.servicelevel {
+    border:0.5px solid;
+    width: 10%;
+    text-align:center;
+}
+
+input:focus, textarea:focus {
+    background-color: powderblue;
+}
+
+.inputclass
+    {border-top:none;
+    border-right:none;
+    border-bottom:none;
+    border-left:none;}
+
+.tableinputclass
+    {font-size:8.0pt;
+    border-top:none;
+    border-right:none;
+    border-bottom:none;
+    border-left:none;}
+
+.customername
+    {font-size:12.0pt;
+    border-top:none;
+    border-right:none;
+    border-bottom:none;
+    border-left:none;}
+
+.accessories
+    {font-size:10.0pt;
+    border-top:none;
+    border-right:none;
+    border-bottom:.5pt solid;
+    border-left:none;}
+
+.noborder, .noborder * {
+    border: none;
+    /* border: 0.5px solid black; */
+}
+
+.inside_border {
+    border-right: 0.5px solid black;
+    border-bottom: 0.5px solid black;
+}
+
+.right_BorderNone {
+    border-right: none; 
+    border-bottom: none;
+}
+
+.right_tablecell {
+    border-bottom: 0.5px solid black;
+}
+
+.bottom-border {
+    /* border:none; */
+    border-bottom: 0.5px solid #000000;
+}
+
+table  {
+    border: 1px solid;
+    border-left: 1px solid;
+    /*border-color: red;*/
+}
+
+.tableleft {
+    border-left: 0.5px solid;
+}
+
+.tabletop {
+    border-top: 0.5px solid;
+}
+
+
+* {
+  font-size: 8.0pt;
+
+}
+
+h2 {
+    font-size: 13.0pt;
+}
+h3 {
+  font-size: 12.0pt;
+}
