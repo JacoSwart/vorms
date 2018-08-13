@@ -1088,17 +1088,17 @@
                 <tr class="noborder">
                     <!-- SITA Ref -->
                     <td style="text-align: right;">SITA Ref:</td>
-                    <td colspan="3"></td>
+                    <td colspan="3" class="bottom-border"></td>
                     <td style="text-align: right;">WEB No:</td>
-                    <td colspan="3"></td>
+                    <td colspan="2" class="bottom-border"></td>
                 </tr>
 
                 <tr class="noborder">
                     <!-- HEAT row -->
                     <td style="text-align: right;">Heat Ref:</td>
-                    <td colspan="3"></td>
+                    <td colspan="3" class="bottom-border"></td>
                     <td style="text-align: right;">Date:</td>
-                    <td colspan="3">
+                    <td colspan="2" class="bottom-border">
                     </td>
                 </tr>
 
@@ -1239,21 +1239,14 @@
 
                 <tr class="noborder">
                     <td style="text-align: right;" rowspan="2">
-                        Client
-                        <br>Signature
+                        Client<br>Signature
                     </td>
-
                     <td colspan="2" rowspan="2" style="border-bottom: 0.5px solid;"></td>
-
                     <td colspan="2" rowspan="2" style="text-align: center;">
-                        Technician
-                        <br>Signature
+                        Technician<br>Signature
                     </td>
-
-                    <td colspan="2" rowspan="2" style="border-bottom: 0.5px solid;"></td>
+                    <td rowspan="2" style="border-bottom: 0.5px solid;"></td>
                 </tr>
-
-
 
                 <tr class="noborder">
                     <td>
@@ -1280,33 +1273,40 @@
 
             <table id="callidsectionud" class="noborder tablespacing">
                 <tr>
-                    <td>
+                    <td style="text-align: right">
                         Khauleza Reference #
                     </td>
                     <td>
-                        <input tabindex="1" class="input" ng-model="doc.callid" size="15" type="text">
+                        <input tabindex="1" class="textinput" ng-model="doc.callid" size="15" type="text">
                     </td>
                     <td></td>
-                    <td>Client Reference number :</td>
+                    <td style="text-align: right">Client Reference number :</td>
                     <td>
-                        <input tabindex="2" size="15" type="text" ng-model="doc.sitaref">
+                        <input class="textinput" tabindex="2" size="15" type="text" ng-model="doc.sitaref">
                     </td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td><br></td>
+
                 </tr>
-                <tr>
-                    <td>
-                        <br>
-                    </td>
-                </tr>
+
                 <tr>
                     <td colspan="5">
                         <h6>To be completed by Khauleza Technician:</h6>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><br></td>
+
+                </tr>
+            </table>
+
+            <table>
+                <tr >
+                    <td style="width: 10%"></td>
+                    <td style="text-align: justify">
+                        <p>I, (technician)     Jaco Swart      with ID Number     7312145031086     declare that I</p>
                     </td>
                 </tr>
 
@@ -1330,9 +1330,7 @@
                 <tr class="noborder">
                     <!-- SITA Ref -->
                     <td style="text-align: right;">SITA Ref:</td>
-                    <td colspan="2">
-
-                    </td>
+                    <td colspan="2" class="bottom-border"></td>
                     <td></td>
                     <td style="text-align: right;">WEB No:</td>
                     <td colspan="2">
@@ -1556,24 +1554,20 @@
                     </td>
                 </tr>
 
+                    <!--Accessories-->
                 <tr class="noborder">
-                    <!-- Accessories -->
-                    <td style="width: 15%; text-align: center;">Acessories</td>
-                    <td style="width: 30%;" colspan="2">
-                        <br>
-                    </td>
-                    <td style="width: 20%; text-align: center;" colspan="2">Accessories left on</td>
-                    <td style="width: 35%;" colspan="2">
-                        <br>
-                    </td>
+                    <td></td>
+                    <td style="width: 15%; text-align: left;" colspan="3">Accessories Taken</td>
+                    <td></td>
+                    <td style="width: 20%; text-align: left;" colspan="3">Accessories left on site</td>
                 </tr>
 
                 <tr class="noborder">
-                    <td style="width: 15%; text-align: center;">Taken</td>
+                    <td style="width: 15%; text-align: center;"></td>
                     <td style="width: 30%;" colspan="2">1.
                         <input style="border-bottom: 0.5px solid" type="text" size="20">
                     </td>
-                    <td style="width: 20%; text-align: center;" colspan="2">site</td>
+                    <td style="width: 20%; text-align: center;" colspan="2"></td>
                     <td style="width: 35%;" colspan="2">1.
                         <input style="border-bottom: 0.5px solid" type="text" size="20">
                     </td>
@@ -1667,7 +1661,7 @@
                 </tr>
 
                 <tr class="noborder">
-                    <td rowspan="2">
+                    <td rowspan="2" style="text-align: right;">
                         <a href="#clientSignEquipRemove" id="clientSignEquipRemove" ng-click="sign('#clientSignEquipRemoveBackground')">
                             Client
                             <br>Signature</a>
@@ -1676,9 +1670,9 @@
                     </td>
 
 
-                    <td colspan="2" rowspan="2" style="text-align: center" class="signature_holder">
-                        <a href="#technicianSignEquipRemove" id="technicianSignEquipRemove"> Technician
-                            <br> Signature :</a>
+                    <td colspan="2" rowspan="2" style="text-align: right;" class="signature_holder">
+                        <a href="#technicianSignEquipRemove" id="technicianSignEquipRemove" ng-click="sign('#technicianSignEquipRemoveBackground')"> Technician
+                            <br> Signature</a>
                     </td>
 
                     <td colspan="2" rowspan="2" id="technicianSignEquipRemoveBackground" class="signature_holder" style="border-bottom: 0.5px solid;"></td>
