@@ -39,6 +39,7 @@
     display: block; 
     margin-left: auto; 
     margin-right: auto;
+    width: 70%;
 }
 
 textarea {
@@ -53,7 +54,7 @@ input.textinput {
     border-bottom: none;
     border-right: none;
     border-left: none;
-    font-size: 8.0pt;
+    font-size: 13.0pt;
     height: 13px;
 }
 
@@ -98,9 +99,12 @@ h6 {
     text-align: center;
 }
 
+.page {
+    width: 100%;
+}
 .page table
  {
-  width: 700pt;
+  width: 100%;
   padding:0;
   border-spacing: 0;
 }
@@ -252,13 +256,13 @@ table  {
 
 
 * {
-  font-size: 8.0pt;
+  font-size: 13.0pt;
 
 }
 
 h2 {
-    font-size: 13.0pt;
+    font-size: 15.0pt;
 }
 h3 {
-  font-size: 12.0pt;
+  font-size: 20.0pt;
 }
