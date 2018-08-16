@@ -16,7 +16,7 @@
 
 <body lang="EN-ZA">
     <nav class="hide_on_print">
-        <ul class="flex-grow" >
+        <ul class="flex-grow">
             <li>
                 <a style="font-size: 10pt" href="#" ng-click="navigateTo(0)">Jobcard</a>
             </li>
@@ -52,8 +52,8 @@
 
             <!-- Call id Section -->
 
-            <table  id="callidsection" class="noborder tablespacing">
-                <tr >
+            <table id="callidsection" class="noborder tablespacing">
+                <tr>
                     <td>
                         Call #
                     </td>
@@ -69,7 +69,7 @@
                 <tr>
                     <td></td>
                     <td></td>
-                    <td></td>
+                    <td>{{site.town}}</td>
                     <td>
                         <b>Other Ref: </b>
                     </td>
@@ -1239,11 +1239,13 @@
 
                 <tr class="noborder">
                     <td style="text-align: right;" rowspan="2">
-                        Client<br>Signature
+                        Client
+                        <br>Signature
                     </td>
                     <td colspan="2" rowspan="2" style="border-bottom: 0.5px solid;"></td>
                     <td colspan="2" rowspan="2" style="text-align: center;">
-                        Technician<br>Signature
+                        Technician
+                        <br>Signature
                     </td>
                     <td rowspan="2" style="border-bottom: 0.5px solid;"></td>
                 </tr>
@@ -1286,7 +1288,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><br></td>
+                    <td>
+                        <br>
+                    </td>
 
                 </tr>
 
@@ -1297,18 +1301,178 @@
                 </tr>
 
                 <tr>
-                    <td><br></td>
+                    <td>
+                        <br>
+                    </td>
 
                 </tr>
             </table>
 
             <table>
+                <tr>
+                    <td style="width: 10%"></td>
+                    <td style="text-align: justify">
+                        I, (technician) Jaco Swart with ID Number 7312145031086 declare that I
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 10%"></td>
+                    <td style="text-align: justify">
+                        visited (Client) JJ Schoeman on (date) 2018-08-03 to attend to faulty
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 10%"></td>
+                    <td style="text-align: justify">
+                        equipment reported to Khauleza IT Solutions
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 10%"></td>
+                    <td style="text-align: justify">
+                        During attending to the equipment, I found that the assistance/repairs should be done within
+                    </td>
+                </tr>
                 <tr >
                     <td style="width: 10%"></td>
                     <td style="text-align: justify">
-                        I, (technician) inputJaco Swart      with ID Number     7312145031086     declare that I
+                        "Not normal wear & tear" procedure.   During my visit to the site, the following was found:
                     </td>
                 </tr>
+                <tr >
+                    <td style="width: 10%"></td>
+                    <td style="text-align: justify">
+                        Equipment WEB Number:  667497
+                    </td>
+                </tr>
+                <tr >
+                    <td style="width: 10%"></td>
+                    <td style="text-align: justify">
+                        Equipment Make & Model:  Epson V750
+                    </td>
+                </tr>
+                                <tr >
+                    <td style="width: 10%"></td>
+                    <td style="text-align: justify">
+                        Equipment Serial Number:  G32W007324
+                    </td>
+                </tr>
+                                <tr >
+                    <td style="width: 10%"></td>
+                    <td style="text-align: justify">
+                        Status of equipment: (Please select applicable description by indicating "Yes" or "No").
+                    </td>
+                </tr>
+                <tr >
+                    <td style="width: 10%"></td>
+                    <td style="text-align: justify">
+                        Seals were broken (warranty void)
+                    </td>
+                    <td>Yes</td>
+                    <td></td>
+                    <td>No</td>
+                    <td></td>
+                </tr>
+                <tr >
+                    <td style="width: 10%"></td>
+                    <td style="text-align: justify">
+                        Damage - Spillage (water, etc)
+                    </td>
+                    <td>Yes</td>
+                    <td></td>
+                    <td>No</td>
+                    <td></td>
+                </tr>
+                <tr >
+                    <td style="width: 10%"></td>
+                    <td style="text-align: justify">
+                        Damage - Broken (fallen, etc)
+                    </td>
+                    <td>Yes</td>
+                    <td></td>
+                    <td>No</td>
+                    <td></td>
+                </tr>
+                <tr >
+                    <td style="width: 10%"></td>
+                    <td style="text-align: justify">
+                        Damage - Components missing (Stolen/Removed etc)
+                    </td>
+                    <td>Yes</td>
+                    <td></td>
+                    <td>No</td>
+                    <td></td>
+                </tr>
+
+                <tr >
+                    <td style="width: 10%"></td>
+                    <td style="text-align: justify">
+                        Please supply details if available:
+                    </td>
+                    <td>Yes</td>
+                    <td></td>
+                    <td>No</td>
+                    <td></td>
+                </tr>
+                <tr >
+                    <td style="width: 10%"></td>
+                    <td style="text-align: justify">
+                        <textarea class="textarea" rows="3"></textarea>
+                    </td>
+                </tr>
+                <tr >
+                    <td style="width: 10%"></td>
+                    <td style="text-align: justify">
+                        I reported my finding to: JJ SCHOEMAN
+                    </td>
+                </tr>
+                <tr >
+                    <td style="width: 10%"></td>
+                    <td style="text-align: justify">
+                        (Client: Print Name and Position)
+                    </td>
+                </tr>
+                <tr >
+                    <td style="width: 10%"></td>
+                    <td style="text-align: justify">
+                        Jaco Swart
+                    </td>
+                </tr>
+                <tr >
+                    <td style="width: 10%"></td>
+                    <td style="text-align: justify">
+                        Technician Name
+                    </td>
+                </tr>
+                <tr >
+                    <td style="width: 10%"></td>
+                    <td rowspan="2" style="text-align: justify">
+
+                    </td>
+                </tr>
+                <tr >
+                    <td style="width: 10%"></td>
+                    <td style="text-align: justify">
+                        Technician Signature
+                    </td>
+                </tr>
+                <tr >
+                    <td style="width: 10%"></td>
+                    <td style="text-align: justify">
+                        To be completed by the Client:
+                    </td>
+                </tr>
+                <tr>
+                    <td><br></td>
+                </tr>
+                <tr >
+                    <td style="width: 10%"></td>
+                    <td style="text-align: justify">
+                        I, JJ Schoeman confirm that the findings as stated are correct.                        
+                    </td>
+                </tr>
+
+                
 
 
             </table>
@@ -1554,7 +1718,7 @@
                     </td>
                 </tr>
 
-                    <!--Accessories-->
+                <!--Accessories-->
                 <tr class="noborder">
                     <td></td>
                     <td style="width: 15%; text-align: left;" colspan="3">Accessories Taken</td>
@@ -1671,7 +1835,8 @@
 
 
                     <td colspan="2" rowspan="2" style="text-align: right;" class="signature_holder">
-                        <a href="#technicianSignEquipRemove" id="technicianSignEquipRemove" ng-click="sign('#technicianSignEquipRemoveBackground')"> Technician
+                        <a href="#technicianSignEquipRemove" id="technicianSignEquipRemove" ng-click="sign('#technicianSignEquipRemoveBackground')">
+                        Technician
                             <br> Signature</a>
                     </td>
 
