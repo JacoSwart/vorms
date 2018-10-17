@@ -17,6 +17,9 @@
     .hide_on_print {
         display: none;
      }
+    .sticky.hide_on_print {
+        display: none;
+     }
 }
 
 #signature-pad, #call {

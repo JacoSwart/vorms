@@ -192,6 +192,37 @@
         }
       }
 
+      $scope.partsrep = {
+        faultymb: "",
+        faultymbserial: "",
+        faultycpu: "",
+        faultycpuserial: "unknown",
+        faultyram1: "",
+        faultyram1serial: "",
+        faultyram2: "",
+        faultyram2serial: "",
+        faultydvd: "",
+        faultydvdserial: "",
+        faultyhdd: "",
+        faultyhddserial: "",
+        faultypsu: "",
+        faultypsuserial: "",
+        replacedmb: "",
+        replacedmbserial: "",
+        replacedcpu: "",
+        replacedcpuserial: "",
+        replacedram1: "",
+        replacedram1serial: "",
+        replacedram2: "",
+        replacedram2serial: "",
+        replaceddvd: "",
+        replaceddvdserial: "",
+        replacedhdd: "",
+        replacedhddserial: "",
+        replacedpsu: "",
+        replacedpsuserial: "",
+      }
+
       $scope.parseCallSMS = () => {
         $scope.SMS = $scope.SMS.split('/');
         for (let line of $scope.SMS) {
@@ -221,7 +252,7 @@
             $scope.equipment.asset = asset[0];
             $scope.equipment.make = asset[2] + ' ' + asset[3];
             $scope.equipment.model = asset[4];
-          } else if (line[0].trim().toLowerCase() === 'issue') $scope.problem.issue = 'Problem Reported :\n' + line[1];
+          } else if (line[0].trim().toLowerCase() === 'issue') $scope.problem.issue = 'Problem Reported :\n' + line[1].split('SLA ')[0];
         }
         document.querySelector("div#call").classList.add("hide_on_screen");
       }
@@ -248,7 +279,7 @@
       };
 
       window.onscroll = function() {myFunction()};
-        var navbar = document.getElementById("nav");
+        var navbar = document.querySelector("nav");
         var sticky = navbar.offsetTop;
 
         function myFunction() {

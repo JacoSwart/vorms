@@ -15,7 +15,7 @@
 </head>
 
 <body lang="EN-ZA">
-    <div id="nav" class="hide_on_print">
+    <nav class="hide_on_print">
         <ul class="flex-grow">
             <li>
                 <a style="font-size: 10pt" href="#" ng-click="navigateTo(0)">Jobcard</a>
@@ -41,7 +41,7 @@
                 <a style="font-size: 10pt" href="#" ng-click="print()">Print</a>
             </li>
         </ul>
-    </div>
+    </nav>
     
     <div class="page">
 
@@ -895,18 +895,18 @@
                 <tr>
                     <td style="width: 15%; border-top: 0.5px solid;">M/B</td>
                     <td style="width: 15%; border-top: 0.5px solid;">
-                        <input size="15" class="textinput" type="text">
+                        <input size="15" class="textinput" type="text" ng-model="partsrep.faultymb" >
                     </td>
                     <td style="width: 15%; border-top: 0.5px solid;">
-                        <input size="15" class="textinput" type="text">
+                        <input size="15" class="textinput" type="text" ng-model="partsrep.faultymbserial">
                     </td>
                     <td style="width: 5%; border: none;"></td>
                     <td style="width: 15%; border-top: 0.5px solid; border-left: 0.5px solid;">M/B</td>
                     <td style="width: 15%; border-top: 0.5px solid;">
-                        <input size="15" class="textinput" type="text">
+                        <input size="15" class="textinput" type="text" ng-model="partsrep.replacedmb">
                     </td>
                     <td style="width: 15%; border-top: 0.5px solid; border-right: none;">
-                        <input size="15" class="textinput" type="text">
+                        <input size="15" class="textinput" type="text" ng-model="partsrep.replacedmbserial">
                     </td>
                     <td style="border-top: 0.5px solid;"></td>
 
@@ -914,36 +914,36 @@
                 <tr>
                     <td style="width: 15%;">CPU</td>
                     <td style="width: 15%;">
-                        <input size="15" class="textinput" type="text">
+                        <input size="15" class="textinput" type="text" ng-model="partsrep.faultycpu">
                     </td>
                     <td style="width: 15%;">
-                        <input size="15" class="textinput" type="text">
+                        <input size="15" class="textinput" type="text" ng-model="partsrep.faultycpuserial">
                     </td>
                     <td style="width: 5%; border: none;"></td>
                     <td style="width: 15%; border-left: 0.5px solid;">CPU</td>
                     <td style="width: 15%;">
-                        <input size="15" class="textinput" type="text">
+                        <input size="15" class="textinput" type="text" ng-model="partsrep.replacedcpu">
                     </td>
                     <td style="width: 15%; border-right: none;">
-                        <input size="15" class="textinput" type="text">
+                        <input size="15" class="textinput" type="text" ng-model="partsrep.replacedcpuserial">
                     </td>
                     <td style="border-top: 0.5px solid;"></td>
                 </tr>
                 <tr>
                     <td style="width: 15%;">RAM SIZE</td>
                     <td style="width: 15%;">
-                        <input size="15" class="textinput" type="text">
+                        <input size="15" class="textinput" type="text" ng-model="partsrep.faultyram1">
                     </td>
                     <td style="width: 15%;">
-                        <input size="15" class="textinput" type="text">
+                        <input size="15" class="textinput" type="text" ng-model="partsrep.faultyram1serial">
                     </td>
                     <td style="width: 5%; border: none;"></td>
                     <td style="width: 15%; border-left: 0.5px solid;">RAM SIZE</td>
                     <td style="width: 15%;">
-                        <input size="15" class="textinput" type="text">
+                        <input size="15" class="textinput" type="text" ng-model="partsrep.replacedram1">
                     </td>
                     <td style="width: 15%; border-right: none;">
-                        <input size="15" class="textinput" type="text">
+                        <input size="15" class="textinput" type="text" ng-model="partsrep.raplacedram1serial">
                     </td>
                     <td style="border-top: 0.5px solid;"></td>
                 </tr>
@@ -952,72 +952,72 @@
                         <br>
                     </td>
                     <td style="width: 15%;">
-                        <input size="15" class="textinput" type="text">
+                        <input size="15" class="textinput" type="text" ng-model="partsrep.faultyram2">
                     </td>
                     <td style="width: 15%;">
-                        <input size="15" class="textinput" type="text">
+                        <input size="15" class="textinput" type="text" ng-model="partsrep.faultyram2serial">
                     </td>
                     <td style="width: 5%; border: none;"></td>
                     <td style="width: 15%; border-left: 0.5px solid;"></td>
                     <td style="width: 15%;">
-                        <input size="15" class="textinput" type="text">
+                        <input size="15" class="textinput" type="text" ng-model="partsrep.replacedram2">
                     </td>
                     <td style="width: 15%; border-right: none;">
-                        <input size="15" class="textinput" type="text">
+                        <input size="15" class="textinput" type="text" ng-model="partsrep.replacedram2serial">
                     </td>
                     <td style="border-top: 0.5px solid;"></td>
                 </tr>
                 <tr>
                     <td style="width: 15%;">PSU</td>
                     <td style="width: 15%;">
-                        <input size="15" class="textinput" type="text">
+                        <input size="15" class="textinput" type="text" ng-model="partsrep.faultypsu">
                     </td>
                     <td style="width: 15%;">
-                        <input size="15" class="textinput" type="text">
+                        <input size="15" class="textinput" type="text" ng-model="partsrep.faultypsuserial">
                     </td>
                     <td style="width: 5%; border: none;"></td>
                     <td style="width: 15%; border-left: 0.5px solid;">PSU</td>
                     <td style="width: 15%;">
-                        <input size="15" class="textinput" type="text">
+                        <input size="15" class="textinput" type="text" ng-model="partsrep.replacedpsu">
                     </td>
                     <td style="width: 15%; border-right: none;">
-                        <input size="15" class="textinput" type="text">
+                        <input size="15" class="textinput" type="text" ng-model="partsrep.replacedpsuserial">
                     </td>
                     <td style="border-top: 0.5px solid;"></td>
                 </tr>
                 <tr>
                     <td style="width: 15%;">DVD/CD</td>
                     <td style="width: 15%;">
-                        <input size="15" class="textinput" type="text">
+                        <input size="15" class="textinput" type="text" ng-model="partsrep.faultydvd">
                     </td>
                     <td style="width: 15%;">
-                        <input size="15" class="textinput" type="text">
+                        <input size="15" class="textinput" type="text" ng-model="partsrep.faultydvdserial">
                     </td>
                     <td style="width: 5%; border: none;"></td>
                     <td style="width: 15%; border-left: 0.5px solid;">DVD/CD</td>
                     <td style="width: 15%;">
-                        <input size="15" class="textinput" type="text">
+                        <input size="15" class="textinput" type="text" ng-model="partsrep.replaceddvd">
                     </td>
                     <td style="width: 15%; border-right: none;">
-                        <input size="15" class="textinput" type="text">
+                        <input size="15" class="textinput" type="text" ng-model="partsrep.replaceddvdserial">
                     </td>
                     <td style="border-top: 0.5px solid;"></td>
                 </tr>
                 <tr>
                     <td style="width: 15%;">HDD</td>
                     <td style="width: 15%;">
-                        <input size="15" class="textinput" type="text">
+                        <input size="15" class="textinput" type="text" ng-model="partsrep.faultyhdd">
                     </td>
                     <td style="width: 15%;">
-                        <input size="15" class="textinput" type="text">
+                        <input size="15" class="textinput" type="text" ng-model="partsrep.faultyhddserial">
                     </td>
                     <td style="width: 5%; border: none;"></td>
                     <td style="width: 15%; border-left: 0.5px solid;">HDD</td>
                     <td style="width: 15%;">
-                        <input size="15" class="textinput" type="text">
+                        <input size="15" class="textinput" type="text" ng-model="partsrep.replacedhdd">
                     </td>
                     <td style="width: 15%; border-right: none;">
-                        <input size="15" class="textinput" type="text">
+                        <input size="15" class="textinput" type="text" ng-model="partsrep.replacedhddserial">
                     </td>
                     <td style="border-top: 0.5px solid;"></td>
                 </tr>
@@ -1029,11 +1029,15 @@
                 <tr class="noborder">
                     <td style="text-align: right;">Client name:</td>
                     <td style="border-bottom: 0.5px solid" colspan="2">
-                        <input type="text" ng-model="reporter.name">
+                        <span ng-if="signoff.samename"> {{reporter.name}}</span>
+                        <span ng-if="!signoff.samename"> {{signoff.name}}</span>
                     </td>
                     <td style="width: 5%;"></td>
                     <td style="text-align: right;">Client Name:</td>
-                    <td style="border-bottom: 0.5px solid" colspan="3">{{reporter.name}}</td>
+                    <td style="border-bottom: 0.5px solid" colspan="3">
+                        <span ng-if="signoff.samename"> {{reporter.name}}</span>
+                        <span ng-if="!signoff.samename"> {{signoff.name}}</span>
+                    </td>
                 </tr>
                 <tr class="noborder">
                     <td rowspan="2" style="text-align: right; height: 4em">
@@ -1226,10 +1230,10 @@
                 <tr class="noborder">
                     <td style="text-align: right;">Client Name:</td>
                     <td colspan="2" style="border-bottom: 0.5px solid;">
-                        <input type="text" ng-model="reporter.name">
+
                     </td>
                     <td colspan="2" style="text-align: right;">Technician Name:</td>
-                    <td colspan="2" style="border-bottom: 0.5px solid;"> Jaco Swart</td>
+                    <td colspan="2" style="border-bottom: 0.5px solid;"> </td>
                 </tr>
 
                 <tr class="noborder">

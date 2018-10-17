@@ -3,7 +3,7 @@ body {
     flex-direction: column;
 }
 
-#nav {
+nav {
     border-bottom: 1px solid #808083;
     width: 100%;
     display: flex;
@@ -11,27 +11,27 @@ body {
     overflow: hidden;
 }
 
-#nav ul {
+nav ul {
     padding: 0;
 }
 
-#nav ul li {
+nav ul li {
     display: inline;
 }
 
-#nav_fontsize {
+nav_fontsize {
     font-size: 20pt;
 }
 
-#nav .flex-grow {
+nav .flex-grow {
     flex-grow: 1;
 }
 
-#nav .flex-right {
+nav .flex-right {
     justify-self: flex-end;
 }
 
-#nav ul li a {
+nav ul li a {
     border: 1px solid #808083;
     border-radius: 3px;
     margin: 0.5em;
@@ -47,6 +47,7 @@ body {
     position: fixed;
     top: 0px;
     width: 100%;
+    display: none;
   }
 
   .sticky + .content {
