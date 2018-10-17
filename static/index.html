@@ -15,8 +15,8 @@
 </head>
 
 <body lang="EN-ZA">
-    <nav class="hide_on_print">
-        <ul class="flex-grow" >
+    <div id="nav" class="hide_on_print">
+        <ul class="flex-grow">
             <li>
                 <a style="font-size: 10pt" href="#" ng-click="navigateTo(0)">Jobcard</a>
             </li>
@@ -41,7 +41,8 @@
                 <a style="font-size: 10pt" href="#" ng-click="print()">Print</a>
             </li>
         </ul>
-    </nav>
+    </div>
+    
     <div class="page">
 
         <!-- Jobcard page -->
@@ -52,7 +53,7 @@
 
             <!-- Call id Section -->
 
-            <table style="font-size: 150%" id="callidsection" class="noborder tablespacing">
+            <table id="callidsection" class="noborder tablespacing">
                 <tr>
                     <td>
                         Call #
@@ -69,7 +70,7 @@
                 <tr>
                     <td></td>
                     <td></td>
-                    <td></td>
+                    <td>{{site.town}}</td>
                     <td>
                         <b>Other Ref: </b>
                     </td>
@@ -524,8 +525,8 @@
             </table>
 
             <!-- Problem Reported and repaired Comments -->
-            <textarea ng-model="issue" tabindex="19" rows="3" cols="85">Problem Reported : </textarea>
-            <textarea tabindex="20" rows="3" cols="75">Problem Resolution : </textarea>
+            <textarea ng-model="problem.issue" tabindex="19" rows="3" cols="85"></textarea>
+            <textarea ng-model="problem.resolution" tabindex="20" rows="3" cols="75"></textarea>
 
             <!-- Service Up Section -->
             <table class="tablespacing">
@@ -1239,11 +1240,13 @@
 
                 <tr class="noborder">
                     <td style="text-align: right;" rowspan="2">
-                        Client<br>Signature
+                        Client
+                        <br>Signature
                     </td>
                     <td colspan="2" rowspan="2" style="border-bottom: 0.5px solid;"></td>
                     <td colspan="2" rowspan="2" style="text-align: center;">
-                        Technician<br>Signature
+                        Technician
+                        <br>Signature
                     </td>
                     <td rowspan="2" style="border-bottom: 0.5px solid;"></td>
                 </tr>
@@ -1266,7 +1269,7 @@
 
         <!-- User Damage -->
         <div ng-if="activeForm === 'USER_DAMAGE'">
-            <img style="display: block; margin-left: auto;margin-right: auto;" src="img/image002.png" alt="Khauleza Logo: " height="50">
+                <img class="imagedisplay" src="img/khauleza.png" alt="Khauleza Logo: " height="50">
             <h3 style="text-align:center">STATEMENT REGARDING DAMAGE</h3>
 
             <!-- Call id Section -->
@@ -1286,7 +1289,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><br></td>
+                    <td>
+                        <br>
+                    </td>
 
                 </tr>
 
@@ -1297,18 +1302,306 @@
                 </tr>
 
                 <tr>
-                    <td><br></td>
+                    <td>
+                        <br>
+                    </td>
 
                 </tr>
             </table>
 
+            <table class="noborder">
+                <tr>
+                    <td class="udrow"></td>
+                    <td class="udrow"></td>
+                    <td class="udrow"></td>
+                    <td style="width: 15%;">I, (technician)..........................</td>
+                    <td style="width: 15%;">Jaco Swart............................</td>
+                    <td style="width: 15%;">with ID Number.......................</td>
+                    <td style="width: 15%;">7312145031086.....................</td>
+                    <td style="width: 15%;"> declare that I visited</td>
+                    <td class="udrow"></td>
+                    <td class="udrow"></td>
+                </tr>
+                </table>
+                <table class="noborder">
+                <tr>
+                    <td class="udrow"></td>
+                    <td class="udrow"></td>
+                    <td class="udrow"></td>
+                    <td style="width: 5%;">(Client)...... </td>
+                    <td style="width: 15%;">{{reporter.name}}...............</td>
+                    <td style="width: 10%;">on (date)..............</td>
+                    <td style="width: 15%;">{{sla.arrival}}....................</td>
+                    <td style="width: 30%;">to attend to faulty equipment reported to </td>
+                    <td class="udrow"></td>
+                    <td class="udrow"></td>
+                </tr>
+                <tr>
+                    <td class="udrow"></td>
+                    <td class="udrow"></td>
+                    <td class="udrow"></td>
+                    <td colspan="4" >Khauleza IT Solutions</td>
+                 </tr>
+                 <tr>
+                     <td><br></td>
+                </tr>
+                 <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td colspan="5" style="text-align: justify">
+                        During attending to the equipment, I found that the assistance/repairs should be done within "Not normal wear & tear" procedure.   
+                    </td>
+                </tr>
+                <tr >
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td colspan="6">
+                        During my visit to the site, the following was found:
+                    </td>
+                </tr>
+            </table>
             <table>
                 <tr >
                     <td style="width: 10%"></td>
+                    <td style="text-align: justify; width: 20%;">
+                        Equipment WEB Number:  
+                    </td>
+                    <td style="width: 20%;">{{equipment.asset}}</td>
+                </tr>
+                <tr >
+                    <td style="width: 10%"></td>
                     <td style="text-align: justify">
-                        I, (technician) inputJaco Swart      with ID Number     7312145031086     declare that I
+                        Equipment Make & Model:
+                    </td>
+                    <td>{{equipment.make}} {{equipment.model}}</td>
+                </tr>
+                                <tr >
+                    <td style="width: 10%"></td>
+                    <td style="text-align: justify">
+                        Equipment Serial Number:
+                    </td>
+                    <td>{{equipment.serial}}</td>
+                </tr>
+                                <tr >
+                    <td style="width: 10%"></td>
+                    <td colspan="3" style="text-align: justify">
+                        Status of equipment: (Please select applicable description by indicating "Yes" or "No").
                     </td>
                 </tr>
+                <tr >
+                    <td style="width: 10%"></td>
+                    <td colspan="2" style="text-align: justify">
+                        Seals were broken (warranty void)
+                    </td>
+                    <td style="width: 5%;" >Yes</td>
+                    <td style="width: 5%;">
+                        <input type="checkbox" class="hide_on_print inputtext" ng-model="damage.brokensealsyes">
+                        <span ng-if="damage.brokensealsyes" >
+                            <div ng-value="damage.brokensealsno=false"></div>
+                            <div ng-value="damage.brokensealsyes=true"></div>
+                        </span>
+                        <span ng-if="!damage.brokensealsyes" >
+                                <div ng-value="damage.brokensealsno=true"></div>
+                                <div ng-value="damage.brokensealsyes=false"></div>
+                        </span>
+                    </td>
+                    <td style="width: 5%;">No</td>
+                    <td>
+                        <input type="checkbox" class="hide_on_print inputtext" ng-model="damage.brokensealsno">
+                        <span ng-if="damage.brokensealsno" >
+                            <div ng-value="damage.brokensealsno=true"></div>
+                            <div ng-value="damage.brokensealsyes=false"></div>
+                        </span>
+                        <span ng-if="!damage.brokensealsno" >
+                            <div ng-value="damage.brokensealsno=false"></div>
+                            <div ng-value="damage.brokensealsyes=true"></div>
+                        </span>
+                    </td>
+                </tr>
+                <tr >
+                    <td style="width: 10%"></td>
+                    <td colspan="2" style="text-align: justify">
+                        Damage - Spillage (water, etc)
+                    </td>
+                    <td>Yes</td>
+                    <td>
+                        <input type="checkbox" class="hide_on_print inputtext" ng-model="damage.spillageyes">
+                        <span ng-if="damage.spillageyes" >
+                            <div ng-value="damage.spillageno=false"></div>
+                            <div ng-value="damage.spillageyes=true"></div>
+                        </span>
+                        <span ng-if="!damage.spillageyes" >
+                                <div ng-value="damage.spillageno=true"></div>
+                                <div ng-value="damage.spillageyes=false"></div>
+                        </span>
+                    </td>
+                    <td>No</td>
+                    <td>
+                        <input type="checkbox" class="hide_on_print inputtext" ng-model="damage.spillageno">
+                        <span ng-if="damage.spillageno" >
+                            <div ng-value="damage.spillageno=true"></div>
+                            <div ng-value="damage.spillageyes=false"></div>
+                        </span>
+                        <span ng-if="!damage.spillageno" >
+                                <div ng-value="damage.spillageno=false"></div>
+                                <div ng-value="damage.spillageyes=true"></div>
+                        </span>
+                    </td>
+                </tr>
+                <tr >
+                    <td style="width: 10%"></td>
+                    <td colspan="2" style="text-align: justify">
+                        Damage - Broken (fallen, etc)
+                    </td>
+                    <td>Yes</td>
+                    <td>
+                        <input type="checkbox" class="hide_on_print inputtext" ng-model="damage.brokenyes">
+                        <span ng-if="damage.brokenyes" >
+                            <div ng-value="damage.brokenno=false"></div>
+                            <div ng-value="damage.brokenyes=true"></div>
+                        </span>
+                        <span ng-if="!damage.brokenyes" >
+                                <div ng-value="damage.brokenno=true"></div>
+                                <div ng-value="damage.brokenyes=false"></div>
+                        </span>
+                    </td>
+                    <td>No</td>
+                    <td>
+                        <input type="checkbox" class="hide_on_print inputtext" ng-model="damage.brokenno">
+                        <span ng-if="damage.brokenno" >
+                            <div ng-value="damage.brokenno=true"></div>
+                            <div ng-value="damage.brokenyes=false"></div>
+                        </span>
+                        <span ng-if="!damage.brokenno" >
+                                <div ng-value="damage.brokenno=false"></div>
+                                <div ng-value="damage.brokenyes=true"></div>
+                        </span>
+                    </td>
+                </tr>
+                <tr >
+                    <td style="width: 10%"></td>
+                    <td colspan="2" style="text-align: justify">
+                        Damage - Components missing (Stolen/Removed etc)
+                    </td>
+                    <td>Yes</td>
+                    <td>
+                        <input type="checkbox" class="hide_on_print inputtext" ng-model="damage.missingyes">
+                        <span ng-if="damage.missingyes" >
+                            <div ng-value="damage.missingno=false"></div>
+                            <div ng-value="damage.missingyes=true"></div>
+                        </span>
+                        <span ng-if="!damage.missingyes" >
+                                <div ng-value="damage.missingno=true"></div>
+                                <div ng-value="damage.missingyes=false"></div>
+                        </span>
+                    </td>
+                    <td>No</td>
+                    <td>
+                        <input type="checkbox" class="hide_on_print inputtext" ng-model="damage.missingno">
+                        <span ng-if="damage.missingno" >
+                            <div ng-value="damage.missingno=true"></div>
+                            <div ng-value="damage.missingyes=false"></div>
+                        </span>
+                        <span ng-if="!damage.missingno" >
+                                <div ng-value="damage.missingno=false"></div>
+                                <div ng-value="damage.missingyes=true"></div>
+                        </span>
+                    </td>
+                </tr>
+
+                <tr >
+                    <td style="width: 10%"></td>
+                    <td colspan="2" style="text-align: justify">
+                        Damage - Power Surge (failure/spike etc)
+                    </td>
+                    <td>Yes</td>
+                    <td>
+                        <input type="checkbox" class="hide_on_print inputtext" ng-model="damage.surgeyes">
+                        <span ng-if="damage.surgeyes" >
+                            <div ng-value="damage.surgeno=false"></div>
+                            <div ng-value="damage.surgeyes=true"></div>
+                        </span>
+                        <span ng-if="!damage.surgeyes" >
+                                <div ng-value="damage.surgeno=true"></div>
+                                <div ng-value="damage.surgeyes=false"></div>
+                        </span>
+                    </td>
+                    <td>No</td>
+                    <td>
+                        <input type="checkbox" class="hide_on_print inputtext" ng-model="damage.surgeno">
+                        <span ng-if="damage.surgeno" >
+                            <div ng-value="damage.surgeno=true"></div>
+                            <div ng-value="damage.surgeyes=false"></div>
+                        </span>
+                        <span ng-if="!damage.surgeno" >
+                                <div ng-value="damage.surgeno=false"></div>
+                                <div ng-value="damage.surgeyes=true"></div>
+                        </span>
+                    </td>
+                </tr>
+                <tr >
+                    <td style="width: 10%"></td>
+                    <td colspan="6" style="text-align: justify">
+                        <textarea class="textarea" rows="3"></textarea>
+                    </td>
+                </tr>
+                <tr >
+                    <td style="width: 10%"></td>
+                    <td  style="text-align: justify">
+                        I reported my finding to:
+                    </td>
+                    <td style="text-align: center;">{{reporter.name}}</td>
+                </tr>
+                <tr >
+                    <td style="width: 10%"></td>
+                    <td></td>
+                    <td  style="text-align: center">
+                        (Client: Print Name and Position)
+                    </td>
+                </tr>
+                <tr >
+                    <td style="width: 10%"></td>
+                    <td style="text-align: justify">
+                        Jaco Swart
+                    </td>
+                </tr>
+                <tr >
+                    <td style="width: 10%"></td>
+                    <td style="text-align: justify">
+                        Technician Name
+                    </td>
+                </tr>
+                <tr >
+                    <td style="width: 10%"></td>
+                    <td rowspan="2" style="text-align: justify">
+
+                    </td>
+                </tr>
+                <tr >
+                    <td style="width: 10%"></td>
+                    <td style="text-align: justify">
+                        Technician Signature
+                    </td>
+                </tr>
+                <tr >
+                    <td style="width: 10%"></td>
+                    <td style="text-align: justify">
+                        To be completed by the Client:
+                    </td>
+                </tr>
+                <tr>
+                    <td><br></td>
+                </tr>
+                <tr >
+                    <td style="width: 10%"></td>
+                    <td style="text-align: justify">
+                        I, JJ Schoeman confirm that the findings as stated are correct.                        
+                    </td>
+                </tr>
+
+                
 
 
             </table>
@@ -1543,7 +1836,7 @@
                     <!-- Item Serial -->
                     <td style="text-align: right">Item Serial:</td>
                     <td colspan="4" style="border-bottom: 0.5px solid;">
-                        <input size="30" type="text">
+                       {{equipment.serial}}
                     </td>
                 </tr>
 
@@ -1554,7 +1847,7 @@
                     </td>
                 </tr>
 
-                    <!--Accessories-->
+                <!--Accessories-->
                 <tr class="noborder">
                     <td></td>
                     <td style="width: 15%; text-align: left;" colspan="3">Accessories Taken</td>
@@ -1671,7 +1964,8 @@
 
 
                     <td colspan="2" rowspan="2" style="text-align: right;" class="signature_holder">
-                        <a href="#technicianSignEquipRemove" id="technicianSignEquipRemove" ng-click="sign('#technicianSignEquipRemoveBackground')"> Technician
+                        <a href="#technicianSignEquipRemove" id="technicianSignEquipRemove" ng-click="sign('#technicianSignEquipRemoveBackground')">
+                        Technician
                             <br> Signature</a>
                     </td>
 

@@ -26,14 +26,21 @@
       setInterval(() => {
         now = new Date();
       }, 3000);
-      $scope.SMS = '';
-      $scope.issue = 'Problem Reported: ';
+      $scope.SMS = "";
+      
+      $scope.problem = {
+        issue: "Problem Reported: ",
+        resolution: "Problem Resolution: "
+      }
+
       $scope.fsa = false;
+
       $scope.reporter = {
         name: "",
         tel: "",
         cell: ""
       }
+
       $scope.site = {
         street: "",
         building: "",
@@ -42,6 +49,7 @@
         room: "",
         town: "",
       }
+
       $scope.equipment = {
         asset: "",
         make: "",
@@ -49,6 +57,20 @@
         serial: "",
         barcode: "",
       }
+
+      $scope.damage = {
+        brokensealsyes: false,
+        brokensealsno: true,
+        spillageyes: false,
+        spillageno: true,
+        brokenyes: false,
+        brokenno: true,
+        missingyes: false,
+        missingno: true,
+        surgeyes: false,
+        surgeno: true,
+      }
+       
       $scope.sla = {
         reported: now.getFullYear() + "/" + $scope.padZeros((now.getMonth() + 1)) + "/" + $scope.padZeros(now.getDate()),
         arrival: now.getFullYear() + "/" + $scope.padZeros((now.getMonth() + 1)) + "/" + $scope.padZeros(now.getDate()),
@@ -199,7 +221,7 @@
             $scope.equipment.asset = asset[0];
             $scope.equipment.make = asset[2] + ' ' + asset[3];
             $scope.equipment.model = asset[4];
-          } else if (line[0].trim().toLowerCase() === 'issue') $scope.issue = 'Problem Reported :\n' + line[1];
+          } else if (line[0].trim().toLowerCase() === 'issue') $scope.problem.issue = 'Problem Reported :\n' + line[1];
         }
         document.querySelector("div#call").classList.add("hide_on_screen");
       }
@@ -213,6 +235,8 @@
         window.print();
       };
 
+      
+
       $scope.sign = (id) => {
         wrapper.classList.remove("hide_on_screen");
         resizeCanvas();
@@ -222,4 +246,18 @@
       $scope.getTitle = () => {
         return $scope.doc.callid + ' ' + toTitleCase($scope.activeForm);
       };
+
+      window.onscroll = function() {myFunction()};
+        var navbar = document.getElementById("nav");
+        var sticky = navbar.offsetTop;
+
+        function myFunction() {
+          if (window.pageYOffset > sticky) {
+            navbar.classList.add("sticky")
+          } else {
+            navbar.classList.remove("sticky");
+          }
+        };
+
+
     });

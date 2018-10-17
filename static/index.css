@@ -3,39 +3,57 @@ body {
     flex-direction: column;
 }
 
-nav {
+#nav {
     border-bottom: 1px solid #808083;
     width: 100%;
     display: flex;
+    background-color: #150f4e;
+    overflow: hidden;
 }
 
-nav ul {
+#nav ul {
     padding: 0;
 }
 
-nav ul li {
+#nav ul li {
     display: inline;
 }
 
-nav_fontsize {
+#nav_fontsize {
     font-size: 20pt;
 }
 
-nav .flex-grow {
+#nav .flex-grow {
     flex-grow: 1;
 }
 
-nav .flex-right {
+#nav .flex-right {
     justify-self: flex-end;
 }
 
-nav ul li a {
+#nav ul li a {
     border: 1px solid #808083;
     border-radius: 3px;
     margin: 0.5em;
     padding: 0.5em;
+    color: #f2f2f2;
 }
 
+.content {
+    padding: 100px;
+  }
+
+.sticky {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+  }
+
+  .sticky + .content {
+    padding-top: 60px;
+  }
+  
+  
 .page {
     flex-grow: 1;
 }
