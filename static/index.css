@@ -15,6 +15,10 @@ nav ul {
     padding: 0;
 }
 
+table {
+    border-collapse: separate;
+}
+
 nav ul li {
     display: inline;
 }
@@ -57,4 +61,8 @@ nav ul li a {
   
 .page {
     flex-grow: 1;
+}
+
+.page #jobcard {
+    width: 100%;
 }

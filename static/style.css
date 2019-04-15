@@ -5,7 +5,7 @@
         font-family: sans-serif;
     }
     body {
-       background-color: bisque; 
+       /* background-color: bisque;  */
     }
 
     .hide_on_screen {
@@ -17,7 +17,7 @@
         flex-direction: column;
         align-items: center;
         background-color: #fff;
-        max-width: 21cm;
+        /* max-width: 21cm; */
         box-shadow: 0px 0px 5px #000000;
     }
 
