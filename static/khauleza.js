@@ -60,15 +60,15 @@
 
       $scope.damage = {
         brokensealsyes: false,
-        brokensealsno: true,
+        brokensealsvalue: "",
         spillageyes: false,
-        spillageno: true,
+        spillagevalue: "",
         brokenyes: false,
-        brokenno: true,
+        brokenvalue: "",
         missingyes: false,
-        missingno: true,
+        missingvalue: "",
         surgeyes: false,
-        surgeno: true,
+        surgevalue: "",
       }
        
       $scope.sla = {

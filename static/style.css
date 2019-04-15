@@ -1,46 +1,91 @@
-
 /* Font Definitions */
 
 @media screen {
     * {
         font-family: sans-serif;
     }
+    body {
+       background-color: bisque; 
+    }
+
     .hide_on_screen {
         display: none;
+    }
+
+    .page {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #fff;
+        max-width: 21cm;
+        box-shadow: 0px 0px 5px #000000;
+    }
+
+    .page>* {
+        /* box-shadow: 0px 0px 5px #000000; */
+        margin: 1cm;
     }
 }
 
 @media print {
     * {
         font-family: "Times New Roman";
+        /* font-size: 14pt;  */
     }
+
+    .page {
+        max-width: 100%;
+    }
+    .page #user-damage {
+        font-size: 16pt;
+        padding: 1cm;
+    }
+
+    .page #completion {
+        font-size: 20pt;
+        font-weight: bold;
+        font-style: italic;
+    }
+
+    .page #clientcom {
+        font-size: 20pt;
+        font-weight: bold;
+        font-style: italic;
+    }
+
+    .page > * {
+        padding: 0px;
+    }
+
     .hide_on_print {
         display: none;
-     }
+    }
+
     .sticky.hide_on_print {
         display: none;
-     }
+    }
 }
 
-#signature-pad, #call {
+#signature-pad,
+#call {
     position: fixed;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 }
 
 #call {
-  width: 50%;
-/*  height: 135pt;*/
-  background-color: #fff;
-  border: 1px solid #838380;
-  border-radius: 3px;
-  overflow: auto;
+    width: 50%;
+    /*  height: 135pt;*/
+    background-color: #fff;
+    border: 1px solid #838380;
+    border-radius: 3px;
+    overflow: auto;
 }
 
 .imagedisplay {
-    display: block; 
-    margin-left: auto; 
+    display: block;
+    margin-left: auto;
     margin-right: auto;
     width: 70%;
 }
@@ -62,25 +107,19 @@ input.textinput {
 }
 
 td {
-  border-bottom: 0.5px solid;
-  border-right: 0.5px solid;
-  padding-left: 5px;
-  height: 28px;
+    border-bottom: 0.5px solid;
+    border-right: 0.5px solid;
+    padding-left: 5px;
+    height: 28px;
 }
 
 th {
-  text-align: left;
-  border-bottom: 0.5px solid;
-  border-right: 0.5px solid;
-  padding-left: 10px;
-  /*background-color: lightgrey;*/
+    text-align: left;
+    border-bottom: 0.5px solid;
+    border-right: 0.5px solid;
+    padding-left: 10px;
+    /*background-color: lightgrey;*/
 }
-
-udrow {
-    width: 5%;
-}
-
-
 
 .sladetailsdatetime {
     width: 35%;
@@ -88,7 +127,7 @@ udrow {
 
 .sladetailsCol1 {
     width: 15%;
-}        
+}
 
 .sitetable {
     border-top: 0.5px solid;
@@ -96,8 +135,9 @@ udrow {
     border-bottom: none;
 }
 
-.border1px, .border1px > td {
-  border:0.5px solid;
+.border1px,
+.border1px>td {
+    border: 0.5px solid;
 }
 
 h6 {
@@ -109,27 +149,139 @@ h6 {
 .page {
     width: 100%;
 }
-.page table
- {
-  width: 100%;
-  padding:0;
-  border-spacing: 0;
+
+/* .page  div {
+    display: grid;
+    grid-template-columns: 1fr;
+} */
+
+#user-damage {
+    display: grid;
+    grid-row-gap: 0.5em;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+        "logo logo logo logo"
+        "title title title title"
+        "kh-ref kh-ref cl-ref cl-ref"
+        "completion completion completion completion"
+        "declaration declaration declaration declaration"
+        "procedure procedure procedure procedure"
+        "equip-det equip-det equip-det1 equip-det1"
+        "eqstatus eqstatus eqstatus eqstatus"
+        "status status status statuschk"
+        "description description description description"
+        "custname custname1 custname1 custname1"
+        "techname techname techname techsign"
+        "line line line line "
+        "clientcom clientcom clientcom clientcom"
+        "clientcom1 clientcom1 clientcom2 clientcom2 "
+        "clientsign clientsign1 clientsign1 clientdate"
+
+        ;
+}
+
+#user-damage #logo {
+    grid-area: logo;
+}
+#user-damage #techname {
+    grid-area: techname;
+}
+#user-damage #clientsign1 {
+    grid-area: clientsign1;
+}
+#user-damage #techsign {
+    grid-area: techsign;
+}
+#user-damage #custname {
+    grid-area: custname;
+}
+#user-damage #custname1 {
+    grid-area: custname1;
+}
+#user-damage #clientcom {
+    grid-area: clientcom;
+    text-align: center;
+    font-size: 20px;
+}
+#user-damage #clientcom1 {
+    grid-area: clientcom1;
+}
+#user-damage #clientcom2 {
+    grid-area: clientcom2;
+}
+#user-damage #clientsign {
+    grid-area: clientsign;
+}
+#user-damage #clientdate {
+    grid-area: clientdate;
+}
+#user-damage #eqstatus {
+    grid-area: eqstatus;
+}
+#user-damage #title {
+    grid-area: title;
+}
+#user-damage #kh-ref {
+    grid-area: kh-ref;
+    font-weight: bold;
+}
+#user-damage #cl-ref {
+    grid-area: cl-ref;
+    text-align: right;
+    font-weight: bold;
+}
+#user-damage #completion {
+    grid-area: completion;
+}
+#user-damage #declaration {
+    grid-area: declaration;
+}
+#user-damage #procedure {
+    grid-area: procedure;
+}
+#user-damage #equip-det {
+    grid-area: equip-det;
+}
+#user-damage #equip-det1 {
+    grid-area: equip-det1;
+}
+#user-damage #description {
+    grid-area: description;
+}
+#user-damage #damage-details {
+    grid-area: damage-details;
+}
+#user-damage #status {
+    grid-area: status;
+}
+#user-damage #statuschk {
+    grid-area: statuschk;
+}
+#user-damage #line {
+    grid-area: line;
+}
+
+.page table {
+    width: 100%;
+    padding: 0;
+    border-spacing: 0;
 }
 
 #callidsection input {
-  border-bottom: 0.5px solid;
+    border-bottom: 0.5px solid;
 }
 
-#callidsection, #callidsection td {
-  text-align: center;
+#callidsection,
+#callidsection td {
+    text-align: center;
 }
 
 .label {
-  width: 15%;
+    width: 15%;
 }
 
 #reportersection .entry {
-  width: 35%;
+    width: 35%;
 
 }
 
@@ -177,53 +329,59 @@ h6 {
 }
 
 .signoffcell {
-    border:none;
+    border: none;
     width: 33.3%
 }
 
 .usercomments {
-    border:0.5px dotted;
+    border: 0.5px dotted;
     width: 60%;
 }
 
 .servicelevel {
-    border:0.5px solid;
+    border: 0.5px solid;
     width: 10%;
-    text-align:center;
+    text-align: center;
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
     background-color: powderblue;
 }
 
-.inputclass
-    {border-top:none;
-    border-right:none;
-    border-bottom:none;
-    border-left:none;}
+.inputclass {
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+    border-left: none;
+}
 
-.tableinputclass
-    {font-size:8.0pt;
-    border-top:none;
-    border-right:none;
-    border-bottom:none;
-    border-left:none;}
+.tableinputclass {
+    font-size: 8.0pt;
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+    border-left: none;
+}
 
-.customername
-    {font-size:12.0pt;
-    border-top:none;
-    border-right:none;
-    border-bottom:none;
-    border-left:none;}
+.customername {
+    font-size: 12.0pt;
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+    border-left: none;
+}
 
-.accessories
-    {font-size:10.0pt;
-    border-top:none;
-    border-right:none;
-    border-bottom:.5pt solid;
-    border-left:none;}
+.accessories {
+    font-size: 10.0pt;
+    border-top: none;
+    border-right: none;
+    border-bottom: .5pt solid;
+    border-left: none;
+}
 
-.noborder, .noborder * {
+.noborder,
+.noborder * {
     border: none;
     /* border: 0.5px solid black; */
 }
@@ -234,7 +392,7 @@ input:focus, textarea:focus {
 }
 
 .right_BorderNone {
-    border-right: none; 
+    border-right: none;
     border-bottom: none;
 }
 
@@ -247,7 +405,7 @@ input:focus, textarea:focus {
     border-bottom: 0.5px solid #000000;
 }
 
-table  {
+table {
     border: 1px solid;
     border-left: 1px solid;
     /*border-color: red;*/
@@ -262,14 +420,12 @@ table  {
 }
 
 
-* {
-  font-size: 13.0pt;
 
-}
 
 h2 {
     font-size: 15.0pt;
 }
+
 h3 {
-  font-size: 20.0pt;
+    font-size: 20.0pt;
 }

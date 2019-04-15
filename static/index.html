@@ -1272,343 +1272,121 @@
         </div>
 
         <!-- User Damage -->
-        <div ng-if="activeForm === 'USER_DAMAGE'">
-                <img class="imagedisplay" src="img/khauleza.png" alt="Khauleza Logo: " height="50">
-            <h3 style="text-align:center">STATEMENT REGARDING DAMAGE</h3>
+        <div id="user-damage" ng-if="activeForm === 'USER_DAMAGE'">
+            <img id="logo" class="imagedisplay" src="img/image002.png" alt="Khauleza Logo: " height="50">
+            <h3 id="title" style="text-align:center">STATEMENT REGARDING DAMAGE</h3>
+            <div id="kh-ref" class="khauleza-reference">Khauleza Reference # {{doc.callid}}</div>
+            <div id="cl-ref" class="client-reference">Client Reference # {{doc.sitaref}}</div>
+            <div style="text-align: center; font-size: 20px;" id="completion">To be completed by Khauleza Technician:</div>
+            <div id="declaration">
+                I, <span style="font-style: italic">Jaco Swart</span> with ID Number 
+                 <span style="font-style: italic">731214 5031 086 </span> declare that I visited 
+                 <span style="font-style: italic">{{reporter.name}}</span> on <span style="font-style: italic">{{sla.completed}}</span> to attend to faulty equipment reported to
+                Khauleza IT Solutions.<br>
+                <br>
+                During attending to the equipment, I found that the assistance/repairs should be done within "Not normal
+                wear &amp; tear" procedure.   During my visit to the site, the following was found:
+            </div>
+            <div id="equip-det">
+                Equipment Web Number    :<br>
+                Equipment Make & Model  :<br>
+                Equipment Serial Number :
+            </div>
+            <div id="equip-det1">
+                {{equipment.asset}}<br>
+                {{equipment.make}} {{equipment.model}} <br>
+                {{equipment.serial}} 
+            </div>
+            <div id="eqstatus">
+                <br>
+                Status of equipment: (please select applicable description
+                by indicating "Yes" or "No")
+            </div>
+            <div id="status">
+                    Seals were broken (Warranty void)<br>
+                    Damage - Spillage (water, etc.)<br>
+                    Damage - Broken (fallen, etc.)<br>
+                    Damage - Components Missing (Stolen/Removed, etc.)<br>
+                    Damage - Power Surge (failure/spike etc.)
+            </div>
+            <div id="statuschk">
+                    <input class="hide_on_print" ng-model="damage.brokensealsyes" type="checkbox">
+                    <span ng-if="damage.brokensealsyes">Yes</span>
+                    <span ng-if="!damage.brokensealsyes">No</span><br>
+                    <input class="hide_on_print" ng-model="damage.spillageyes" type="checkbox">
+                    <span ng-if="damage.spillageyes">Yes</span>
+                    <span ng-if="!damage.spillageyes">No</span><br>
+                    <input class="hide_on_print" ng-model="damage.brokenyes" type="checkbox">
+                    <span ng-if="damage.brokenyes">Yes</span>
+                    <span ng-if="!damage.brokenyes">No</span><br>
+                    <input class="hide_on_print" ng-model="damage.missingyes" type="checkbox">
+                    <span ng-if="damage.missingyes">Yes</span>
+                    <span ng-if="!damage.missingyes">No</span><br>
+                    <input class="hide_on_print" ng-model="damage.surgeyes" type="checkbox">
+                    <span ng-if="damage.surgeyes">Yes</span>
+                    <span ng-if="!damage.surgeyes">No</span><br>
 
-            <!-- Call id Section -->
+            </div>
+             <div id="description">
+                Please supply details if available :
+                <textarea></textarea><br>
+                I reported my findings to : 
+                <span ng-if="signoff.samename">{{reporter.name}} </span> 
+                <span ng-if="!signoff.samename">{{signoff.name}} </span> <br>
+             </div>
+             <div id="custname"></div>
+             <div id="custname1" > 
+                    (Client : Print Name and Position)<br>
+             </div>
 
-            <table id="callidsectionud" class="noborder tablespacing">
-                <tr>
-                    <td style="text-align: right">
-                        Khauleza Reference #
-                    </td>
-                    <td>
-                        <input tabindex="1" class="textinput" ng-model="doc.callid" size="15" type="text">
-                    </td>
-                    <td></td>
-                    <td style="text-align: right">Client Reference number :</td>
-                    <td>
-                        <input class="textinput" tabindex="2" size="15" type="text" ng-model="doc.sitaref">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <br>
-                    </td>
+             <div id="techname">
+                 <br><br>
+                Jaco Swart <br>
+                Technician Name
+             </div>
 
-                </tr>
-
-                <tr>
-                    <td colspan="5">
-                        <h6>To be completed by Khauleza Technician:</h6>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <br>
-                    </td>
-
-                </tr>
-            </table>
-
-            <table class="noborder">
-                <tr>
-                    <td class="udrow"></td>
-                    <td class="udrow"></td>
-                    <td class="udrow"></td>
-                    <td style="width: 15%;">I, (technician)..........................</td>
-                    <td style="width: 15%;">Jaco Swart............................</td>
-                    <td style="width: 15%;">with ID Number.......................</td>
-                    <td style="width: 15%;">7312145031086.....................</td>
-                    <td style="width: 15%;"> declare that I visited</td>
-                    <td class="udrow"></td>
-                    <td class="udrow"></td>
-                </tr>
-                </table>
-                <table class="noborder">
-                <tr>
-                    <td class="udrow"></td>
-                    <td class="udrow"></td>
-                    <td class="udrow"></td>
-                    <td style="width: 5%;">(Client)...... </td>
-                    <td style="width: 15%;">{{reporter.name}}...............</td>
-                    <td style="width: 10%;">on (date)..............</td>
-                    <td style="width: 15%;">{{sla.arrival}}....................</td>
-                    <td style="width: 30%;">to attend to faulty equipment reported to </td>
-                    <td class="udrow"></td>
-                    <td class="udrow"></td>
-                </tr>
-                <tr>
-                    <td class="udrow"></td>
-                    <td class="udrow"></td>
-                    <td class="udrow"></td>
-                    <td colspan="4" >Khauleza IT Solutions</td>
-                 </tr>
-                 <tr>
-                     <td><br></td>
-                </tr>
-                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td colspan="5" style="text-align: justify">
-                        During attending to the equipment, I found that the assistance/repairs should be done within "Not normal wear & tear" procedure.   
-                    </td>
-                </tr>
-                <tr >
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td colspan="6">
-                        During my visit to the site, the following was found:
-                    </td>
-                </tr>
-            </table>
-            <table>
-                <tr >
-                    <td style="width: 10%"></td>
-                    <td style="text-align: justify; width: 20%;">
-                        Equipment WEB Number:  
-                    </td>
-                    <td style="width: 20%;">{{equipment.asset}}</td>
-                </tr>
-                <tr >
-                    <td style="width: 10%"></td>
-                    <td style="text-align: justify">
-                        Equipment Make & Model:
-                    </td>
-                    <td>{{equipment.make}} {{equipment.model}}</td>
-                </tr>
-                                <tr >
-                    <td style="width: 10%"></td>
-                    <td style="text-align: justify">
-                        Equipment Serial Number:
-                    </td>
-                    <td>{{equipment.serial}}</td>
-                </tr>
-                                <tr >
-                    <td style="width: 10%"></td>
-                    <td colspan="3" style="text-align: justify">
-                        Status of equipment: (Please select applicable description by indicating "Yes" or "No").
-                    </td>
-                </tr>
-                <tr >
-                    <td style="width: 10%"></td>
-                    <td colspan="2" style="text-align: justify">
-                        Seals were broken (warranty void)
-                    </td>
-                    <td style="width: 5%;" >Yes</td>
-                    <td style="width: 5%;">
-                        <input type="checkbox" class="hide_on_print inputtext" ng-model="damage.brokensealsyes">
-                        <span ng-if="damage.brokensealsyes" >
-                            <div ng-value="damage.brokensealsno=false"></div>
-                            <div ng-value="damage.brokensealsyes=true"></div>
-                        </span>
-                        <span ng-if="!damage.brokensealsyes" >
-                                <div ng-value="damage.brokensealsno=true"></div>
-                                <div ng-value="damage.brokensealsyes=false"></div>
-                        </span>
-                    </td>
-                    <td style="width: 5%;">No</td>
-                    <td>
-                        <input type="checkbox" class="hide_on_print inputtext" ng-model="damage.brokensealsno">
-                        <span ng-if="damage.brokensealsno" >
-                            <div ng-value="damage.brokensealsno=true"></div>
-                            <div ng-value="damage.brokensealsyes=false"></div>
-                        </span>
-                        <span ng-if="!damage.brokensealsno" >
-                            <div ng-value="damage.brokensealsno=false"></div>
-                            <div ng-value="damage.brokensealsyes=true"></div>
-                        </span>
-                    </td>
-                </tr>
-                <tr >
-                    <td style="width: 10%"></td>
-                    <td colspan="2" style="text-align: justify">
-                        Damage - Spillage (water, etc)
-                    </td>
-                    <td>Yes</td>
-                    <td>
-                        <input type="checkbox" class="hide_on_print inputtext" ng-model="damage.spillageyes">
-                        <span ng-if="damage.spillageyes" >
-                            <div ng-value="damage.spillageno=false"></div>
-                            <div ng-value="damage.spillageyes=true"></div>
-                        </span>
-                        <span ng-if="!damage.spillageyes" >
-                                <div ng-value="damage.spillageno=true"></div>
-                                <div ng-value="damage.spillageyes=false"></div>
-                        </span>
-                    </td>
-                    <td>No</td>
-                    <td>
-                        <input type="checkbox" class="hide_on_print inputtext" ng-model="damage.spillageno">
-                        <span ng-if="damage.spillageno" >
-                            <div ng-value="damage.spillageno=true"></div>
-                            <div ng-value="damage.spillageyes=false"></div>
-                        </span>
-                        <span ng-if="!damage.spillageno" >
-                                <div ng-value="damage.spillageno=false"></div>
-                                <div ng-value="damage.spillageyes=true"></div>
-                        </span>
-                    </td>
-                </tr>
-                <tr >
-                    <td style="width: 10%"></td>
-                    <td colspan="2" style="text-align: justify">
-                        Damage - Broken (fallen, etc)
-                    </td>
-                    <td>Yes</td>
-                    <td>
-                        <input type="checkbox" class="hide_on_print inputtext" ng-model="damage.brokenyes">
-                        <span ng-if="damage.brokenyes" >
-                            <div ng-value="damage.brokenno=false"></div>
-                            <div ng-value="damage.brokenyes=true"></div>
-                        </span>
-                        <span ng-if="!damage.brokenyes" >
-                                <div ng-value="damage.brokenno=true"></div>
-                                <div ng-value="damage.brokenyes=false"></div>
-                        </span>
-                    </td>
-                    <td>No</td>
-                    <td>
-                        <input type="checkbox" class="hide_on_print inputtext" ng-model="damage.brokenno">
-                        <span ng-if="damage.brokenno" >
-                            <div ng-value="damage.brokenno=true"></div>
-                            <div ng-value="damage.brokenyes=false"></div>
-                        </span>
-                        <span ng-if="!damage.brokenno" >
-                                <div ng-value="damage.brokenno=false"></div>
-                                <div ng-value="damage.brokenyes=true"></div>
-                        </span>
-                    </td>
-                </tr>
-                <tr >
-                    <td style="width: 10%"></td>
-                    <td colspan="2" style="text-align: justify">
-                        Damage - Components missing (Stolen/Removed etc)
-                    </td>
-                    <td>Yes</td>
-                    <td>
-                        <input type="checkbox" class="hide_on_print inputtext" ng-model="damage.missingyes">
-                        <span ng-if="damage.missingyes" >
-                            <div ng-value="damage.missingno=false"></div>
-                            <div ng-value="damage.missingyes=true"></div>
-                        </span>
-                        <span ng-if="!damage.missingyes" >
-                                <div ng-value="damage.missingno=true"></div>
-                                <div ng-value="damage.missingyes=false"></div>
-                        </span>
-                    </td>
-                    <td>No</td>
-                    <td>
-                        <input type="checkbox" class="hide_on_print inputtext" ng-model="damage.missingno">
-                        <span ng-if="damage.missingno" >
-                            <div ng-value="damage.missingno=true"></div>
-                            <div ng-value="damage.missingyes=false"></div>
-                        </span>
-                        <span ng-if="!damage.missingno" >
-                                <div ng-value="damage.missingno=false"></div>
-                                <div ng-value="damage.missingyes=true"></div>
-                        </span>
-                    </td>
-                </tr>
-
-                <tr >
-                    <td style="width: 10%"></td>
-                    <td colspan="2" style="text-align: justify">
-                        Damage - Power Surge (failure/spike etc)
-                    </td>
-                    <td>Yes</td>
-                    <td>
-                        <input type="checkbox" class="hide_on_print inputtext" ng-model="damage.surgeyes">
-                        <span ng-if="damage.surgeyes" >
-                            <div ng-value="damage.surgeno=false"></div>
-                            <div ng-value="damage.surgeyes=true"></div>
-                        </span>
-                        <span ng-if="!damage.surgeyes" >
-                                <div ng-value="damage.surgeno=true"></div>
-                                <div ng-value="damage.surgeyes=false"></div>
-                        </span>
-                    </td>
-                    <td>No</td>
-                    <td>
-                        <input type="checkbox" class="hide_on_print inputtext" ng-model="damage.surgeno">
-                        <span ng-if="damage.surgeno" >
-                            <div ng-value="damage.surgeno=true"></div>
-                            <div ng-value="damage.surgeyes=false"></div>
-                        </span>
-                        <span ng-if="!damage.surgeno" >
-                                <div ng-value="damage.surgeno=false"></div>
-                                <div ng-value="damage.surgeyes=true"></div>
-                        </span>
-                    </td>
-                </tr>
-                <tr >
-                    <td style="width: 10%"></td>
-                    <td colspan="6" style="text-align: justify">
-                        <textarea class="textarea" rows="3"></textarea>
-                    </td>
-                </tr>
-                <tr >
-                    <td style="width: 10%"></td>
-                    <td  style="text-align: justify">
-                        I reported my finding to:
-                    </td>
-                    <td style="text-align: center;">{{reporter.name}}</td>
-                </tr>
-                <tr >
-                    <td style="width: 10%"></td>
-                    <td></td>
-                    <td  style="text-align: center">
-                        (Client: Print Name and Position)
-                    </td>
-                </tr>
-                <tr >
-                    <td style="width: 10%"></td>
-                    <td style="text-align: justify">
-                        Jaco Swart
-                    </td>
-                </tr>
-                <tr >
-                    <td style="width: 10%"></td>
-                    <td style="text-align: justify">
-                        Technician Name
-                    </td>
-                </tr>
-                <tr >
-                    <td style="width: 10%"></td>
-                    <td rowspan="2" style="text-align: justify">
-
-                    </td>
-                </tr>
-                <tr >
-                    <td style="width: 10%"></td>
-                    <td style="text-align: justify">
-                        Technician Signature
-                    </td>
-                </tr>
-                <tr >
-                    <td style="width: 10%"></td>
-                    <td style="text-align: justify">
-                        To be completed by the Client:
-                    </td>
-                </tr>
-                <tr>
-                    <td><br></td>
-                </tr>
-                <tr >
-                    <td style="width: 10%"></td>
-                    <td style="text-align: justify">
-                        I, JJ Schoeman confirm that the findings as stated are correct.                        
-                    </td>
-                </tr>
-
-                
+             <div id="techsign">
+                 <br><br>
+                ....................................<br>
+                Signature<br>
+             </div>
+             <div id="line">
+                 <hr>
+             </div>
 
 
-            </table>
+             <div id="clientcom">To be completed by Client
+
+             </div><br><br>
+
+             <div id="clientcom1">
+                I, 
+                <span ng-if="signoff.samename">{{reporter.name}} </span> 
+                <span ng-if="!signoff.samename">{{signoff.name}} </span> <br>
+                (Client : Print Name and Position)<br><br><br><br>
+             </div>
+
+             <div id="clientcom2">
+                 confirm that the findings as stated, are correct.<br><br><br><br>
+             </div>
+
+            <div id="clientsign">
+                ..............................<br>
+                Signature
+            </div>
+
+            <div id="clientdate">
+                Date:  {{sla.arrival}}<br>
+            </div>
+
+
+
+
+            </div>
+
+
+
+
         </div>
 
 
