@@ -5,7 +5,7 @@
         font-family: sans-serif;
     }
     body {
-       /* background-color: bisque;  */
+       background-color: bisque; 
     }
 
     .hide_on_screen {
@@ -13,17 +13,20 @@
     }
 
     .page {
-        display: flex;
-        flex-direction: column;
+        display: grid;
         align-items: center;
         background-color: #fff;
-        /* max-width: 21cm; */
+        padding: 1cm;
+        max-width: 21cm;
+        min-width: 60%;
         box-shadow: 0px 0px 5px #000000;
+        font-size: 80%;
+        min-width: 80%;        
     }
 
     .page>* {
         /* box-shadow: 0px 0px 5px #000000; */
-        margin: 1cm;
+        width: 100%;
     }
 }
 
@@ -34,7 +37,7 @@
     }
 
     .page {
-        max-width: 100%;
+        min-width: 100%;
     }
     .page #user-damage {
         font-size: 16pt;
@@ -146,14 +149,15 @@ h6 {
     text-align: center;
 }
 
-.page {
-    width: 100%;
+.borderse {
+    border-right: solid 0.5px black;
+    border-bottom: solid 0.5px black;
 }
 
-/* .page  div {
-    display: grid;
-    grid-template-columns: 1fr;
-} */
+.bordernw {
+    border-top: solid 0.5px black;
+    border-left: solid 0.5px black;
+ }
 
 #user-damage {
     display: grid;
@@ -175,9 +179,8 @@ h6 {
         "line line line line "
         "clientcom clientcom clientcom clientcom"
         "clientcom1 clientcom1 clientcom2 clientcom2 "
-        "clientsign clientsign1 clientsign1 clientdate"
+        "clientsign clientsign1 clientsign1 clientdate";
 
-        ;
 }
 
 #user-damage #logo {
@@ -261,6 +264,206 @@ h6 {
     grid-area: line;
 }
 
+/* GRID JOBCARD STYLING */
+
+#jobcard-grid {
+    display: grid;
+    grid-row-gap: 0.5em;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+     "jc-logo jc-logo jc-logo"
+     "jc-title jc-title jc-title"
+     "khau-ref client sita-ref" 
+     "other-ref other-ref other-ref" 
+     ;
+
+}
+
+#jobcard-grid #khau-ref {
+    grid-area: khau-ref;
+}
+
+#jobcard-grid #jc-logo {
+    grid-area: jc-logo;
+}
+#jobcard-grid #jc-title {
+    grid-area: jc-title;
+}
+
+#jobcard-grid #client {
+    grid-area: client;
+    text-align: center;
+}
+#jobcard-grid #sita-ref {
+    grid-area: sita-ref;
+    text-align: right;
+}
+
+#jobcard-grid #other-ref {
+    grid-area: other-ref;
+}
+
+#jobcard-contacts-grid {
+    display: grid;
+    grid-template-columns: 0.5fr 1.5fr 0.5fr 1.5fr;
+    margin-bottom: 1em;
+}
+
+#jobcard-contacts-grid #repheader {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+#jobcard-contacts-grid #contheader {
+    grid-column-start: 3;
+    grid-column-end: 5;
+}
+
+
+#jobcard-site-grid {
+    display: grid;
+    grid-template-columns: 0.5fr 1.5fr 0.5fr 1.5fr;
+    
+}
+#jobcard-site-grid #siteheader {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+#jobcard-site-grid #equipheader {
+    grid-column-start: 3;
+    grid-column-end: 5;
+}
+#jobcard-site-grid #warranty-text {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 7;
+    grid-row-end: 9;
+}
+#jobcard-site-grid #warranty-input {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 7;
+    grid-row-end: 9;
+}
+
+#jobcard-details-grid {
+    display: grid;
+    grid-template-columns: 0.5fr 0.375fr 0.375fr 0.375fr 0.375fr 0.5fr 0.75fr 0.375fr 0.375fr;
+    margin-bottom: 1em;
+}
+#jobcard-details-grid .datetime {
+    grid-column-start: 2;
+    grid-column-end: 6;
+}
+#jobcard-details-grid .textheader {
+    text-align: center;
+    font-weight: bold;
+}
+#jobcard-details-grid .span2 {
+    grid-column-start: 8;
+    grid-column-end: 10;
+}
+#jobcard-details-grid .labels {
+    grid-column-start: 6;
+    grid-column-end: 7;
+}
+#jobcard-details-grid .original-visit {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    text-align: center;
+}
+#jobcard-details-grid .return-visit {
+    grid-column-start: 4;
+    grid-column-end: 6;
+    text-align: center;
+}
+#jobcard-details-grid .lastrow {
+    grid-column-start: 1;
+    grid-column-end: 6;
+}
+
+
+#jobcard-sla-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#jobcard-sla-grid .prob {
+    grid-column-start: span 3;
+    height: 5em;
+}
+
+#jobcard-backup-grid {
+    display: grid;
+    grid-template-columns: repeat(9,1fr);
+    margin-bottom: 1em;
+}
+#jobcard-backup-grid .header {
+    grid-column-start: span 3;
+    text-align: center;
+}
+
+#jobcard-backup-grid .clientsign {
+    grid-column-start: span 3;
+    height: 5em;
+}
+#jobcard-backup-grid .textentry {
+    grid-column-start: span 2;
+}
+
+#jobcard-signoff-grid {
+    display: grid;
+    grid-template-columns: repeat(10,1fr) ;
+    margin-bottom: 1em;
+}
+
+#jobcard-signoff-grid .span10 {
+    grid-column-start: span 10;
+}
+#jobcard-signoff-grid .span9 {
+    grid-column-start: span 9;
+}
+#jobcard-signoff-grid .span6 {
+    grid-column-start: span 6;
+    text-align: center;
+}
+#jobcard-signoff-grid .span1 {
+    text-align: center;
+}
+#jobcard-signoff-grid .span6text {
+    grid-column-start: span 6;
+    grid-row-start: span 3;
+}
+
+#jobcard-signoff-grid .span4 {
+    grid-column-start: span 4;
+    text-align: center;
+}
+
+#jobcard-signature-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr) ;
+}
+
+#jobcard-signature-grid .noborder {
+    border: none;
+    height: 5em;
+}
+
+#jobcard-signature-grid .span3rows {
+    grid-row-start: span 3;
+    
+}
+
+#jobcard-signature-grid .textdisplay {
+    text-align: center;
+   
+}
+#jobcard-signature-grid .vtextalign {
+    line-height: 5em;
+   
+}
+
+
 .page table {
     width: 100%;
     padding: 0;
@@ -302,7 +505,6 @@ h6 {
     max-width: 8.75%;
 
 }
-
 
 .entry {
     width: 35%;
@@ -350,19 +552,17 @@ textarea:focus {
 }
 
 .inputclass {
-    border-top: none;
-    border-right: none;
-    border-bottom: none;
-    border-left: none;
+    border: none;
+    height: 15px;
 }
 
-.tableinputclass {
+/* .tableinputclass {
     font-size: 8.0pt;
     border-top: none;
     border-right: none;
     border-bottom: none;
     border-left: none;
-}
+} */
 
 .customername {
     font-size: 12.0pt;

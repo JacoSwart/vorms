@@ -11,8 +11,8 @@
     }
 
     jobcardapp.controller('Jobcard_controller', function ($scope) {
-      let forms = ['JOBCARD', 'PARTS_REPLACEMENT', 'USER_DAMAGE', 'EQUIPMENT_REMOVAL', 'FUEL'];
-      $scope.activeForm = forms[0];
+      let forms = ['JOBCARD', 'PARTS_REPLACEMENT', 'USER_DAMAGE', 'EQUIPMENT_REMOVAL', 'FUEL', 'JOBCARD'];
+      $scope.activeForm = forms[5];
 
       $scope.padZeros = function (str_p) {
         if (str_p > 9) {
@@ -21,6 +21,7 @@
           return "0" + str_p;
         }
       }
+
 
       let now = new Date();
       setInterval(() => {
@@ -72,7 +73,7 @@
       }
        
       $scope.sla = {
-        reported: now.getFullYear() + "/" + $scope.padZeros((now.getMonth() + 1)) + "/" + $scope.padZeros(now.getDate()),
+        // reported: now.getFullYear() + "/" + $scope.padZeros((now.getMonth() + 1)) + "/" + $scope.padZeros(now.getDate()),
         arrival: now.getFullYear() + "/" + $scope.padZeros((now.getMonth() + 1)) + "/" + $scope.padZeros(now.getDate()),
         arrivetime: $scope.padZeros(now.getHours()) + ":" + $scope.padZeros(now.getMinutes()),
         completed: now.getFullYear() + "/" + $scope.padZeros((now.getMonth() + 1)) + "/" + $scope.padZeros(now.getDate()),
@@ -143,6 +144,7 @@
       $scope.doc = {
         callid: "",
         sitaref: "",
+        client: false,
       }
 
       $scope.signoff = {
@@ -223,6 +225,25 @@
         replacedpsuserial: "",
       }
 
+      $scope.savekilos = function () {
+        localStorage.setItem("endkilos", $scope.ov.sse);
+      };
+
+      $scope.newjobcard = () => {
+        // $scope.reporter = "";
+        $scope.equipment.serial = "";
+        $scope.site.street = "";
+        $scope.signoff.completed = "";
+        $scope.signoff.notcompleted = "";
+        $scope.ov.sse = "";
+        $scope.faulty = "";
+        $scope.replacement = "";
+        $scope.problem.resolution = "Problem Resolution: ";
+        $scope.SMS = "";
+        document.querySelector("div#call").classList.remove("hide_on_screen");
+      }
+
+
       $scope.parseCallSMS = () => {
         $scope.SMS = $scope.SMS.split('/');
         for (let line of $scope.SMS) {
@@ -255,6 +276,8 @@
           } else if (line[0].trim().toLowerCase() === 'issue') $scope.problem.issue = 'Problem Reported :\n' + line[1].split('SLA ')[0];
         }
         document.querySelector("div#call").classList.add("hide_on_screen");
+        $scope.sla.reported = '20' + $scope.doc.sitaref.slice(0,2) + '/' + $scope.doc.sitaref.slice(2,4) + '/' + $scope.doc.sitaref.slice(4,6);
+        $scope.ov.ss = localStorage.getItem("endkilos");
       }
 
       $scope.navigateTo = (page) => {
@@ -262,10 +285,11 @@
         $scope.activeForm = forms[page];
       };
 
-      $scope.print = () => {
+      $scope.printdoc = () => {
         window.print();
       };
 
+ 
       
 
       $scope.sign = (id) => {

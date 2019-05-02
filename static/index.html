@@ -18,7 +18,7 @@
     <nav class="hide_on_print">
         <ul class="flex-grow">
             <li>
-                <a style="font-size: 10pt" href="#" ng-click="navigateTo(0)">Jobcard</a>
+                <a style="font-size: 10pt" href="#" ng-click="newjobcard()">New Jobcard</a>
             </li>
             <li>
                 <a style="font-size: 10pt" href="#" ng-click="navigateTo(1)">Parts Replacement</a>
@@ -32,13 +32,16 @@
             <li>
                 <a style="font-size: 10pt" href="#" ng-click="navigateTo(4)">Fuel</a>
             </li>
+            <li>
+                <a style="font-size: 10pt" href="#" ng-click="navigateTo(5)">Jobcard</a>
+            </li>
         </ul>
         <ul class="flex-right">
             <li>
                 <a style="font-size: 10pt" href="#">Upload</a>
             </li>
             <li>
-                <a style="font-size: 10pt" href="#" ng-click="print()">Print</a>
+                <a style="font-size: 10pt" href="#" ng-click="printdoc()">Print</a>
             </li>
         </ul>
     </nav>
@@ -46,796 +49,6 @@
     <div class="page">
 
         <!-- Jobcard page -->
-
-        <div id="jobcard" ng-if="activeForm === 'JOBCARD'">
-            <img class="imagedisplay" src="img/image002.png" alt="Khauleza Logo: " height="50">
-            <h3 style="text-align:center">TECHNICIAN REPORT</h3>
-
-            <!-- Call id Section -->
-
-            <table id="callidsection" class="noborder tablespacing">
-                <tr>
-                    <td>
-                        Call #
-                    </td>
-                    <td>
-                        <input tabindex="1" class="input" ng-model="doc.callid" size="15" type="text">
-                    </td>
-                    <td>Client : SAPS</td>
-                    <td>Client Ref :</td>
-                    <td>
-                        <input tabindex="2" size="15" type="text" ng-model="doc.sitaref">
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td>{{site.town}}</td>
-                    <td>
-                        <b>Other Ref: </b>
-                    </td>
-                    <td>
-                        <input size="15" type="text"> </td>
-                </tr>
-
-
-            </table>
-
-            <!-- Reporter Section -->
-            <table id="reportersection" class="tablespacing reportertable">
-                <tr>
-                    <th class="tabletop tableleft" colspan="2">
-                        Reporter
-                    </th>
-                    <th class="tabletop" colspan="2">
-                        Contact
-                    </th>
-                </tr>
-                <tr>
-                    <!-- Reporter name-->
-                    <td class="label tableleft">
-                        Name
-                    </td>
-                    <td class="entry">
-                        <input tabindex="3" class="input hide_on_print textinput" ng-model="reporter.name">
-                        <span class="hide_on_screen entry">{{reporter.name}}</span>
-                    </td>
-                    <td class="label">
-                        Name :
-                    </td>
-                    <td class="entry">{{reporter.name}}</td>
-                </tr>
-                <tr>
-                    <!-- Tel nr -->
-                    <td class="label tableleft">
-                        Tel :
-                    </td>
-                    <td>
-                        <input tabindex="4" class="hide_on_print input textinput" ng-model="reporter.tel">
-                        <span class="hide_on_screen">{{reporter.tel}}</span>
-                    </td>
-                    <td class="label">
-                        Tel:
-                    </td>
-                    <td>{{reporter.tel}}</td>
-                </tr>
-                <tr>
-                    <!-- Cell Nr -->
-                    <td class="label tableleft">
-                        Cell:
-                    </td>
-                    <td>
-                        <input tabindex="5" class="hide_on_print input textinput" ng-model="reporter.cell">
-                        <span class="hide_on_screen">{{reporter.cell}}</span>
-                    </td>
-                    <td class="label">
-                        Cell:
-                    </td>
-                    <td>{{reporter.cell}}</td>
-                </tr>
-            </table>
-
-            <!-- Site and equipment details -->
-            <table id="siteandequipment" class="sitetable">
-                <tr>
-                    <!-- Headers -->
-                    <th class="tableleft tabletop" colspan="2">
-                        Site Adress
-                    </th>
-                    <th class="tabletop" colspan="2">
-                        Equipment Reported :
-                    </th>
-                </tr>
-                <tr>
-                    <!-- Street and Asset -->
-                    <td class="label tableleft">
-                        Street:
-                    </td>
-                    <td class="entry">
-                        <input tabindex="6" class="hide_on_print textinput" ng-model="site.street">
-                        <span class="hide_on_screen">{{site.street}}</span>
-                    </td>
-                    <td class="label">
-                        Asset #:
-                    </td>
-                    <td class="entry">
-                        <input tabindex="12" class="hide_on_print textinput" ng-model="equipment.asset">
-                        <span class="hide_on_screen">{{equipment.asset}}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="label tableleft">
-                        Building:
-                    </td>
-                    <td class="entry">
-                        <input tabindex="7" class="hide_on_print textinput" ng-model="site.building">
-                        <span class="hide_on_screen">{{site.building}}</span>
-                    </td>
-                    <td class="label">
-                        Make:
-                    </td>
-                    <td class="entry">
-                        <input tabindex="13" class="hide_on_print textinput" ng-model="equipment.make">
-                        <span class="hide_on_screen">{{equipment.make}}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="label tableleft">
-                        Site:
-                    </td>
-                    <td class="entry">
-                        <input tabindex="8" class="hide_on_print textinput" ng-model="site.site">
-                        <span class="hide_on_screen">{{site.site}}</span>
-                    </td>
-                    <td class="label">
-                        Model:
-                    </td>
-                    <td class="entry">
-                        <input tabindex="14" class="hide_on_print textinput" ng-model="equipment.model">
-                        <span class="hide_on_screen">{{equipment.model}}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="label tableleft">
-                        Floor #:
-                    </td>
-                    <td class="entry">
-                        <input tabindex="9" class="hide_on_print textinput" ng-model="site.floor">
-                        <span class="hide_on_screen">{{site.room}}</span>
-                    </td>
-                    <td class="label">
-                        Serial #:
-                    </td>
-                    <td class="entry">
-                        <input tabindex="15" class="hide_on_print textinput" ng-model="equipment.serial">
-                        <span class="hide_on_screen">{{equipment.serial}}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="label tableleft">
-                        Room #:
-                    </td>
-                    <td class="entry">
-                        <input tabindex="10" class="hide_on_print textinput" ng-model="site.room">
-                        <span class="hide_on_screen">{{site.room}}</span>
-                    </td>
-                    <td class="label">
-                        Barcode #:
-                    </td>
-                    <td class="entry">
-                        <input tabindex="16" class="hide_on_print textinput" ng-model="equipment.barcode">
-                        <span class="hide_on_screen">{{equipment.barcode}}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="label tableleft">
-                        Town:
-                    </td>
-                    <td class="entry">
-                        <input tabindex="11" class="hide_on_print textinput" ng-model="site.town">
-                        <span class="hide_on_screen">{{site.town}}</span>
-                    </td>
-                    <td rowspan="2" class="label">
-                        Warranty End Date
-                    </td>
-                    <td rowspan="2" class="entry">
-                        &nbsp;
-                    </td>
-                </tr>
-                <tr>
-                    <td class="label tableleft">
-                        Province:
-                    </td>
-                    <td class="entry">
-                        Eastern Cape
-                    </td>
-                </tr>
-            </table>
-
-            <!-- SLA details -->
-
-            <table id="sladetails" class="tablespacing">
-                <tr>
-                    <!-- Headers -->
-                    <th style="width: 15%" class="tableleft">
-                        Details
-                    </th>
-                    <th colspan="4" style="width: 35%">
-                        Date & Time
-                    </th>
-                    <th style="width: 15%">
-                        Contract Type
-                    </th>
-                    <th style="text-align: center;">
-                        <span ng-if="fsa">T&M</span>
-                        <span ng-if="!fsa">FSA</span>
-                    </th>
-                    <th style="width: 10%">
-                        FSA
-                    </th>
-                    <th style="width: 10%">T&M
-                        <input class="hide_on_print" ng-model="fsa" type="checkbox">
-                    </th>
-                </tr>
-                <tr>
-                    <!-- Tech Row -->
-                    <td class="tableleft">
-                        Technician:
-                    </td>
-                    <td colspan="4">
-                        Jaco Swart
-                    </td>
-                    <td>
-                        Actual Equip.
-                    </td>
-                    <td style="text-align: center;">
-                        Faulty
-                    </td>
-                    <td colspan="2" style="text-align: center;">
-                        Replacement
-                    </td>
-                </tr>
-                <tr>
-                    <td class="tableleft">
-                        Group:
-                    </td>
-                    <td colspan="4">
-                        Khauleza
-                    </td>
-                    <td>
-                        Make:
-                    </td>
-                    <td>
-                        <input tabindex="24" class="hide_on_print input textinput" ng-model="faulty.make1" size="10">
-                        <span class="hide_on_screen">{{faulty.make1}}</span>
-                    </td>
-                    <td colspan="2">
-                        <input tabindex="27" class="hide_on_print input textinput" ng-model="replacement.make1" size="18">
-                        <span class="hide_on_screen">{{replacement.make1}}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="tableleft">
-                        Reported:
-                    </td>
-                    <td colspan="4" class="entry">
-                        <input class="hide_on_print input textinput" ng-model="sla.reported">
-                        <span class="hide_on_screen">{{sla.reported}}</span>
-                    </td>
-                    <td>
-                        Model:
-                    </td>
-                    <td>
-                        <input tabindex="25" class="hide_on_print input textinput" ng-model="faulty.model1" size="10">
-                        <span class="hide_on_screen">{{faulty.model1}}</span>
-                    </td>
-                    <td colspan="2">
-                        <input tabindex="28" class="hide_on_print input textinput" ng-model="replacement.model1" size="18">
-                        <span class="hide_on_screen">{{replacement.model1}}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="tableleft">
-                        Arrival:
-                    </td>
-                    <td colspan="4">
-                        {{sla.arrival}} {{sla.arrivetime}}
-                    </td>
-                    <td>
-                        Serial:
-                    </td>
-                    <td>
-                        <input tabindex="26" class="hide_on_print input textinput" ng-model="faulty.serial1" size="10">
-                        <span class="hide_on_screen">{{faulty.serial1}}</span>
-                    </td>
-                    <td colspan="2">
-                        <input tabindex="29" class="hide_on_print input textinput" ng-model="replacement.serial1" size="18">
-                        <span class="hide_on_screen">{{replacement.serial1}}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="tableleft">
-                        Completed:
-                    </td>
-                    <td colspan="4">
-                        <span ng-if="signoff.completed">
-                            {{sla.completed}} {{sla.completedtime}}
-                        </span>
-                        <span ng-if="signoff.notcompleted">
-                            {{sla.completed}} {{sla.completedtime}}
-                        </span>
-                    </td>
-                    <td>
-                        Make:
-                    </td>
-                    <td>
-                        <input tabindex="30" class="hide_on_print input textinput" ng-model="faulty.make2" size="10">
-                        <span class="hide_on_screen">{{faulty.make2}}</span>
-                    </td>
-                    <td colspan="2">
-                        <input tabindex="33" class="hide_on_print input textinput" ng-model="replacement.make2" size="18">
-                        <span class="hide_on_screen">{{replacement.make2}}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="tableleft">
-                        &nbsp;
-                    </td>
-                    <td colspan="2">
-                        Original Visit
-                    </td>
-                    <td colspan="2">
-                        Return Visit
-                    </td>
-                    <td>
-                        Model:
-                    </td>
-                    <td>
-                        <input tabindex="31" class="hide_on_print input textinput" ng-model="faulty.model2" size="10">
-                        <span class="hide_on_screen">{{faulty.model2}}</span>
-                    </td>
-                    <td colspan="2">
-                        <input tabindex="34" class="hide_on_print input textinput" ng-model="replacement.model2" size="18">
-                        <span class="hide_on_screen">{{replacement.model2}}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="tableleft">
-                        Travel:
-                    </td>
-                    <td>
-                        Single
-                    </td>
-                    <td>
-                        Return
-                    </td>
-                    <td>
-                        Single
-                    </td>
-                    <td>
-                        Return
-                    </td>
-                    <td>
-                        Serial:
-                    </td>
-                    <td>
-                        <input tabindex="32" class="hide_on_print input textinput" ng-model="faulty.serial2" size="10">
-                        <span class="hide_on_screen">{{faulty.serial2}}</span>
-                    </td>
-                    <td colspan="2">
-                        <input tabindex="35" class="hide_on_print input textinput" ng-model="replacement.serial2" size="18">
-                        <span class="hide_on_screen">{{replacement.serial2}}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="tableleft">
-                        Start
-                    </td>
-                    <td>
-                        <input tabindex="17" class="hide_on_print input textinput" ng-model="ov.ss" size="5">
-                        <span class="hide_on_screen">{{ov.ss}}</span>
-                    </td>
-                    <td>
-                        <input class="hide_on_print input textinput" ng-model="ov.rs" size="5">
-                        <span class="hide_on_screen">{{ov.rs}}</span>
-                    </td>
-                    <td>
-                        &nbsp;
-                    </td>
-                    <td>
-                        &nbsp;
-                    </td>
-                    <td>
-                        Make:
-                    </td>
-                    <td>
-                        <input tabindex="36" class="hide_on_print input textinput" ng-model="faulty.make3" size="10">
-                        <span class="hide_on_screen">{{faulty.make3}}</span>
-                    </td>
-                    <td colspan="2">
-                        <input tabindex="39" class="hide_on_print input textinput" ng-model="replacement.make3" size="18">
-                        <span class="hide_on_screen">{{replacement.make3}}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="tableleft">
-                        End
-                    </td>
-                    <td>
-                        <input tabindex="18" class="hide_on_print input textinput" ng-model="ov.se" size="5">
-                        <span class="hide_on_screen">{{ov.se}}</span>
-                    </td>
-                    <td>
-                        <input class="hide_on_print input textinput" ng-model="ov.re" size="5">
-                        <span class="hide_on_screen">{{ov.re}}</span>
-                    </td>
-                    <td>
-                        &nbsp;
-                    </td>
-                    <td>
-                        &nbsp;
-                    </td>
-                    <td>
-                        Model:
-                    </td>
-                    <td>
-                        <input tabindex="37" class="hide_on_print input textinput" ng-model="faulty.model3" size="10">
-                        <span class="hide_on_screen">{{faulty.model3}}</span>
-                    </td>
-                    <td colspan="2">
-                        <input tabindex="40" class="hide_on_print input textinput" ng-model="replacement.model3" size="18">
-                        <span class="hide_on_screen">{{replacement.model3}}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="tableleft">
-                        &nbsp;
-                    </td>
-                    <td class="entry" colspan="4">
-                        &nbsp;
-                    </td>
-                    <td>
-                        Serial:
-                    </td>
-                    <td>
-                        <input tabindex="38" class="hide_on_print input textinput" ng-model="faulty.serial3" size="10">
-                        <span class="hide_on_screen">{{faulty.serial3}}</span>
-                    </td>
-                    <td colspan="2">
-                        <input tabindex="41" class="hide_on_print input textinput" ng-model="replacement.serial3" size="18">
-                        <span class="hide_on_screen">{{replacement.serial3}}</span>
-                    </td>
-                </tr>
-            </table>
-
-            <!-- SLA Targets-->
-
-            <table style="border-top: 0.5px solid; border-left: 0.5px solid;">
-                <tr>
-                    <th style="width: 33.3%" class="tableleft tabletop">
-                        Response Target:
-                    </th>
-                    <th style="width: 33.3%" class="tabletop">
-                        Repair Target:
-                    </th>
-                    <th style="width: 33.3%" class="tabletop">
-                        Call Status:
-                    </th>
-                </tr>
-            </table>
-
-            <!-- Problem Reported and repaired Comments -->
-            <textarea ng-model="problem.issue" tabindex="19" rows="3" cols="85"></textarea>
-            <textarea ng-model="problem.resolution" tabindex="20" rows="3" cols="75"></textarea>
-
-            <!-- Service Up Section -->
-            <table class="tablespacing">
-                <tr>
-                    <th colspan="2" class="cellcenter tableleft tabletop">
-                        Client Equipment Removed
-                        <br>
-                        <input class="hide_on_print" type="checkbox" ng-model="equipmentrem.eqremautofill" ng-click="setRemovedTime()">
-                        <span class="hide_on_print">Check to Autofill Fields</span>
-                    </th>
-                    <th colspan="2" class="cellcenter tabletop">
-                        Backup Installed
-                        <br>
-                        <input class="hide_on_print" type="checkbox" ng-model="backup.backupautorefill" ng-click="setBackupTime()">
-                        <span class="hide_on_print">Check to Autofill Fields</span>
-                    </th>
-                    <th colspan="2" class="cellcenter tabletop">
-                        Client Equipment Returned
-                        <br>
-                        <input class="hide_on_print" type="checkbox" ng-model="equipmentret.eqretautofill" ng-click="setReturnTime()">
-                        <span class="hide_on_print">Check to Autofill Fields</span>
-                    </th>
-                </tr>
-                <tr>
-                    <td class="serviceuplabel tableleft">
-                        Make
-                    </td>
-                    <td class="serviceupentry">
-                        <span ng-if="equipmentrem.eqremautofill">{{equipment.make}}</span>
-                    </td>
-                    <td class="serviceuplabel">
-                        Make
-                    </td>
-                    <td class="serviceupentry">
-                        <span ng-if="backup.backupautorefill">{{equipment.make}}</span>
-                        <span ng-if="!backup.backupautorefill">
-                            <input class="textinput" tabindex="21" type="text" ng-model="backup.make">
-                        </span>
-
-                    </td>
-                    <td class="serviceuplabel">
-                        Make
-                    </td>
-                    <td class="serviceupentry">
-                        <span ng-if="equipmentret.eqretautofill">{{equipment.make}}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="tableleft">
-                        Model
-                    </td>
-                    <td>
-                        <span ng-if="equipmentrem.eqremautofill">{{equipment.model}}</span>
-                    </td>
-                    <td>
-                        Model
-                    </td>
-                    <td>
-                        <span ng-if="backup.backupautorefill">{{equipment.model}}</span>
-                        <span ng-if="!backup.backupautorefill">
-                            <input class="textinput" tabindex="22" type="text" ng-model="backup.model">
-                        </span>
-                    </td>
-                    <td>
-                        Model
-                    </td>
-                    <td>
-                        <span ng-if="equipmentret.eqretautofill">{{equipment.model}}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="tableleft">
-                        Serial&nbsp;#
-                    </td>
-                    <td>
-                        <span ng-if="equipmentrem.eqremautofill">{{equipment.serial}}</span>
-                    </td>
-                    <td>
-                        Serial&nbsp;#
-                    </td>
-                    <td>
-                        <span ng-if="backup.backupautorefill">{{equipment.serial}}</span>
-                        <span ng-if="!backup.backupautorefill">
-                            <input class="textinput" tabindex="23" type="text" ng-model="backup.serial">
-                        </span>
-                    </td>
-                    <td>
-                        Serial&nbsp;#
-                    </td>
-                    <td>
-                        <span ng-if="equipmentret.eqretautofill">{{equipment.serial}}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="tableleft">
-                        Date:
-                    </td>
-                    <td>
-                        <span ng-if="equipmentrem.eqremautofill">{{sla.arrival}}</span>
-                    </td>
-                    <td>
-                        Date:
-                    </td>
-                    <td>
-                        <span ng-if="backup.backupautorefill">{{sla.arrival}}</span>
-                        <span ng-if="!backup.backupautorefill">
-                            <input class="textinput" type="text">{{backup.date}}
-                        </span>
-                    </td>
-                    <td>
-                        Date:
-                    </td>
-                    <td>
-                        <span ng-if="equipmentret.eqretautofill">{{sla.completed}}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="tableleft">
-                        Time:
-                        <!-- Equipment Removed -->
-                    </td>
-                    <td>
-                        <span ng-if="equipmentrem.time">{{equipmentrem.time}}</span>
-                    </td>
-                    <td>
-                        Time:
-                        <!-- Backup Installed -->
-                    </td>
-                    <td>
-                        <span ng-if="backup.backupautorefill">{{backup.time}}</span>
-                        <span ng-if="!backup.backupautorefill">
-                            <input class="textinput" type="text" ng-model="backup.time">
-                        </span>
-
-                    </td>
-                    <td>
-                        Time:
-                        <!-- Equipment Returned -->
-                    </td>
-                    <td>
-                        <span ng-if="equipmentret.time">{{equipmentret.time}}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2" class="serviceupsigntag1 tableleft">
-                        <a href="#equipmentRemovedSignature" id="equipmentRemovedSignature" ng-click="sign('#equipmentRemovedSignatureBackground')">Client Signature:</a>
-                    </td>
-                    <td colspan="2" class="serviceupsigntag1">
-                        <a href="#backupInstalledSignature" id="backupInstalledSignature" ng-click="sign('#backupInstalledSignatureBackground')">Client Signature:</a>
-                    </td>
-                    <td colspan="2" class="serviceupsigntag1">
-                        <a href="#equipmentReturnedSignature" id="equipmentReturnedSignature" ng-click="sign('#equipmentReturnedSignatureBackground')">
-                            Client Signature</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2" id="equipmentRemovedSignatureBackground" class="signature_holder serviceupsigntag2 tableleft">
-                        <br>
-                        <br>
-                        <br>
-                    </td>
-                    <td colspan="2" id="backupInstalledSignatureBackground" class="signature_holder serviceupsigntag2">
-                        <br>
-                        <br>
-                        <br>
-                    </td>
-                    <td colspan="2" id="equipmentReturnedSignatureBackground" class="signature_holder serviceupsigntag2">
-                        <br>
-                        <br>
-                        <br>
-                    </td>
-                </tr>
-            </table>
-
-            <!-- Signoff Section -->
-            <table class="tablespacing">
-                <tr>
-                    <td style="border-right: none;" class="tableleft tabletop">I,
-                        <span ng-if="signoff.samename"> {{reporter.name}} , agree that :</span>
-                        <span ng-if="!signoff.samename">
-                            <input class="textinput" size="25" type="text" ng-model="signoff.name"> ,agree that :
-                        </span>
-                    </td>
-
-                    <td colspan="4" style="border-left: none;" class="tabletop">
-
-                        <input class="hide_on_print textinput" type="checkbox" ng-model="signoff.samename">
-                        <span class="hide_on_print">Auto fill Reported Name</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="4" class="tableleft">
-                        I have tested the equipment and am satisfied that it works
-                    </td>
-                    <td>
-                        <input type="checkbox" ng-model="signoff.completed" ng-click="setcompletedtime()">
-                        <span ng-if="signoff.completed">
-                            <div ng-value="signoff.notcompleted=false"></div>
-                            <div ng-value="signoff.completed=true"></div>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="4" class="tableleft">
-                        The equipment is non-operational due to other factors
-                    </td>
-                    <td>
-                        <input type="checkbox" ng-model="signoff.notcompleted" ng-click="setcompletedtime()">
-                        <span ng-if="signoff.notcompleted">
-                            <div ng-value="signoff.completed=false"></div>
-                            <div ng-value="signoff.notcomplete=true"></div>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="cellcenter tableleft">
-                        User Comments
-                    </td>
-                    <td colspan="4" class="cellcenter">
-                        Service Rating
-                    </td>
-                </tr>
-                <!--  This is the user comments and Service Rating area -->
-                <tr>
-                    <td rowspan="3" class="usercomments tableleft">
-                        <textarea class="noborder" rows="2" style="width: 100%"> </textarea>
-                    </td>
-                    <td colspan="4" class="cellcenter">
-                        Please rate our service : X
-                    </td>
-                </tr>
-                <tr>
-
-                    <td class="servicelevel">
-                        <input type="checkbox" ng-model="slalvlsel.excellent">
-                        <span ng-if="slalvlsel.excellent">
-                            <div ng-value="slalvlsel.excellent=true"></div>
-                            <div ng-value="slalvlsel.good=false"></div>
-                            <div ng-value="slalvlsel.avg=false"></div>
-                            <div ng-value="slalvlsel.poor=false"></div>
-                        </span>
-
-                    </td>
-                    <td class="servicelevel">
-                        <input type="checkbox" ng-model="slalvlsel.good">
-                        <span ng-if="slalvlsel.good">
-                            <div ng-value="slalvlsel.excellent=false"></div>
-                            <div ng-value="slalvlsel.good=true"></div>
-                            <div ng-value="slalvlsel.avg=false"></div>
-                            <div ng-value="slalvlsel.poor=false"></div>
-                        </span>
-                    </td>
-                    <td class="servicelevel">
-                        <input type="checkbox" ng-model="slalvlsel.avg">
-                        <span ng-if="slalvlsel.avg">
-                            <div ng-value="slalvlsel.excellent=false"></div>
-                            <div ng-value="slalvlsel.good=false"></div>
-                            <div ng-value="slalvlsel.avg=true"></div>
-                            <div ng-value="slalvlsel.poor=false"></div>
-                        </span>
-                    </td>
-                    <td class="servicelevel">
-                        <input type="checkbox" ng-model="slalvlsel.poor">
-                        <span ng-if="slalvlsel.poor">
-                            <div ng-value="slalvlsel.excellent=false"></div>
-                            <div ng-value="slalvlsel.good=false"></div>
-                            <div ng-value="slalvlsel.avg=false"></div>
-                            <div ng-value="slalvlsel.poor=true"></div>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-
-                    <td class="servicelevel">Excellent</td>
-                    <td class="servicelevel">Good</td>
-                    <td class="servicelevel">Average</td>
-                    <td class="servicelevel">Poor</td>
-                </tr>
-            </table>
-
-            <!-- Closing Signatures -->
-            <table class="cellcenter" style="border: none;">
-                <tr>
-                    <td id="callClosedClientSignatureBackground" class="signature_holder signoffcell" style="border-left: none;">
-                        <br>
-                        <br>
-                    </td>
-                    <td id="callClosedTechSignatureBackground" class="signature_holder signoffcell">
-                    </td>
-                    <td class="signoffcell">
-                        <div ng-if="signoff.completed">{{sla.completed}}</div>
-                        <div ng-if="!signoff.completed"></div>
-                        <div ng-if="signoff.notcompleted">{{sla.completed}}</div>
-                        <div ng-if="!signoff.notcompleted"></div>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="border-top: 0.5px solid; border-left: 0.5px solid;">
-                        <a href="#callClosedClientSignature" id="callClosedClientSignature" ng-click="sign('#callClosedClientSignatureBackground')">Client Signature</a>
-                    </td>
-                    <td style="border-top: 0.5px solid">
-                        <a href="#callClosedTechSignature" id="callClosedTechSignature" ng-click="sign('#callClosedTechSignatureBackground')">Technician Signature</a>
-                    </td>
-                    <td style="border-top: 0.5px solid">
-                        Date
-                    </td>
-                </tr>
-            </table>
-        </div>
 
         <!-- Parts Replacement page -->
         <div ng-if="activeForm === 'PARTS_REPLACEMENT'">
@@ -1772,6 +985,407 @@
             </div>
         </div>
 
+        
+        <!-- Jobcard Grid-style -->
+        <div id="jobcard-grid" ng-if="activeForm === 'JOBCARD'">
+            <img id="jc-logo" class="imagedisplay" src="img/image002.png" alt="Khauleza Logo: " height="50">
+            <h3 id="jc-title" style="text-align:center">TECHNICIAN REPORT</h3>
+            <div id="khau-ref">
+                Call #  :  {{doc.callid}}
+            </div>
+            <div id="client">
+                Client  : <input class="hide_on_print" ng-model="doc.client" type="checkbox">
+                <span ng-if="!doc.client">SAPS</span>
+                <span ng-if="doc.client">MECER</span><br>
+                <span>{{site.town}} </span>
+            </div>
+            <div id="sita-ref">
+                Client Ref : {{doc.sitaref}}<br>
+                OtherRef   :.....................
+            </div>
+        </div>
+        <div class="borderse" id="jobcard-contacts-grid" ng-if="activeForm === 'JOBCARD'">
+            <div class="bordernw" id="repheader" >Reporter :</div>
+            <div class="bordernw" id="contheader" >Contact :</div>
+            
+            <div class="bordernw">Name</div>
+            <div class="bordernw">
+                <input class="hide_on_print inputclass" ng-model="reporter.name">
+                <span class="hide_on_screen">{{reporter.name}} </span>
+            </div>
+            <div class="bordernw">Name</div>
+            <div class="bordernw">{{reporter.name}} </div>
+
+            <div class="bordernw">Tel</div>
+            <div class="bordernw">
+                <input class="hide_on_print inputclass" ng-model="reporter.tel">
+                <span class="hide_on_screen">{{reporter.tel}} </span>
+            </div>
+            <div class="bordernw">Tel</div>
+            <div class="bordernw">{{reporter.tel}} </div>
+
+            <div class="bordernw">Cell</div>
+            <div class="bordernw">
+                <input class="hide_on_print  inputclass" ng-model="reporter.cell">
+                <span class="hide_on_screen">{{reporter.cell}} </span>
+            </div>
+            <div class="bordernw">Cell</div>
+            <div class="bordernw">{{reporter.cell}} </div>
+        </div>
+
+        <div class="borderse" id="jobcard-site-grid" ng-if="activeForm === 'JOBCARD'">
+            <div class="bordernw" id="siteheader">Site Adress :</div>
+            <div class="bordernw" id="equipheader">Equipment Reported :</div>
+            
+            <div class="bordernw" >Street</div>
+            <div class="bordernw" >
+                <input class="hide_on_print inputclass" ng-model="site.street">
+                <span class="hide_on_screen">{{site.street}} </span>
+            </div>
+            <div class="bordernw" >Asset #</div>
+            <div class="bordernw" >
+                <input class="hide_on_print inputclass" ng-model="equipment.asset">
+                <span class="hide_on_screen">{{equipment.asset}} </span>
+            </div>
+
+            <div class="bordernw" >Building</div>
+            <div class="bordernw" >
+                <input class="hide_on_print inputclass" ng-model="site.building">
+                <span class="hide_on_screen">{{site.building}} </span>
+            </div>
+            <div class="bordernw" >Make</div>
+            <div class="bordernw" >
+                <input class="hide_on_print inputclass" ng-model="equipment.make">
+                <span class="hide_on_screen">{{equipment.make}} </span>
+            </div>
+
+            <div class="bordernw" >Site</div>
+            <div class="bordernw" >
+                <input class="hide_on_print inputclass" ng-model="site.site">
+                <span class="hide_on_screen">{{site.site}} </span>
+            </div>
+            <div class="bordernw" >Model</div>
+            <div class="bordernw" >
+                <input class="hide_on_print inputclass" ng-model="equipment.model">
+                <span class="hide_on_screen">{{equipment.model}} </span>
+            </div>
+
+            <div class="bordernw" >Floor #</div>
+            <div class="bordernw" >
+                <input class="hide_on_print inputclass" ng-model="site.floor">
+                <span class="hide_on_screen">{{site.floor}} </span>
+            </div>
+            <div class="bordernw" >Serial #</div>
+            <div class="bordernw" >
+                <input class="hide_on_print inputclass" ng-model="equipment.serial">
+                <span class="hide_on_screen">{{equipment.serial}} </span>
+            </div>
+
+            <div class="bordernw" >Room</div>
+            <div class="bordernw"  >
+                <input class="hide_on_print inputclass" ng-model="site.room">
+                <span class="hide_on_screen">{{site.room}} </span>
+            </div>
+            <div class="bordernw" >Barcode #</div>
+            <div  class="bordernw" >{{equipment.barcode}} </div>
+
+            <div class="bordernw" >Town</div>
+            <div class="bordernw"  >
+                <input class="hide_on_print inputclass" ng-model="site.town">
+                <span class="hide_on_screen">{{site.town}} </span>
+            </div>
+            <div class="bordernw"  id="warranty-text">Warranty End Date</div>
+            <div class="bordernw"  id="warranty-input"></div>
+
+            <div class="bordernw" >Province</div>
+            <div  class="bordernw" >Eastern Cape </div>
+
+        </div>
+        <div class="borderse"  id="jobcard-details-grid" ng-if="activeForm === 'JOBCARD'">
+            <div class="textheader bordernw">Details</div>
+            <div class="datetime textheader bordernw">Date & Time</div>
+            <div class="textheader bordernw">Contract Type</div>
+            <div class="textheader bordernw">
+                <span ng-if="fsa">T&M</span>
+                <span ng-if="!fsa">FSA</span>
+            </div>
+            <div class="textheader bordernw">FSA :</div>
+            <div class="textheader bordernw">T&M :<input class="hide_on_print" type="checkbox" ng-model="fsa"></div>
+
+            <div class="bordernw" >Technician :</div>
+            <div class="datetime bordernw">Jaco Swart</div>
+            <div class="bordernw" >Actual Equip.</div>
+            <div class="bordernw" style="text-align: center; ">Faulty</div>
+            <div class="span2 bordernw" style="text-align: center;">Replacement</div>
+
+            <div class="bordernw" >Group :</div>
+            <div class="datetime bordernw">Khauleza</div>
+            <div class="bordernw" >Make</div>
+            <div class="bordernw" ><input class="inputclass" size="15" ng-model="faulty.make1"> </div>
+            <div class="span2 bordernw"><input class="inputclass" size="15" ng-model="replacement.make1"> </div>
+
+            <div class="bordernw" >Reported :</div>
+            <div class="datetime bordernw">{{sla.reported}} </div>
+            <div class="bordernw" >Model</div>
+            <div class="bordernw" ><input class="inputclass" size="15" ng-model="faulty.model1"> </div>
+            <div class="span2 bordernw"><input class="inputclass" size="15" ng-model="replacement.model1"> </div>
+
+            <div class="bordernw" >Arrival :</div>
+            <div class="datetime bordernw">{{sla.arrival}} {{sla.arrivetime}} </div>
+            <div class="bordernw" >Serial</div>
+            <div class="bordernw" ><input class="inputclass" size="15" ng-model="faulty.serial1"> </div>
+            <div class="span2 bordernw"><input class="inputclass" size="15" ng-model="replacement.serial1"> </div>
+
+            <div class="bordernw" >Completed :</div>
+            <div class="datetime bordernw">
+                    <span ng-if="signoff.completed">
+                            {{sla.completed}} {{sla.completedtime}}
+                        </span>
+                    <span ng-if="signoff.notcompleted">
+                            {{sla.completed}} {{sla.completedtime}}
+                        </span>
+            </div>
+            <div class="bordernw" >Make :</div>
+            <div class="bordernw" ><input class="inputclass" size="15" ng-model="faulty.make2"> </div>
+            <div class="span2 bordernw"><input class="inputclass" size="15" ng-model="replacement.make2"> </div>
+
+            <div class="bordernw" ></div>
+            <div class="original-visit bordernw">Original Visit</div>
+            <div class="return-visit bordernw">Return Visit</div>
+            <div class="bordernw" >Model</div>
+            <div class="bordernw" ><input class="inputclass" size="15" ng-model="faulty.model2"> </div>
+            <div class="span2 bordernw"><input class="inputclass" size="15" ng-model="replacement.model2"> </div>
+
+            <div class="bordernw"  >Travel :</div>
+            <div class="bordernw" >Single</div>
+            <div class="bordernw" >Return</div>
+            <div class="bordernw" >Single</div>
+            <div class="bordernw" >Return</div>
+            <div class="bordernw" >Serial</div>
+            <div class="bordernw" ><input class="inputclass" size="15" ng-model="faulty.serial2"> </div>
+            <div class="span2 bordernw"><input class="inputclass"  size="15" ng-model="replacement.serial2"> </div>
+
+            <div class="bordernw" >Start :</div>
+            <div class="bordernw" ><input class="inputclass" size="6" ng-model="ov.ss"> </div>
+            <div class="bordernw" ><input class="inputclass" size="6" ng-model="ov.rs"> </div>
+            <div class="bordernw" ></div>
+            <div class="bordernw" ></div>
+            <div class="labels bordernw">Make</div>
+            <div class="bordernw" ><input class="inputclass" size="15" ng-model="faulty.make3"> </div>
+            <div class="span2 bordernw"><input class="inputclass"  size="15" ng-model="replacement.make3"> </div>
+
+            <div class="bordernw" >End :</div>
+            <div class="bordernw" ><input class="inputclass" size="6" ng-model="ov.sse" ng-change="savekilos()"> </div>
+            <div class="bordernw" ><input class="inputclass" size="6" ng-model="ov.re"> </div>
+            <div class="bordernw" ></div>
+            <div class="bordernw" ></div>
+            <div class="bordernw" >Model :</div>
+            <div class="bordernw" ><input class="inputclass" size="15" ng-model="faulty.model3"> </div>
+            <div class="span2 bordernw"><input class="inputclass"  size="15" ng-model="replacement.model3"> </div>
+
+            <div class="lastrow bordernw"></div>
+            <div class="bordernw" >Serial :</div>
+            <div class="bordernw" ><input class="inputclass" size="15" ng-model="faulty.serial3"> </div>
+            <div class="span2 bordernw"><input class="inputclass"  size="15" ng-model="replacement.serial3"> </div>
+
+        </div>
+        
+        <div class="borderse" id="jobcard-sla-grid" ng-if="activeForm === 'JOBCARD'">
+            <div class="bordernw">Response Target</div>    
+            <div class="bordernw">Repair Target</div>    
+            <div class="bordernw">Call Status</div> 
+            <div class="prob">
+                <textarea class="prob" ng-model="problem.issue" ></textarea> 
+            </div>
+            <div class="prob">
+                <textarea class="prob" ng-model="problem.resolution" ></textarea>  
+            </div>
+        </div>
+
+        <div class="borderse" id="jobcard-backup-grid" ng-if="activeForm === 'JOBCARD'">
+            <div class="header bordernw">Equipment Removed</div>
+            <div class="header bordernw">Backup Installed</div>
+            <div class="header bordernw">Equipment Returned</div>
+
+            <div class="bordernw" >Make</div>
+            <div class="textentry bordernw">
+                <input class="hide_on_print inputclass" ng-model="equipmentrem.make">
+                <span class="hide_on_screen">{{equipmentrem.make}} </span>
+            </div>
+            <div class="bordernw" >Make</div>
+            <div class="textentry bordernw">
+                <input class="hide_on_print inputclass" ng-model="backup.make">
+                <span class="hide_on_screen">{{backup.make}} </span>
+            </div>
+            <div class="bordernw" >Make</div>
+            <div class="textentry bordernw">
+                <input class="hide_on_print inputclass" ng-model="equipmentret.make">
+                <span class="hide_on_screen">{{equipmentret.make}} </span>
+            </div>
+
+            <div class="bordernw" >Model</div>
+            <div class="textentry bordernw">
+                <input class="hide_on_print inputclass" ng-model="equipmentrem.model">
+                <span class="hide_on_screen">{{equipmentrem.model}} </span>
+            </div>
+            <div class="bordernw" >Model</div>
+            <div class="textentry bordernw">
+                <input class="hide_on_print inputclass" ng-model="backup.model">
+                <span class="hide_on_screen">{{backup.model}} </span>
+            </div>
+            <div class="bordernw" >Model</div>
+            <div class="textentry bordernw">
+                <input class="hide_on_print inputclass" ng-model="equipmentret.model">
+                <span class="hide_on_screen">{{equipmentret.model}} </span>
+            </div>
+
+            <div class="bordernw" >Serial</div>
+            <div class="textentry bordernw">
+                <input class="hide_on_print inputclass" ng-model="equipmentrem.serial">
+                <span class="hide_on_screen">{{equipmentrem.serial}} </span>
+            </div>
+            <div class="bordernw" >Serial</div>
+            <div class="textentry bordernw">
+                <input class="hide_on_print inputclass" ng-model="backup.serial">
+                <span class="hide_on_screen">{{backup.serial}} </span>
+            </div>
+            <div class="bordernw" >Serial</div>
+            <div class="textentry bordernw">
+                <input class="hide_on_print inputclass" ng-model="equipmentret.serial">
+                <span class="hide_on_screen">{{equipmentret.serial}} </span>
+            </div>
+
+            <div class="bordernw" >Date</div>
+            <div class="textentry bordernw">
+                <input class="hide_on_print inputclass" ng-model="equipmentrem.date">
+                <span class="hide_on_screen">{{equipmentrem.date}} </span>
+            </div>
+            <div class="bordernw" >Date</div>
+            <div class="textentry bordernw">
+                <input class="hide_on_print inputclass" ng-model="backup.date">
+                <span class="hide_on_screen">{{backup.date}} </span>
+            </div>
+            <div class="bordernw" >Date</div>
+            <div class="textentry bordernw">
+                <input class="hide_on_print inputclass" ng-model="equipmentret.date">
+                <span class="hide_on_screen">{{equipmentret.date}} </span>
+            </div>
+
+            <div class="bordernw" >Time</div>
+            <div class="textentry bordernw">
+                <input class="hide_on_print inputclass" ng-model="equipmentrem.time">
+                <span class="hide_on_screen">{{equipmentrem.time}} </span>
+            </div>
+            <div class="bordernw" >Time</div>
+            <div class="textentry bordernw">
+                <input class="hide_on_print inputclass" ng-model="backup.time">
+                <span class="hide_on_screen">{{backup.time}} </span>
+            </div>
+            <div class="bordernw" >Time</div>
+            <div class="textentry bordernw">
+                <input class="hide_on_print inputclass" ng-model="equipmentret.time">
+                <span class="hide_on_screen">{{equipmentret.time}} </span>
+            </div>
+
+            <div id="equipmentRemovedSignatureBackground" class="signature_holder clientsign bordernw">
+                    <a href="#equipmentRemovedSignature" id="equipmentRemovedSignature" ng-click="sign('#equipmentRemovedSignatureBackground')">Client Signature:</a>    
+            </div>
+            <div id="backupInstalledSignatureBackground" class="signature_holder clientsign bordernw">
+                    <a href="#backupInstalledSignature" id="backupInstalledSignature" ng-click="sign('#backupInstalledSignatureBackground')">Client Signature:</a>
+            </div>
+            <div id="equipmentReturnedSignatureBackground" class="signature_holder clientsign bordernw">
+                    <a href="#equipmentReturnedSignature" id="equipmentReturnedSignature" ng-click="sign('#equipmentReturnedSignatureBackground')">Client Signature</a>
+            </div>
+
+        </div>
+        <div class="borderse" id="jobcard-signoff-grid" ng-if="activeForm === 'JOBCARD'">
+                <div class="bordernw span10">I, {{reporter.name}}, agree that :</div>
+                <div class="bordernw span9">I have tested the equipment and am satisfied that it works</div>
+                <div class="bordernw span1"><input type="checkbox" ng-model="signoff.completed" ng-click="setcompletedtime()" >
+                    <span ng-if="signoff.completed">
+                            <span ng-value="signoff.completed=true"></span>
+                            <span ng-value="signoff.notcompleted=false"></span>
+                        </span>
+                </div>
+                <div class="bordernw span9">The equipment is non-operational due to other factors</div>
+                <div class="bordernw span1"><input type="checkbox" ng-model="signoff.notcompleted" ng-click="setcompletedtime()" >
+                    <span ng-if="signoff.notcompleted">
+                            <span ng-value="signoff.notcompleted=true"></span>
+                            <span ng-value="signoff.completed=false"></span>
+                        </span>
+                </div>
+                <div class="bordernw span6">User Comments</div>
+                <div class="bordernw span4">Service rating</div>
+                <div class="bordernw span6text"><textarea style="height: 5em;"></textarea></div>
+                <div class="bordernw span4">Please rate our service : X</div>
+                <div class="bordernw span1"><input type="checkbox" ng-model="slalvlsel.excellent" >
+                    <span ng-if="slalvlsel.excellent">
+                            <span ng-value="slalvlsel.excellent=true"></span>
+                            <span ng-value="slalvlsel.good=false"></span>
+                            <span ng-value="slalvlsel.avg=false"></span>
+                            <span ng-value="slalvlsel.poor=false"></span>
+                        </span>
+                </div>
+                <div class="bordernw span1"><input type="checkbox" ng-model="slalvlsel.good" >
+                    <span ng-if="slalvlsel.good">
+                            <span ng-value="slalvlsel.excellent=false"></span>
+                            <span ng-value="slalvlsel.good=true"></span>
+                            <span ng-value="slalvlsel.avg=false"></span>
+                            <span ng-value="slalvlsel.poor=false"></span>
+                        </span>
+                </div>
+                <div class="bordernw span1"><input type="checkbox" ng-model="slalvlsel.avg" >
+                    <span ng-if="slalvlsel.avg">
+                            <span ng-value="slalvlsel.excellent=false"></span>
+                            <span ng-value="slalvlsel.good=false"></span>
+                            <span ng-value="slalvlsel.avg=true"></span>
+                            <span ng-value="slalvlsel.poor=false"></span>
+                        </span>
+                </div>
+                <div class="bordernw span1"><input type="checkbox" ng-model="slalvlsel.poor" >
+                    <span ng-if="slalvlsel.poor">
+                            <span ng-value="slalvlsel.excellent=false"></span>
+                            <span ng-value="slalvlsel.good=false"></span>
+                            <span ng-value="slalvlsel.avg=false"></span>
+                            <span ng-value="slalvlsel.poor=true"></span>
+                        </span>
+                </div>
+                <div class="bordernw span1">Excellent</div>
+                <div class="bordernw span1">Good</div>
+                <div class="bordernw span1">Average</div>
+                <div class="bordernw span1">Poor</div>
+                
+            </div>
+
+        <div id="jobcard-signature-grid" ng-if="activeForm === 'JOBCARD'">
+            <div id="callClosedClientSignatureBackground" class="signature_holder noborder "></div>
+            <div id="callClosedTechSignatureBackground" class="signature_holder noborder "></div>
+            <div class="noborder textdisplay" >
+                    <span class="vtextalign" ng-if="signoff.completed">{{sla.completed}}</span>
+                    <span ng-if="!signoff.completed"></span>
+                    <span class="vtextalign" ng-if="signoff.notcompleted">{{sla.completed}}</span>
+                    <span ng-if="!signoff.notcompleted"></span>
+            </div>
+            <div class="bordernw borderse textdisplay" >
+                    <a href="#callClosedClientSignature" id="callClosedClientSignature" ng-click="sign('#callClosedClientSignatureBackground')">Client Signature</a>
+            </div>
+            <div class="bordernw borderse textdisplay">
+                    <a href="#callClosedTechSignature" id="callClosedTechSignature" ng-click="sign('#callClosedTechSignatureBackground')">Technician Signature</a>
+            </div>
+            <div class="bordernw borderse textdisplay ">Date</div>
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
         <!-- Signature Pad -->
         <div id="signature-pad" class="hide_on_print hide_on_screen signature-pad">
             <div class="signature-pad--body">
@@ -1794,7 +1408,8 @@
 
         <div id="call" class="hide_on_print">
             <label>Paste your Call SMS Here</label>
-            <textarea style="font-size: 10pt;" rows="5" ng-model="SMS"></textarea>
+            <textarea id="smsid" style="font-size: 10pt;" rows="5" ng-model="SMS"></textarea>
+            <!-- <input type="button" name="pastesms" value="Paste SMS" ng-click="pastesmsdetails()" > -->
             <input type="button" name="submit" value="Submit" ng-click="parseCallSMS()">
         </div>
 
