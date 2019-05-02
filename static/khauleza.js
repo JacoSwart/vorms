@@ -302,6 +302,60 @@
         return $scope.doc.callid + ' ' + toTitleCase($scope.activeForm);
       };
 
+      $scope.autoFillEqRem = () => {
+        if ($scope.equipmentrem.eqremautofill === true) {
+          $scope.equipmentrem.make = $scope.equipment.make;
+          $scope.equipmentrem.model = $scope.equipment.model;
+          $scope.equipmentrem.serial = $scope.equipment.serial;
+          $scope.equipmentrem.date = now.getFullYear() + "/" + $scope.padZeros((now.getMonth() + 1)) + "/" + $scope.padZeros(now.getDate());
+          $scope.equipmentrem.time = $scope.padZeros(now.getHours()) + ":" + $scope.padZeros(now.getMinutes());
+        }
+        else {
+          $scope.equipmentrem.make = "";
+          $scope.equipmentrem.model = "";
+          $scope.equipmentrem.serial = "";
+          $scope.equipmentrem.date = "";
+          $scope.equipmentrem.time ="";
+        }
+        
+      };
+
+      $scope.autoFillBackup = () => {
+        if ($scope.backup.backupautofill === true) {
+          $scope.backup.make = $scope.equipment.make;
+          $scope.backup.model = $scope.equipment.model;
+          $scope.backup.serial = $scope.equipment.serial;
+          $scope.backup.date = now.getFullYear() + "/" + $scope.padZeros((now.getMonth() + 1)) + "/" + $scope.padZeros(now.getDate());
+          $scope.backup.time = $scope.padZeros(now.getHours()) + ":" + $scope.padZeros(now.getMinutes());
+        }
+        else {
+          $scope.backup.make = "";
+          $scope.backup.model = "";
+          $scope.backup.serial = "";
+          $scope.backup.date = "";
+          $scope.backup.time ="";
+        }
+        
+      };
+
+      $scope.autoFillEqRet = () => {
+        if ($scope.equipmentret.eqretautofill === true) {
+          $scope.equipmentret.make = $scope.equipment.make;
+          $scope.equipmentret.model = $scope.equipment.model;
+          $scope.equipmentret.serial = $scope.equipment.serial;
+          $scope.equipmentret.date = now.getFullYear() + "/" + $scope.padZeros((now.getMonth() + 1)) + "/" + $scope.padZeros(now.getDate());
+          $scope.equipmentret.time = $scope.padZeros(now.getHours()) + ":" + $scope.padZeros(now.getMinutes());
+        }
+        else {
+          $scope.equipmentret.make = "";
+          $scope.equipmentret.model = "";
+          $scope.equipmentret.serial = "";
+          $scope.equipmentret.date = "";
+          $scope.equipmentret.time ="";
+        }
+        
+      };
+
       window.onscroll = function() {myFunction()};
         var navbar = document.querySelector("nav");
         var sticky = navbar.offsetTop;

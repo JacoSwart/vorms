@@ -1203,9 +1203,15 @@
         </div>
 
         <div class="borderse" id="jobcard-backup-grid" ng-if="activeForm === 'JOBCARD'">
-            <div class="header bordernw">Equipment Removed</div>
-            <div class="header bordernw">Backup Installed</div>
-            <div class="header bordernw">Equipment Returned</div>
+            <div class="header bordernw">Equipment Removed
+                <span class="hide_on_print"><input type="checkbox" ng-model="equipmentrem.eqremautofill" ng-click="autoFillEqRem()">Autofill</span>
+            </div>
+            <div class="header bordernw">Backup Installed
+                    <span class="hide_on_print"><input type="checkbox" ng-model="backup.backupautofill" ng-click="autoFillBackup()">Autofill</span>
+            </div>
+            <div class="header bordernw">Equipment Returned
+                    <span class="hide_on_print"><input type="checkbox" ng-model="equipmentret.eqretautofill" ng-click="autoFillEqRet()">Autofill</span>
+            </div>
 
             <div class="bordernw" >Make</div>
             <div class="textentry bordernw">
@@ -1299,7 +1305,13 @@
 
         </div>
         <div class="borderse" id="jobcard-signoff-grid" ng-if="activeForm === 'JOBCARD'">
-                <div class="bordernw span10">I, {{reporter.name}}, agree that :</div>
+                <div class="bordernw span10">I, 
+                    <span ng-if="signoff.samename">
+                        {{reporter.name}}, agree that :</span>
+                    <span ng-if="!signoff.samename">
+                        <input class="inputclass" ng-model="signoff.name">agree that : </span>
+                    <span><input type="checkbox" class="hide_on_print" ng-model="signoff.samename">Check to autofill user name. </span>
+                </div>
                 <div class="bordernw span9">I have tested the equipment and am satisfied that it works</div>
                 <div class="bordernw span1"><input type="checkbox" ng-model="signoff.completed" ng-click="setcompletedtime()" >
                     <span ng-if="signoff.completed">
