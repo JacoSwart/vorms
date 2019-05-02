@@ -18,7 +18,7 @@
     <nav class="hide_on_print">
         <ul class="flex-grow">
             <li>
-                <a style="font-size: 10pt" href="#" ng-click="newjobcard()">New Jobcard</a>
+                <a style="font-size: 10pt" href="#" ng-click="navigateTo(5)">Jobcard</a>
             </li>
             <li>
                 <a style="font-size: 10pt" href="#" ng-click="navigateTo(1)">Parts Replacement</a>
@@ -32,13 +32,10 @@
             <li>
                 <a style="font-size: 10pt" href="#" ng-click="navigateTo(4)">Fuel</a>
             </li>
-            <li>
-                <a style="font-size: 10pt" href="#" ng-click="navigateTo(5)">Jobcard</a>
-            </li>
         </ul>
         <ul class="flex-right">
             <li>
-                <a style="font-size: 10pt" href="#">Upload</a>
+                    <a style="font-size: 10pt" href="#" ng-click="newjobcard()">Parse New SMS</a>
             </li>
             <li>
                 <a style="font-size: 10pt" href="#" ng-click="printdoc()">Print</a>
