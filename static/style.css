@@ -106,7 +106,8 @@ input.textinput {
     border-right: none;
     border-left: none;
     font-size: 13.0pt;
-    height: 13px;
+    height: 100%;
+    width: 100%;
 }
 
 td {
