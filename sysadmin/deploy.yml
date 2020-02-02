@@ -1,0 +1,38 @@
+---
+  - hosts: webservers
+    tasks:
+    - name: "Install nginx"
+      apt:
+        name: "nginx"
+        cache_valid_time: 3600
+        state: "latest"
+    - name: "Add vorms user"
+      user:
+        name: "vorms"
+        shell: "/bin/bash"
+    - name: Copy app to /opt/apps/vorms
+      copy:
+        src: ../code/
+        dest: /opt/apps/vorms/
+        owner: vorms
+        group: vorms
+        mode: '0744'
+    - name: Copy site config to nginx sites-available
+      copy:
+        src: ./nginx-site.conf
+        dest: /etc/nginx/sites-available/vorms
+        owner: vorms
+        group: vorms
+        mode: '0744'
+    - name: Copy site config to nginx sites-available
+      file:
+        src: /etc/nginx/sites-available/vorms
+        dest: /etc/nginx/sites-enabled/vorms
+        state: link
+        owner: vorms
+        group: vorms
+        mode: '0744'
+    - name: "Restart nginx"
+      service:
+        name: nginx
+        state: restarted
