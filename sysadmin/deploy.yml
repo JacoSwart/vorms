@@ -1,11 +1,6 @@
 ---
   - hosts: all
     tasks:
-    - name: "Install nginx"
-      apt:
-        name: "nginx"
-        cache_valid_time: 3600
-        state: "latest"
     - name: "Add vorms user"
       user:
         name: "vorms"
@@ -14,35 +9,25 @@
       synchronize:
         src: ../code/
         dest: /opt/apps/vorms/
-    - name: Copy nginx config to /etc/nginx
-      copy:
-        src: ./nginx.conf
-        dest: /etc/nginx/nginx.conf
-        owner: root
-        group: root
-        mode: '0644'
     - name: Copy site config to nginx sites-available
       copy:
-        src: ./nginx-site.conf
+        src: ./vorms-http.conf
         dest: /etc/nginx/sites-available/vorms
-        owner: vorms
-        group: vorms
+        owner: root
+        group: root
         mode: '0744'
     - name: Create symlink from conf in sites-enabled to conf in sites-available
       file:
         src: /etc/nginx/sites-available/vorms
         dest: /etc/nginx/sites-enabled/vorms
         state: link
-        owner: vorms
-        group: vorms
+        owner: root
+        group: root
         mode: '0744'
-    - name: Allow access to ports 80 and 443
-      ufw:
-        rule: allow
-        port: '{{ item }}'
-      with_items:
-      - 80
-      - 443
+    - name: "Restart nginx"
+      service:
+        name: nginx
+        state: restarted
     - name: "Create required directories in /etc/letsencrypt"
       file:
         path: "/etc/letsencrypt/{{ item }}"
@@ -82,10 +67,7 @@
         state: directory
         owner: vorms
         group: www-data
-        mode: '0744'
-    - name: 
-      debug:
-        msg: "{{ acme_challenge_vorms_swart_capetown}}"
+        mode: '0755'
     - name: "Implement http-01 challenge files"
       copy:
         content: "{{ acme_challenge_vorms_swart_capetown['challenge_data'][item]['http-01']['resource_value'] }}"
@@ -109,6 +91,13 @@
         fullchain_dest: "{{ letsencrypt_certs_dir }}/fullchain_{{ domain_name }}"
         data: "{{ acme_challenge_vorms_swart_capetown }}"
       when: acme_challenge_vorms_swart_capetown['challenge_data'] != {}
+    - name: Copy site config to nginx sites-available
+      copy:
+        src: ./vorms-https.conf
+        dest: /etc/nginx/sites-available/vorms
+        owner: vorms
+        group: vorms
+        mode: '0744'
     - name: "Restart nginx"
       service:
         name: nginx

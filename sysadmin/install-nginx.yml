@@ -1,0 +1,22 @@
+---
+  - hosts: all
+    tasks:
+    - name: "Install nginx"
+      apt:
+        name: "nginx"
+        cache_valid_time: 3600
+        state: "latest"
+    - name: Copy nginx config to /etc/nginx
+      copy:
+        src: ./nginx.conf
+        dest: /etc/nginx/nginx.conf
+        owner: root
+        group: root
+        mode: '0644'
+    - name: Allow access to ports 80 and 443
+      ufw:
+        rule: allow
+        port: '{{ item }}'
+      with_items:
+      - 80
+      - 443

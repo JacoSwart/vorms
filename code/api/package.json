@@ -1,0 +1,11 @@
+{
+  "name": "vorms_api",
+  "version": "0.1.0",
+  "description": "API to do basic CRUD on jobcards for my father",
+  "main": "index.js",
+  "author": "Sas Swart",
+  "license": "MIT",
+  "dependencies": {
+    "sqlite": "^3.0.3"
+  }
+}
