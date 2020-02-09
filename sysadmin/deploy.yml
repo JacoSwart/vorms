@@ -13,3 +13,4 @@
       copy:
         src: ./.htpasswd
         dest: /opt/apps/vorms/.htpasswd
+        mode: '0644'

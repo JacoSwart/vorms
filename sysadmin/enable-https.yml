@@ -1,9 +1,9 @@
 ---
   - hosts: all
     tasks:
-    - name: Copy http only site config to nginx sites-available
+    - name: Copy https site config to nginx sites-available
       copy:
-        src: ./vorms-http.conf
+        src: ./vorms-https.conf
         dest: /etc/nginx/sites-available/vorms
         owner: root
         group: root
