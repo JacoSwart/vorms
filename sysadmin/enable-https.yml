@@ -1,0 +1,22 @@
+---
+  - hosts: all
+    tasks:
+    - name: Copy http only site config to nginx sites-available
+      copy:
+        src: ./vorms-http.conf
+        dest: /etc/nginx/sites-available/vorms
+        owner: root
+        group: root
+        mode: '0744'
+    - name: Create symlink from conf in sites-enabled to conf in sites-available
+      file:
+        src: /etc/nginx/sites-available/vorms
+        dest: /etc/nginx/sites-enabled/vorms
+        state: link
+        owner: root
+        group: root
+        mode: '0744'
+    - name: "Restart nginx"
+      service:
+        name: nginx
+        state: restarted

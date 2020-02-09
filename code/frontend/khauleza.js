@@ -289,9 +289,6 @@
         window.print();
       };
 
- 
-      
-
       $scope.sign = (id) => {
         wrapper.classList.remove("hide_on_screen");
         resizeCanvas();
