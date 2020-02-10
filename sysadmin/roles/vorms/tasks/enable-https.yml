@@ -1,5 +1,5 @@
 - name: Copy https site config to nginx sites-available
-  copy:
+  template:
     src: ./vorms-https.conf
     dest: /etc/nginx/sites-available/vorms
     owner: root
