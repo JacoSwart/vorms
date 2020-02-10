@@ -1,16 +1,5 @@
 ---
   - hosts: all
-    tasks:
-    - name: "Ensure that user vorms is present"
-      user:
-        name: "vorms"
-        shell: "/bin/bash"
-    - name: Copy app to remote host
-      synchronize:
-        src: ../code/
-        dest: /opt/apps/vorms/
-    - name: Copy htpasswd file
-      copy:
-        src: ./.htpasswd
-        dest: /opt/apps/vorms/.htpasswd
-        mode: '0644'
+    roles:
+    - nginx
+    - vorms
