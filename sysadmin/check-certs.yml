@@ -1,0 +1,11 @@
+---
+  - hosts: servers
+    become: true
+    tasks:
+    - name: Get information on generated certificate
+      openssl_certificate_info:
+        path: "/etc/letsencrypt/certs/{{ domain }}.crt"
+      register: result
+    - name: Dump information
+      debug:
+        var: result

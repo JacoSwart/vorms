@@ -1,0 +1,3 @@
+deploy_user: "swart.ssh"
+shell: "/bin/bash"
+ssh_port: 9022
