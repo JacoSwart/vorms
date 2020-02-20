@@ -1,0 +1,5 @@
+---
+  - hosts: vorms
+    become: true
+    roles:
+    - vorms
