@@ -372,8 +372,8 @@
           <span ng-if="!signoff.samename">
             <input class="inputclass" ng-model="signoff.name">agree that : 
           </span>
-          <span>
-            <input type="checkbox" class="hide_on_print" ng-model="signoff.samename">Check to autofill user name. 
+          <span class="hide_on_print">
+            <input type="checkbox"  ng-model="signoff.samename">Check to autofill user name. 
           </span>
         </div>
         <div class="bordernw span9">I have tested the equipment and am satisfied that it works</div>
@@ -962,9 +962,9 @@
         Technician Name
       </div>
       
-      <div id="techsign">
+      <div id="udtechsignbackground" class="signature_holder clientsign">
         <br><br>
-        ....................................<br>
+        <br>
         <a href="#udtechsign1" id="udtechsign1" ng-click="sign('#udtechsignbackground')">Signature:</a>
         <br>
       </div>
@@ -987,9 +987,9 @@
         confirm that the findings as stated, are correct.<br><br><br><br>
       </div>
       
-      <div id="clientsign">
-        ..............................<br>
-        Signature
+      <div id="udclientsignbackground" class="signature_holder clientsign" >
+        <br>
+        <a href="#udclientsign1" id="udclientsign1" ng-click="sign('#udclientsignbackground')">Signature:</a>
       </div>
       
       <div id="clientdate">
@@ -1382,6 +1382,43 @@
       </div>
     </div>
     
+    <!-- Fuel Management-->
+    <div>
+      <div id="jobcard-grid" ng-if="activeForm === 'FUEL'">
+        <img id="jc-logo" class="imagedisplay" src="img/khauleza.png" alt="Khauleza Logo: " height="50">
+        <h3 id="jc-title" style="text-align:center">TECHNICIAN FUEL MANAGEMENT</h3>
+        <div id="khau-ref">
+          Call #  :  {{doc.callid}}
+        </div>
+        <div id="client">
+          Client  : <input class="hide_on_print" ng-model="doc.client" type="checkbox">
+          <span ng-if="!doc.client">SAPS</span>
+          <span ng-if="doc.client">MECER</span><br>
+          <span>{{site.town}} </span>
+        </div>
+        <div id="sita-ref">
+          Client Ref : {{doc.sitaref}}<br>
+          OtherRef   :.....................
+        </div>
+      </div>
+      
+      <div id="fuel-entry" ng-if="activeForm === 'FUEL'">
+        <div id="fueltext">
+          Enter total liters =>
+        </div>
+        <div id="fuelinput">
+          <input type="text">
+        </div>
+        <div id="fuelamtxt">
+          Enter Total Amount =>
+        </div>
+        <div id="fuelaminput">
+          <input type="text">
+        </div>
+      </div>
+
+    </div>
+
     <!-- Signature Pad -->
     <div id="signature-pad" class="hide_on_print hide_on_screen signature-pad">
       <div class="signature-pad--body">

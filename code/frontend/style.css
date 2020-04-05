@@ -176,11 +176,11 @@ h6 {
         "status status status statuschk"
         "description description description description"
         "custname custname1 custname1 custname1"
-        "techname techname techname techsign"
+        "techname techname techname udtechsignbackground"
         "line line line line "
         "clientcom clientcom clientcom clientcom"
         "clientcom1 clientcom1 clientcom2 clientcom2 "
-        "clientsign clientsign1 clientsign1 clientdate";
+        "udclientsignbackground clientsign1 clientsign1 clientdate";
 
 }
 
@@ -193,9 +193,15 @@ h6 {
 #user-damage #clientsign1 {
     grid-area: clientsign1;
 }
-#user-damage #techsign {
-    grid-area: techsign;
+#user-damage #udtechsignbackground {
+    grid-area: udtechsignbackground;
+    border-bottom: dotted 0.5px;
 }
+#user-damage  #udclientsignbackground {
+    grid-area: udclientsignbackground;
+    border-bottom: dotted 0.5px;
+}
+
 #user-damage #custname {
     grid-area: custname;
 }
@@ -212,9 +218,6 @@ h6 {
 }
 #user-damage #clientcom2 {
     grid-area: clientcom2;
-}
-#user-damage #clientsign {
-    grid-area: clientsign;
 }
 #user-damage #clientdate {
     grid-area: clientdate;
@@ -463,6 +466,16 @@ h6 {
     line-height: 5em;
    
 }
+
+#fuel-entry {
+    display: grid;
+    grid-row-gap: 0.5em;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+        "fueltext fuelinput fuelamtxt fuelaminput"
+        ;
+}
+
 
 
 .page table {
