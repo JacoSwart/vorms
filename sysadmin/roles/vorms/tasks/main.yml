@@ -1,3 +1,0 @@
-- import_tasks: deploy.yml
-- import_tasks: get_cert.yml
-- import_tasks: enable-https.yml

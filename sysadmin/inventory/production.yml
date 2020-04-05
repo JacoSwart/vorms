@@ -1,8 +1,0 @@
-all:
-  children:
-    vorms:
-      hosts:
-        droplet1.swart.capetown:
-  hosts:
-    localhost:
-    droplet1.swart.capetown:

@@ -1,8 +1,0 @@
-all:
-  children:
-    root_enabled:
-      hosts:
-        droplet1.swart.capetown:
-    root_disabled:
-      hosts:
-        localhost:
