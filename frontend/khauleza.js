@@ -155,6 +155,15 @@
         date: "",
       }
 
+      $scope.fuel = {
+        liters: 0,
+        amount: 0,
+        jobcard: "",
+        vehicle: "FT60LXGP",
+        date: now,
+
+      }
+
       $scope.setarrivaltime = () => {
         if ($scope.sla.arrivetime === "") {
           $scope.sla.arrivetime = $scope.padZeros(now.getHours()) + ":" + $scope.padZeros(now.getMinutes());
@@ -294,6 +303,34 @@
         resizeCanvas();
         active_signature = document.body.querySelector(id);
       };
+
+      $scope.submitFuelData = async () => {
+        response = await fetch('/api/fuel', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          credentials: 'include',
+          body: JSON.stringify($scope.fuel),
+        });
+      }
+
+      $scope.getFuelData = async() => {
+        response = await fetch('/api/fuel', {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          credentials: 'include',
+        });
+        console.log(await response.text());
+      }
+
+      $scope.generateFuelReport = async () => {
+        $scope.getFuelData();
+      }
 
       $scope.getTitle = () => {
         return $scope.doc.callid + ' ' + toTitleCase($scope.activeForm);

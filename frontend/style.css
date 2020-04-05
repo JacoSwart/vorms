@@ -470,13 +470,64 @@ h6 {
 #fuel-entry {
     display: grid;
     grid-row-gap: 0.5em;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas: 
-        "fueltext fuelinput fuelamtxt fuelaminput"
+        "fueldate fuelliters fuelamount fueljobcard fuelvehicle"
+        "submitbutton submitbutton submitbutton submitbutton submitbutton"
         ;
 }
 
+#fuel-entry #fueldate{
+    grid-area: fueldate;
+}
+#fuel-entry #fuelliters{
+    grid-area: fuelliters;
+}
+#fuel-entry #fuelamount{
+    grid-area: fuelamount;
+}
+#fuel-entry #fueljobcard{
+    grid-area: fueljobcard;
+}
+#fuel-entry #fuelvehicle{
+    grid-area: fuelvehicle;
+}
+#fuel-entry #submitbutton{
+    grid-area: submitbutton;
+}
 
+#fuel-table {
+    display: grid;
+    grid-row-gap: 0.5em;
+    grid-template-columns: auto auto auto auto auto;
+    grid-template-areas: 
+        "tfueldate tfuelliters tfuelamount tfueljobcard tfuelvehicle"
+        ;
+}
+#fuel-table #tfueldate{
+    grid-area: tfueldate;
+    text-align: center;
+    border-right: solid black 1px;
+}
+#fuel-table #tfuelliters{
+    grid-area: tfuelliters;
+    text-align: center;
+    border-right: solid black 1px;
+}
+#fuel-table #tfuelamount{
+    grid-area: tfuelamount;
+    text-align: center;
+    border-right: solid black 1px;
+}
+#fuel-table #tfueljobcard{
+    grid-area: tfueljobcard;
+    text-align: center;
+    border-right: solid black 1px;
+}
+#fuel-table #tfuelvehicle{
+    grid-area: tfuelvehicle;
+    text-align: center;
+}
 
 .page table {
     width: 100%;
