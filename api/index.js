@@ -4,7 +4,7 @@ const mariadb = require('mariadb');
 const app = express()
 const port = 3000
 const pool = mariadb.createPool({
-  host: 'localhost', 
+  host: '127.0.0.1', 
   user:'vorms', 
   password: 'myPassword',
   connectionLimit: 5
