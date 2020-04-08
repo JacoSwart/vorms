@@ -1,0 +1,109 @@
+    <!-- User Damage -->
+    <div id="user-damage" ng-if="activeForm === 'USER_DAMAGE'">
+      <img id="logo" class="imagedisplay" src="img/khauleza.png" alt="Khauleza Logo: " height="50">
+      <h3 id="title" style="text-align:center">STATEMENT REGARDING DAMAGE</h3>
+      <div id="kh-ref" class="khauleza-reference">Khauleza Reference # {{doc.callid}}</div>
+      <div id="cl-ref" class="client-reference">Client Reference # {{doc.sitaref}}</div>
+      <div style="text-align: center; font-size: 20px;" id="completion">To be completed by Khauleza Technician:</div>
+      <div id="declaration">
+        I, <span style="font-style: italic">Jaco Swart</span> with ID Number 
+        <span style="font-style: italic">731214 5031 086 </span> declare that I visited 
+        <span style="font-style: italic">{{reporter.name}}</span> on <span style="font-style: italic">{{sla.completed}}</span> to attend to faulty equipment reported to
+        Khauleza IT Solutions.<br>
+        <br>
+        During attending to the equipment, I found that the assistance/repairs should be done within "Not normal
+        wear &amp; tear" procedure.   During my visit to the site, the following was found:
+      </div>
+      <div id="equip-det">
+        Equipment Web Number    :<br>
+        Equipment Make & Model  :<br>
+        Equipment Serial Number :
+      </div>
+      <div id="equip-det1">
+        {{equipment.asset}}<br>
+        {{equipment.make}} {{equipment.model}} <br>
+        {{equipment.serial}} 
+      </div>
+      <div id="eqstatus">
+        <br>
+        Status of equipment: (please select applicable description
+        by indicating "Yes" or "No")
+      </div>
+      <div id="status">
+        Seals were broken (Warranty void)<br>
+        Damage - Spillage (water, etc.)<br>
+        Damage - Broken (fallen, etc.)<br>
+        Damage - Components Missing (Stolen/Removed, etc.)<br>
+        Damage - Power Surge (failure/spike etc.)
+      </div>
+      <div id="statuschk">
+        <input class="hide_on_print" ng-model="damage.brokensealsyes" type="checkbox">
+        <span ng-if="damage.brokensealsyes">Yes</span>
+        <span ng-if="!damage.brokensealsyes">No</span><br>
+        <input class="hide_on_print" ng-model="damage.spillageyes" type="checkbox">
+        <span ng-if="damage.spillageyes">Yes</span>
+        <span ng-if="!damage.spillageyes">No</span><br>
+        <input class="hide_on_print" ng-model="damage.brokenyes" type="checkbox">
+        <span ng-if="damage.brokenyes">Yes</span>
+        <span ng-if="!damage.brokenyes">No</span><br>
+        <input class="hide_on_print" ng-model="damage.missingyes" type="checkbox">
+        <span ng-if="damage.missingyes">Yes</span>
+        <span ng-if="!damage.missingyes">No</span><br>
+        <input class="hide_on_print" ng-model="damage.surgeyes" type="checkbox">
+        <span ng-if="damage.surgeyes">Yes</span>
+        <span ng-if="!damage.surgeyes">No</span><br>
+        
+      </div>
+      <div id="description">
+        Please supply details if available :
+        <textarea></textarea><br>
+        I reported my findings to : 
+        <span ng-if="signoff.samename">{{reporter.name}} </span> 
+        <span ng-if="!signoff.samename">{{signoff.name}} </span> <br>
+      </div>
+      <div id="custname"></div>
+      <div id="custname1" > 
+        (Client : Print Name and Position)<br>
+      </div>
+      
+      <div id="techname">
+        <br><br>
+        Jaco Swart <br>
+        Technician Name
+      </div>
+      
+      <div id="udtechsignbackground" class="signature_holder clientsign">
+        <br><br>
+        <br>
+        <a href="#udtechsign1" id="udtechsign1" ng-click="sign('#udtechsignbackground')">Signature:</a>
+        <br>
+      </div>
+      <div id="line">
+        <hr>
+      </div>
+      
+      <div id="clientcom">To be completed by Client
+        
+      </div><br><br>
+      
+      <div id="clientcom1">
+        I, 
+        <span ng-if="signoff.samename">{{reporter.name}} </span> 
+        <span ng-if="!signoff.samename">{{signoff.name}} </span> <br>
+        (Client : Print Name and Position)<br><br><br><br>
+      </div>
+      
+      <div id="clientcom2">
+        confirm that the findings as stated, are correct.<br><br><br><br>
+      </div>
+      
+      <div id="udclientsignbackground" class="signature_holder clientsign" >
+        <br>
+        <a href="#udclientsign1" id="udclientsign1" ng-click="sign('#udclientsignbackground')">Signature:</a>
+      </div>
+      
+      <div id="clientdate">
+        Date:  {{sla.arrival}}<br>
+      </div>
+      
+    </div>
