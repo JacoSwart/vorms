@@ -21,7 +21,6 @@ app.post('/api/fuel', (req, res) => {
 app.get('/api/fuel', (req, res) => {
   getFuelTransactions()
     .then(sqlRes => {
-      console.log(sqlRes);
       res.send(sqlRes);
     });
 })
@@ -29,10 +28,8 @@ app.get('/api/fuel', (req, res) => {
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
 
 
-// ___________________________________________________________
 async function saveFuelTransaction(fuel) {
   let date = jsDatetoSQLDate(new Date(fuel.date));
-  console.log(date)
   let conn;
   try {
     conn = await pool.getConnection();

@@ -161,8 +161,9 @@
         jobcard: "",
         vehicle: "FT60LXGP",
         date: now,
-
       }
+
+      $scope.fuelReport = []
 
       $scope.setarrivaltime = () => {
         if ($scope.sla.arrivetime === "") {
@@ -325,7 +326,7 @@
           },
           credentials: 'include',
         });
-        console.log(await response.text());
+        $scope.fuelReport = (await response.json());
       }
 
       $scope.generateFuelReport = async () => {

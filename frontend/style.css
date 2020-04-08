@@ -496,10 +496,10 @@ h6 {
     grid-area: submitbutton;
 }
 
-#fuel-table {
+#fuel-table, .fuel-report-line {
     display: grid;
     grid-row-gap: 0.5em;
-    grid-template-columns: auto auto auto auto auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas: 
         "tfueldate tfuelliters tfuelamount tfueljobcard tfuelvehicle"
         ;
@@ -526,6 +526,14 @@ h6 {
 }
 #fuel-table #tfuelvehicle{
     grid-area: tfuelvehicle;
+    text-align: center;
+}
+
+#fuel-table .fuel-report-line {
+    grid-column: 1 / span 5;
+}
+
+#fuel-table .fuel-report-line span {
     text-align: center;
 }
 

@@ -47,6 +47,13 @@
     <div id="tfuelvehicle">
       Vehicle :
     </div>
+    <div ng-repeat='line in fuelReport' class="fuel-report-line">
+      <span>{{line.date}}</span>
+      <span>{{line.liters}}</span>
+      <span>{{line.amount}}</span>
+      <span>{{line.jobcard}}</span>
+      <span>{{line.vehicle}}</span>
+    </div>
   </div>
   <hr color="black">
 </div>
