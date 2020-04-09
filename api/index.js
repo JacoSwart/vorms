@@ -25,7 +25,20 @@ app.get('/api/fuel', (req, res) => {
     });
 })
 
-app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
+app.post('/api/trips', (req, res) => {
+  saveTripTransaction(req.body);
+  alert("Save Trip Transaction called")
+  res.send();
+})
+
+app.get('/api/trips', (req, res) => {
+  getTripTransactions()
+    .then(sqlRes => {
+      res.send(sqlRes);
+    });
+})
+
+app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
 
 
 async function saveFuelTransaction(fuel) {
@@ -45,7 +58,7 @@ async function saveFuelTransaction(fuel) {
     }
   }
 
-async function getFuelTransactions() {
+  async function getFuelTransactions() {
   return new Promise(async resolve => {
     try {
       conn = await pool.getConnection();
@@ -54,14 +67,34 @@ async function getFuelTransactions() {
         );
       resolve(JSON.stringify(res));
     } catch (err) {
-      console.log(err)
+      console.log(err);
       throw err;
     } finally {
       if (conn) return conn.end();
     }
   });
 }
-  
+async function saveTripTransaction(trips) {
+  alert("saveTripTransaction function started");
+  let conn;
+  try {
+    conn = await pool.getConnection();
+    const res = await conn.query(
+      alert("Database connection established"),
+      "INSERT INTO `vorms`.`trips` (`date`, `departure`, `destination`, `startodo`, `endodo`, `totalkm`, `pvtkm`, `client`, `tollgate`, `vehicle`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", 
+      [trips.date, trips.departure, trips.destination, trips.startodo, trips.endodo, trips.totalkm, trips.pvtkm, trips.client, trips.tollgate, trips.vehicle]
+      );
+    } catch (err) {
+      alert("error detected with connection")
+      console.log(err);
+      throw err;
+    } finally {
+      alert("Connection closing");
+      if (conn) return conn.end();
+    }
+  }  
+
+
   function jsDatetoSQLDate(date) {
     return date.getFullYear() + "/" + padZeros((date.getMonth() + 1)) + "/" + padZeros(date.getDate());
   }
