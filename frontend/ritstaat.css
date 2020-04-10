@@ -1,0 +1,57 @@
+#ritstaat-table, .ritstaat-report-line {
+    display: grid;
+    grid-row-gap: 0.5em;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+    grid-template-areas: 
+        "rdate rdepart rdest rstartodo rendodo rkmtotal rpvtkm rclient rtolgates rvehicle"
+        ;
+}
+#ritstaat-table #rdate{
+    grid-area: rdate;
+    text-align: center;
+    border-right: solid black 1px;
+}
+#ritstaat-table #rdepart{
+    grid-area: rdepart;
+    text-align: center;
+    border-right: solid black 1px;
+}
+#ritstaat-table #rdest{
+    grid-area: rdest;
+    text-align: center;
+    border-right: solid black 1px;
+}
+#ritstaat-table #rstartodo{
+    grid-area: rstartodo;
+    text-align: center;
+    border-right: solid black 1px;
+}
+#ritstaat-table #rendodo{
+    grid-area: rendodo;
+    text-align: center;
+    border-right: solid black 1px;
+}
+#ritstaat-table #rkmtotal{
+    grid-area: rkmtotal;
+    text-align: center;
+    border-right: solid black 1px;
+}
+#ritstaat-table #rpvtkm{
+    grid-area: rpvtkm;
+    text-align: center;
+    border-right: solid black 1px;
+}
+#ritstaat-table #rclient{
+    grid-area: rclient;
+    text-align: center;
+    border-right: solid black 1px;
+}
+#ritstaat-table #rtolgates{
+    grid-area: rtolgates;
+    text-align: center;
+    border-right: solid black 1px;
+}
+#ritstaat-table #rvehicle{
+    grid-area: rvehicle;
+    text-align: center;
+}

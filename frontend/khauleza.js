@@ -11,8 +11,8 @@
     }
 
     jobcardapp.controller('Jobcard_controller', function ($scope) {
-      let forms = ['JOBCARD', 'PARTS_REPLACEMENT', 'USER_DAMAGE', 'EQUIPMENT_REMOVAL', 'FUEL', 'JOBCARD'];
-      $scope.activeForm = forms[5];
+      let forms = ['JOBCARD', 'PARTS_REPLACEMENT', 'USER_DAMAGE', 'EQUIPMENT_REMOVAL', 'FUEL', 'TRIPS'];
+      $scope.activeForm = forms[0];
 
       $scope.padZeros = function (str_p) {
         if (str_p > 9) {
@@ -49,6 +49,7 @@
         floor: "",
         room: "",
         town: "",
+        departure: "",
       }
 
       $scope.equipment = {
@@ -163,7 +164,7 @@
         date: now,
       }
 
-      $scope.fuelReport = []
+      $scope.fuelReport = [];
 
       $scope.setarrivaltime = () => {
         if ($scope.sla.arrivetime === "") {
@@ -237,6 +238,7 @@
 
       $scope.savekilos = function () {
         localStorage.setItem("endkilos", $scope.ov.sse);
+        localStorage.setItem("Departure", $scope.site.town);
       };
 
       $scope.newjobcard = () => {
@@ -279,7 +281,6 @@
             for (let assetAttribute of line[1].split('-')) {
               asset.push(assetAttribute.trim());
             }
-            console.log(asset);
             $scope.equipment.asset = asset[0];
             $scope.equipment.make = asset[2] + ' ' + asset[3];
             $scope.equipment.model = asset[4];
@@ -288,6 +289,7 @@
         document.querySelector("div#call").classList.add("hide_on_screen");
         $scope.sla.reported = '20' + $scope.doc.sitaref.slice(0,2) + '/' + $scope.doc.sitaref.slice(2,4) + '/' + $scope.doc.sitaref.slice(4,6);
         $scope.ov.ss = localStorage.getItem("endkilos");
+        $scope.site.departure = localStorage.getItem("departure");
       }
 
       $scope.navigateTo = (page) => {
@@ -297,6 +299,7 @@
 
       $scope.printdoc = () => {
         window.print();
+
       };
 
       $scope.sign = (id) => {
@@ -313,9 +316,44 @@
             'Content-Type': 'application/json'
           },
           credentials: 'include',
-          body: JSON.stringify($scope.fuel),
+          body: JSON.stringify({
+            liters: $scope.fuel.liters,
+            amount: $scope.fuel.amount,
+            vehicle: $scope.fuel.vehicle,
+            date: $scope.fuel.date,
+            jobcard: $scope.fuel.jobcard,
+          }),
         });
-      }
+      };
+
+      $scope.submitTripData = async () => {
+        alert("Button clicked");
+        response = await fetch('/api/trips', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          credentials: 'include',
+          body: JSON.stringify({
+            date: $scope.sla.arrival,
+            departure: $scope.site.departure,
+            destination: $scope.site.town,
+            startodo: $scope.ov.ss,
+            endodo: $scope.ov.sse,
+            totalkm: $scope.ov.sse-$scope.ov.ss,
+            pvtkm: "0",
+            client: $scope.reporter.name,
+            tollgates: $scope.doc.callid,
+            vehicle: "FT60LXGP",            
+          }),              
+        });
+        alert("Data Stringified");
+      };
+
+      /*$scope.generateFuelReport = async() => {
+        $scope.getFuelData();
+      }*/
 
       $scope.getFuelData = async() => {
         response = await fetch('/api/fuel', {
@@ -327,10 +365,6 @@
           credentials: 'include',
         });
         $scope.fuelReport = (await response.json());
-      }
-
-      $scope.generateFuelReport = async () => {
-        $scope.getFuelData();
       }
 
       $scope.getTitle = () => {

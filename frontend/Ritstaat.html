@@ -1,0 +1,57 @@
+<!-- Fuel Management-->
+<div>
+    <div id="jobcard-grid">
+      <img id="jc-logo" class="imagedisplay" src="img/khauleza.png" alt="Khauleza Logo: " height="50">
+      <h3 id="jc-title" style="text-align:center">TECHNICIAN TRIP MANAGEMENT</h3>
+    </div>
+    
+    <hr color=black>
+    
+    <div id="submitbutton" >
+      <button ng-click="getFuelData()">Generate Report</button>
+    </div>
+    
+    <hr color=black>
+    
+    <div id="ritstaat-table">
+      <div id="rdate">
+        Date :
+      </div>
+      <div id="rdepart">
+        Departure :
+      </div>
+      <div id="rdest">
+        Destination :
+      </div>
+      <div id="rstartodo">
+        Start odo :
+      </div>
+      <div id="rendodo">
+        End Odo :
+      </div>
+      <div id="rkmtotal">
+        Total KM :
+      </div>
+      <div id="rpvtkm">
+        Pvt KM :
+      </div>
+      <div id="rclient">
+        Client :
+      </div>
+      <div id="rtolgates">
+        Tolgates :
+      </div>
+      <div id="rvehicle">
+        Vehicle :
+      </div>
+
+      <div ng-repeat='line in fuelReport' class="fuel-report-line">
+        <span>{{line.date}}</span>
+        <span>{{line.liters}}</span>
+        <span>{{line.amount}}</span>
+        <span>{{line.jobcard}}</span>
+        <span>{{line.vehicle}}</span>
+      </div>
+    </div>
+    <hr color="black">
+  </div>
