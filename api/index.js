@@ -27,7 +27,6 @@ app.get('/api/fuel', (req, res) => {
 
 app.post('/api/trips', (req, res) => {
   saveTripTransaction(req.body);
-  alert("Save Trip Transaction called")
   res.send();
 })
 
@@ -75,21 +74,39 @@ async function saveFuelTransaction(fuel) {
   });
 }
 async function saveTripTransaction(trips) {
-  alert("saveTripTransaction function started");
   let conn;
   try {
     conn = await pool.getConnection();
     const res = await conn.query(
-      alert("Database connection established"),
-      "INSERT INTO `vorms`.`trips` (`date`, `departure`, `destination`, `startodo`, `endodo`, `totalkm`, `pvtkm`, `client`, `tollgate`, `vehicle`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", 
-      [trips.date, trips.departure, trips.destination, trips.startodo, trips.endodo, trips.totalkm, trips.pvtkm, trips.client, trips.tollgate, trips.vehicle]
+      "INSERT INTO `vorms`.`trips` (\
+        `date`, \
+        `departure`, \
+        `destination`,\
+        `startodo`,\
+        `endodo`,\
+        `totalkm`,\
+        `pvtkm`,\
+        `client`,\
+        `tollgates`,\
+        `vehicle`\
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", 
+      [
+        trips.date, 
+        trips.departure, 
+        trips.destination, 
+        trips.startodo, 
+        trips.endodo, 
+        trips.totalkm, 
+        trips.pvtkm, 
+        trips.client, 
+        trips.tollgates, 
+        trips.vehicle
+      ]
       );
     } catch (err) {
-      alert("error detected with connection")
       console.log(err);
       throw err;
     } finally {
-      alert("Connection closing");
       if (conn) return conn.end();
     }
   }  

@@ -327,7 +327,6 @@
       };
 
       $scope.submitTripData = async () => {
-        alert("Button clicked");
         response = await fetch('/api/trips', {
           method: 'POST',
           headers: {
@@ -337,7 +336,7 @@
           credentials: 'include',
           body: JSON.stringify({
             date: $scope.sla.arrival,
-            departure: $scope.site.departure,
+            departure: $scope.site.departure || "Cradock",
             destination: $scope.site.town,
             startodo: $scope.ov.ss,
             endodo: $scope.ov.sse,
@@ -348,12 +347,7 @@
             vehicle: "FT60LXGP",            
           }),              
         });
-        alert("Data Stringified");
       };
-
-      /*$scope.generateFuelReport = async() => {
-        $scope.getFuelData();
-      }*/
 
       $scope.getFuelData = async() => {
         response = await fetch('/api/fuel', {
