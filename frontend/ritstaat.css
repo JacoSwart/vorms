@@ -1,7 +1,7 @@
 #ritstaat-table, .ritstaat-report-line {
     display: grid;
     grid-row-gap: 0.5em;
-    grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas: 
         "rdate rdepart rdest rstartodo rendodo rkmtotal rpvtkm rclient rtolgates rvehicle"
         ;
@@ -53,5 +53,13 @@
 }
 #ritstaat-table #rvehicle{
     grid-area: rvehicle;
+    text-align: center;
+}
+
+#ritstaat-table .ritstaat-report-line {
+    grid-column: 1 / span 10;
+}
+
+#ritstaat-table .ritstaat-report-line span {
     text-align: center;
 }

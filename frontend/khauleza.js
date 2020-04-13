@@ -20,7 +20,11 @@
         } else {
           return "0" + str_p;
         }
-      }
+      };
+
+      $scope.jsDatetoSQLDate = function (date) {
+        return date.getFullYear() + "/" + $scope.padZeros((date.getMonth() + 1)) + "/" + $scope.padZeros(date.getDate());
+      };
 
 
       let now = new Date();
@@ -75,9 +79,9 @@
        
       $scope.sla = {
         // reported: now.getFullYear() + "/" + $scope.padZeros((now.getMonth() + 1)) + "/" + $scope.padZeros(now.getDate()),
-        arrival: now.getFullYear() + "/" + $scope.padZeros((now.getMonth() + 1)) + "/" + $scope.padZeros(now.getDate()),
+        arrival: $scope.jsDatetoSQLDate(now),
         arrivetime: $scope.padZeros(now.getHours()) + ":" + $scope.padZeros(now.getMinutes()),
-        completed: now.getFullYear() + "/" + $scope.padZeros((now.getMonth() + 1)) + "/" + $scope.padZeros(now.getDate()),
+        completed: $scope.jsDatetoSQLDate(now),
         completedtime: "",
         arrive: false,
         complete: false,
@@ -165,6 +169,8 @@
       }
 
       $scope.fuelReport = [];
+
+      $scope.tripReport = [];
 
       $scope.setarrivaltime = () => {
         if ($scope.sla.arrivetime === "") {
@@ -361,6 +367,18 @@
         $scope.fuelReport = (await response.json());
       }
 
+      $scope.getTripData = async() => {
+        response = await fetch('/api/trips', {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          credentials: 'include',
+        });
+        $scope.tripReport = (await response.json());
+      }
+
       $scope.getTitle = () => {
         return $scope.doc.callid + ' ' + toTitleCase($scope.activeForm);
       };
@@ -370,7 +388,7 @@
           $scope.equipmentrem.make = $scope.equipment.make;
           $scope.equipmentrem.model = $scope.equipment.model;
           $scope.equipmentrem.serial = $scope.equipment.serial;
-          $scope.equipmentrem.date = now.getFullYear() + "/" + $scope.padZeros((now.getMonth() + 1)) + "/" + $scope.padZeros(now.getDate());
+          $scope.equipmentrem.date = $scope.jsDatetoSQLDate(now);
           $scope.equipmentrem.time = $scope.padZeros(now.getHours()) + ":" + $scope.padZeros(now.getMinutes());
         }
         else {
@@ -388,7 +406,7 @@
           $scope.backup.make = $scope.equipment.make;
           $scope.backup.model = $scope.equipment.model;
           $scope.backup.serial = $scope.equipment.serial;
-          $scope.backup.date = now.getFullYear() + "/" + $scope.padZeros((now.getMonth() + 1)) + "/" + $scope.padZeros(now.getDate());
+          $scope.backup.date = $scope.jsDatetoSQLDate(now);
           $scope.backup.time = $scope.padZeros(now.getHours()) + ":" + $scope.padZeros(now.getMinutes());
         }
         else {
@@ -406,7 +424,7 @@
           $scope.equipmentret.make = $scope.equipment.make;
           $scope.equipmentret.model = $scope.equipment.model;
           $scope.equipmentret.serial = $scope.equipment.serial;
-          $scope.equipmentret.date = now.getFullYear() + "/" + $scope.padZeros((now.getMonth() + 1)) + "/" + $scope.padZeros(now.getDate());
+          $scope.equipmentret.date = $scope.jsDatetoSQLDate(now);
           $scope.equipmentret.time = $scope.padZeros(now.getHours()) + ":" + $scope.padZeros(now.getMinutes());
         }
         else {

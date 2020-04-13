@@ -23,25 +23,33 @@ app.get('/api/fuel', (req, res) => {
     .then(sqlRes => {
       res.send(sqlRes);
     });
-})
+});
 
 app.post('/api/trips', (req, res) => {
   saveTripTransaction(req.body);
   res.send();
-})
+});
 
 app.get('/api/trips', (req, res) => {
   getTripTransactions()
     .then(sqlRes => {
       res.send(sqlRes);
     });
-})
+});
+
+app.get('/api/trips/download', (req, res) => {
+  getTripTransactions()
+    .then(sqlRes => {
+      res.setHeader('Content-disposition', 'attachment; filename=ritstaat.csv');
+      res.send(jsonToCSV(sqlRes));
+    });
+});
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
 
 
 async function saveFuelTransaction(fuel) {
-  let date = jsDatetoSQLDate(new Date(fuel.date));
+  let date = jsDatetoShortDate(new Date(fuel.date));
   let conn;
   try {
     conn = await pool.getConnection();
@@ -111,9 +119,50 @@ async function saveTripTransaction(trips) {
     }
   }  
 
+  async function getTripTransactions() {
+    return new Promise(async resolve => {
+      try {
+        conn = await pool.getConnection();
+        let res = await conn.query(
+          "SELECT \
+          `date`, \
+          `departure`, \
+          `destination`,\
+          `startodo`,\
+          `endodo`,\
+          `totalkm`,\
+          `pvtkm`,\
+          `client`,\
+          `tollgates`,\
+          `vehicle`\
+          FROM vorms.trips ORDER BY date asc LIMIT 30;"
+          );
+          res = res.map(line => {
+            line.date = jsDatetoShortDate(line.date);
+            return line;
+          });
+        resolve(JSON.stringify(res));
+      } catch (err) {
+        console.log(err);
+        throw err;
+      } finally {
+        if (conn) return conn.end();
+      }
+    });
+  }
 
-  function jsDatetoSQLDate(date) {
+  function jsDatetoShortDate(date) {
     return date.getFullYear() + "/" + padZeros((date.getMonth() + 1)) + "/" + padZeros(date.getDate());
+  }
+
+  function jsonToCSV(data) {
+    const items = JSON.parse(data);
+    const replacer = (key, value) => value === null ? '' : value; // specify how you want to handle null values here
+    const header = Object.keys(items[0]);
+    let csv = items.map(row => header.map(fieldName => JSON.stringify(row[fieldName], replacer)).join(','));
+    csv.unshift(header.join(','));
+    csv = csv.join('\r\n');
+    return csv;
   }
   
   function padZeros(str_p) {

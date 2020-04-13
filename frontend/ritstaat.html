@@ -8,7 +8,7 @@
     <hr color=black>
     
     <div id="submitbutton" >
-      <button ng-click="getFuelData()">Generate Report</button>
+      <button ng-click="getTripData()">Generate Report</button>
     </div>
     
     <hr color=black>
@@ -45,11 +45,19 @@
         Vehicle :
       </div>
 
-      <div ng-repeat='line in fuelReport' class="fuel-report-line">
+      
+      <hr color="black">
+
+      <div ng-repeat='line in tripReport' class="ritstaat-report-line">
         <span>{{line.date}}</span>
-        <span>{{line.liters}}</span>
-        <span>{{line.amount}}</span>
-        <span>{{line.jobcard}}</span>
+        <span>{{line.departure}}</span>
+        <span>{{line.destination}}</span>
+        <span>{{line.startodo}}</span>
+        <span>{{line.endodo}}</span>
+        <span>{{line.totalkm}}</span>
+        <span>{{line.pvtkm}}</span>
+        <span>{{line.client}}</span>
+        <span>{{line.tollgates}}</span>
         <span>{{line.vehicle}}</span>
       </div>
     </div>
