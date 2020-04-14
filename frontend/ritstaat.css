@@ -63,3 +63,109 @@
 #ritstaat-table .ritstaat-report-line span {
     text-align: center;
 }
+
+.addTrip {
+    display: grid;
+    grid-row-gap: 0.5em;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "label submit"
+        "dateprompt dateinput"
+        "destprompt destinput"
+        "startodoprompt startodovalue"
+        "endodoprompt endodovalue"
+        "totalkmprompt totalkmvalue"
+        "clientprompt clientinput"
+        "reasonprompt reasoninput"
+        ;
+
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    background-color: #fff;
+    border: 1px solid #838380;
+    border-radius: 3px;
+    overflow: auto;
+};
+
+.addTrip #label{
+    grid-area: label;
+    text-align: right;
+}
+
+.addTrip #submit{
+    grid-area: submit;
+    text-align: right;
+}
+
+.addTrip #dateprompt{
+    grid-area: dateprompt;
+    text-align: right;
+    border-right: solid black 1px; 
+}
+.addTrip #dateinput{
+    grid-area: dateinput;
+    align-items: left;
+   
+}
+.addTrip #destprompt{
+    grid-area: destprompt;
+    text-align: right;
+    border-right: solid black 1px;    
+}
+.addTrip #destinput{
+    grid-area: destinput;
+    align-items: left;
+    
+}
+.addTrip #startodoprompt{
+    grid-area: startodoprompt;
+    text-align: right;
+    border-right: solid black 1px;    
+}
+.addTrip #startodovalue{
+    grid-area: startodovalue;
+    align-items: left;
+}
+.addTrip #endodoprompt{
+    grid-area: endodoprompt;
+    text-align: right;
+    border-right: solid black 1px;    
+}
+.addTrip #endodovalue{
+    grid-area: endodovalue;
+    align-items: left;
+}
+.addTrip #totalkmprompt{
+    grid-area: totalkmprompt;
+    text-align: right;
+    border-right: solid black 1px;    
+}
+.addTrip #totalkmvalue{
+    grid-area: totalkmvalue;
+    align-items: left;    
+}
+.addTrip #clientprompt{
+    grid-area: clientprompt;
+    text-align: right;
+    border-right: solid black 1px;    
+}
+.addTrip #clientinput{
+    grid-area: clientinput;
+    align-items: left;   
+}
+.addTrip #reasonprompt{
+    grid-area: reasonprompt;
+    text-align: right;
+    border-right: solid black 1px;    
+}
+.addTrip #reasoninput{
+    grid-area: reasoninput;
+    align-items: left;
+}
+
+
+
+

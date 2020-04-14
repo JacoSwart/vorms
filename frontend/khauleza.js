@@ -1,6 +1,40 @@
     var jobcardapp = angular.module('Jobcard_app', []);
     var wrapper = document.getElementById("signature-pad");
 
+    class Trip {
+      constructor() {
+        this.date = new Date();
+        this.departure = localStorage.getItem("departure");
+        this.destination = "";
+        this.startodo = localStorage.getItem("endkilos");
+        this.endodo = 0;
+        this.pvtkm = 0;
+        this.client = "";
+        this.tollgates = "";
+        this.vehicle = "FT60LXGP";
+      }
+    }
+
+    class Jobcard {
+      constructor() {
+        this.ov = {
+          ss: localStorage.getItem("endkilos"),
+          sse: 0,
+          rs: 0,
+          re: 0,
+        }
+        this.site = {
+          street: "",
+          building: "",
+          site: "",
+          floor: "",
+          room: "",
+          town: "",
+          departure: localStorage.getItem("departure"),
+        }
+      }
+    }
+
     function toTitleCase(str) {
       return str.replace(
         /\w\S*/g,
@@ -44,16 +78,6 @@
         name: "",
         tel: "",
         cell: ""
-      }
-
-      $scope.site = {
-        street: "",
-        building: "",
-        site: "",
-        floor: "",
-        room: "",
-        town: "",
-        departure: "",
       }
 
       $scope.equipment = {
@@ -108,12 +132,6 @@
         make3: "",
         model3: "",
         serial3: "",
-      }
-      $scope.ov = {
-        ss: "",
-        sse: "",
-        rs: "",
-        re: "",
       }
       $scope.equipmentrem = {
         make: "",
@@ -171,6 +189,9 @@
       $scope.fuelReport = [];
 
       $scope.tripReport = [];
+
+      $scope.trip = new Trip();
+      $scope.jobcard = new Jobcard();
 
       $scope.setarrivaltime = () => {
         if ($scope.sla.arrivetime === "") {
@@ -242,23 +263,31 @@
         replacedpsuserial: "",
       }
 
-      $scope.savekilos = function () {
-        localStorage.setItem("endkilos", $scope.ov.sse);
-        localStorage.setItem("Departure", $scope.site.town);
+      $scope.savekilos = function (departure, endkilos) {
+        localStorage.setItem("endkilos", endkilos);
+        localStorage.setItem("departure", departure);
       };
 
       $scope.newjobcard = () => {
         // $scope.reporter = "";
         $scope.equipment.serial = "";
-        $scope.site.street = "";
+        $scope.jobcard.site.street = "";
         $scope.signoff.completed = "";
         $scope.signoff.notcompleted = "";
-        $scope.ov.sse = "";
+        $scope.jobcard.ov.sse = "";
         $scope.faulty = "";
         $scope.replacement = "";
         $scope.problem.resolution = "Problem Resolution: ";
         $scope.SMS = "";
         document.querySelector("div#call").classList.remove("hide_on_screen");
+      }
+
+      $scope.displayTripDialog = false;
+
+      $scope.toggleAddTrip = () => {
+        // $scope.reporter = "";
+        $scope.trip = new Trip();
+        $scope.displayTripDialog = !$scope.displayTripDialog;
       }
 
 
@@ -277,11 +306,11 @@
             $scope.reporter.cell = line[1].slice(10);
           } else if (line[0].trim().toLowerCase() === 'site') {
             let address = line[1].split(' - ');
-            $scope.site.town = address[0];
-            $scope.site.building = address[1];
-            $scope.site.site = address[2];
-          } else if (line[0].trim().toLowerCase() === 'floor') $scope.site.floor = line[1];
-          else if (line[0].trim().toLowerCase() === 'room') $scope.site.room = line[1];
+            $scope.jobcard.site.town = address[0];
+            $scope.jobcard.site.building = address[1];
+            $scope.jobcard.site.site = address[2];
+          } else if (line[0].trim().toLowerCase() === 'floor') $scope.jobcard.site.floor = line[1];
+          else if (line[0].trim().toLowerCase() === 'room') $scope.jobcard.site.room = line[1];
           else if (line[0].trim().toLowerCase() === 'asset') {
             let asset = [];
             for (let assetAttribute of line[1].split('-')) {
@@ -294,9 +323,7 @@
         }
         document.querySelector("div#call").classList.add("hide_on_screen");
         $scope.sla.reported = '20' + $scope.doc.sitaref.slice(0,2) + '/' + $scope.doc.sitaref.slice(2,4) + '/' + $scope.doc.sitaref.slice(4,6);
-        $scope.ov.ss = localStorage.getItem("endkilos");
-        $scope.site.departure = localStorage.getItem("departure");
-      }
+      };
 
       $scope.navigateTo = (page) => {
         page = Math.min(page, forms.length);
@@ -332,7 +359,28 @@
         });
       };
 
-      $scope.submitTripData = async () => {
+      $scope.submitTripData = () => {
+        $scope.saveTripData({
+          date: $scope.sla.arrival,
+          departure: $scope.jobcard.site.departure || "Cradock",
+          destination: $scope.jobcard.site.town,
+          startodo: $scope.jobcard.ov.ss,
+          endodo: $scope.jobcard.ov.sse,
+          pvtkm: 0,
+          client: $scope.reporter.name,
+          tollgates: $scope.doc.callid,
+          vehicle: "FT60LCGP",
+        });
+        $scope.jobcard = new Jobcard();
+      };
+
+      $scope.submitCustomTripData = () => {
+        $scope.saveTripData($scope.trip);
+        $scope.toggleAddTrip();
+      }
+
+      $scope.saveTripData = async (trip) => {
+        $scope.savekilos(trip.departure, trip.endodo);
         response = await fetch('/api/trips', {
           method: 'POST',
           headers: {
@@ -340,18 +388,7 @@
             'Content-Type': 'application/json'
           },
           credentials: 'include',
-          body: JSON.stringify({
-            date: $scope.sla.arrival,
-            departure: $scope.site.departure || "Cradock",
-            destination: $scope.site.town,
-            startodo: $scope.ov.ss,
-            endodo: $scope.ov.sse,
-            totalkm: $scope.ov.sse-$scope.ov.ss,
-            pvtkm: "0",
-            client: $scope.reporter.name,
-            tollgates: $scope.doc.callid,
-            vehicle: "FT60LXGP",            
-          }),              
+          body: JSON.stringify(trip),              
         });
       };
 

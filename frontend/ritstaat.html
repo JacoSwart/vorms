@@ -1,65 +1,83 @@
 <!-- Fuel Management-->
 <div>
-    <div id="jobcard-grid">
-      <img id="jc-logo" class="imagedisplay" src="img/khauleza.png" alt="Khauleza Logo: " height="50">
-      <h3 id="jc-title" style="text-align:center">TECHNICIAN TRIP MANAGEMENT</h3>
-    </div>
-    
-    <hr color=black>
-    
-    <div id="submitbutton" >
-      <button ng-click="getTripData()">Generate Report</button>
-    </div>
-    
-    <hr color=black>
-    
-    <div id="ritstaat-table">
-      <div id="rdate">
-        Date :
-      </div>
-      <div id="rdepart">
-        Departure :
-      </div>
-      <div id="rdest">
-        Destination :
-      </div>
-      <div id="rstartodo">
-        Start odo :
-      </div>
-      <div id="rendodo">
-        End Odo :
-      </div>
-      <div id="rkmtotal">
-        Total KM :
-      </div>
-      <div id="rpvtkm">
-        Pvt KM :
-      </div>
-      <div id="rclient">
-        Client :
-      </div>
-      <div id="rtolgates">
-        Tolgates :
-      </div>
-      <div id="rvehicle">
-        Vehicle :
-      </div>
-
-      
-      <hr color="black">
-
-      <div ng-repeat='line in tripReport' class="ritstaat-report-line">
-        <span>{{line.date}}</span>
-        <span>{{line.departure}}</span>
-        <span>{{line.destination}}</span>
-        <span>{{line.startodo}}</span>
-        <span>{{line.endodo}}</span>
-        <span>{{line.totalkm}}</span>
-        <span>{{line.pvtkm}}</span>
-        <span>{{line.client}}</span>
-        <span>{{line.tollgates}}</span>
-        <span>{{line.vehicle}}</span>
-      </div>
-    </div>
-    <hr color="black">
+  <div id="jobcard-grid">
+    <img id="jc-logo" class="imagedisplay" src="img/khauleza.png" alt="Khauleza Logo: " height="50">
+    <h3 id="jc-title" style="text-align:center">TECHNICIAN TRIP MANAGEMENT</h3>
   </div>
+
+  <hr color=black>
+
+  <div id="submitbutton" >
+    <button ng-click="toggleAddTrip()">Add Trip</button>
+    <button onclick="window.location.href = '../api/trips/download'">Download CSV</button>
+    <button ng-click="getTripData()">Generate Report</button>
+  </div>
+</div>
+
+<hr color=black>
+
+<div ng-if="displayTripDialog" class="hide_on_print addTrip">
+  <div id="label"><h6>Complete manual entry here</h6></div>
+  <div id="submit"><button class="hide_on_print" ng-click="submitCustomTripData()">Submit Ritstaat</button></div>
+  <div id="dateprompt" >Date :</div>
+  <div id="dateinput"><input ng-model="trip.date" type="date"></div>
+  <div id="destprompt">Destination :</div>
+  <div id="destinput"><input ng-model="trip.destination" type="text"></div>
+  <div id="startodoprompt">Start Odometer :</div>
+  <div id="startodovalue">{{trip.startodo}}</div>
+  <div id="endodoprompt">End Odometer :</div>
+  <div id="endodovalue"><input ng-model="trip.endodo" type="number"></div>
+  <div id="totalkmprompt">Total KM :</div>
+  <div id="totalkmvalue">{{trip.endodo - trip.startodo}}</div>
+  <div id="clientprompt">Client :</div>
+  <div id="clientinput"><input ng-model="trip.client" type="text"></div>
+  <div id="reasonprompt">Reason :</div>
+  <div id="reasoninput"><input ng-model="trip.tollgates" type="text"></div>
+</div>
+   
+<div id="ritstaat-table">
+  <div id="rdate">
+    Date :
+  </div>
+  <div id="rdepart">
+    Departure :
+  </div>
+  <div id="rdest">
+    Destination :
+  </div>
+  <div id="rstartodo">
+    Start odo :
+  </div>
+  <div id="rendodo">
+    End Odo :
+  </div>
+  <div id="rkmtotal">
+    Total KM :
+  </div>
+  <div id="rpvtkm">
+    Pvt KM :
+  </div>
+  <div id="rclient">
+    Client :
+  </div>
+  <div id="rtolgates">
+    Tolgates :
+  </div>
+  <div id="rvehicle">
+    Vehicle :
+  </div>
+
+  <div ng-repeat='line in tripReport' class="ritstaat-report-line">
+    <span>{{line.date}}</span>
+    <span>{{line.departure}}</span>
+    <span>{{line.destination}}</span>
+    <span>{{line.startodo}}</span>
+    <span>{{line.endodo}}</span>
+    <span>{{line.totalkm}}</span>
+    <span>{{line.pvtkm}}</span>
+    <span>{{line.client}}</span>
+    <span>{{line.tollgates}}</span>
+    <span>{{line.vehicle}}</span>
+  </div>
+</div>
+<hr color="black">

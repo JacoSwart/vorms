@@ -81,7 +81,9 @@ async function saveFuelTransaction(fuel) {
     }
   });
 }
-async function saveTripTransaction(trips) {
+
+async function saveTripTransaction(trip) {
+  let date = jsDatetoShortDate(new Date(trip.date));
   let conn;
   try {
     conn = await pool.getConnection();
@@ -99,16 +101,16 @@ async function saveTripTransaction(trips) {
         `vehicle`\
       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", 
       [
-        trips.date, 
-        trips.departure, 
-        trips.destination, 
-        trips.startodo, 
-        trips.endodo, 
-        trips.totalkm, 
-        trips.pvtkm, 
-        trips.client, 
-        trips.tollgates, 
-        trips.vehicle
+        date, 
+        trip.departure, 
+        trip.destination, 
+        trip.startodo, 
+        trip.endodo, 
+        trip.endodo - trip.startodo, 
+        trip.pvtkm, 
+        trip.client, 
+        trip.tollgates, 
+        trip.vehicle
       ]
       );
     } catch (err) {
