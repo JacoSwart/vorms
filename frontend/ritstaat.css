@@ -1,10 +1,21 @@
 #ritstaat-table, .ritstaat-report-line {
     display: grid;
     grid-row-gap: 0.5em;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1.5fr 1.5fr 1fr 1fr 1fr 2fr 1fr;
     grid-template-areas: 
-        "rdate rdepart rdest rstartodo rendodo rkmtotal rpvtkm rclient rtolgates rvehicle"
+        "rdate rdepart rdest rstartodo rendodo rkmtotal rclient rtolgates"
         ;
+    border-bottom: solid blue 0.5px;
+}
+.ritstaat-report-line {
+    text-align: center;
+}
+
+.header{
+    font-size: 10pt;
+    font-style: italic;
+    font-weight: bold;
+    background-color:aqua
 }
 #ritstaat-table #rdate{
     grid-area: rdate;
@@ -62,6 +73,7 @@
 
 #ritstaat-table .ritstaat-report-line span {
     text-align: center;
+    border-right: solid blue 0.5px;
 }
 
 .addTrip {
@@ -88,6 +100,8 @@
     border: 1px solid #838380;
     border-radius: 3px;
     overflow: auto;
+    font-size: 10pt;
+    background-color: azure;
 };
 
 .addTrip #label{

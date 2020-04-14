@@ -18,7 +18,10 @@
 
 <div ng-if="displayTripDialog" class="hide_on_print addTrip">
   <div id="label"><h6>Complete manual entry here</h6></div>
-  <div id="submit"><button class="hide_on_print" ng-click="submitCustomTripData()">Submit Ritstaat</button></div>
+  <div id="submit">
+    <button class="hide_on_print" ng-click="submitCustomTripData()">Submit Ritstaat</button>
+    <button class="hide_on_print" ng-click="toggleAddTrip()">Cancel Update</button>
+  </div>
   <div id="dateprompt" >Date :</div>
   <div id="dateinput"><input ng-model="trip.date" type="date"></div>
   <div id="destprompt">Destination :</div>
@@ -35,7 +38,7 @@
   <div id="reasoninput"><input ng-model="trip.tollgates" type="text"></div>
 </div>
    
-<div id="ritstaat-table">
+<div id="ritstaat-table" class="header">
   <div id="rdate">
     Date :
   </div>
@@ -54,30 +57,31 @@
   <div id="rkmtotal">
     Total KM :
   </div>
-  <div id="rpvtkm">
+  <!-- <div id="rpvtkm">
     Pvt KM :
-  </div>
+  </div> -->
   <div id="rclient">
     Client :
   </div>
   <div id="rtolgates">
     Tolgates :
   </div>
-  <div id="rvehicle">
+  <!-- <div id="rvehicle">
     Vehicle :
-  </div>
-
-  <div ng-repeat='line in tripReport' class="ritstaat-report-line">
-    <span>{{line.date}}</span>
-    <span>{{line.departure}}</span>
-    <span>{{line.destination}}</span>
-    <span>{{line.startodo}}</span>
-    <span>{{line.endodo}}</span>
-    <span>{{line.totalkm}}</span>
-    <span>{{line.pvtkm}}</span>
-    <span>{{line.client}}</span>
-    <span>{{line.tollgates}}</span>
-    <span>{{line.vehicle}}</span>
-  </div>
+  </div> -->
 </div>
+
+<div ng-repeat='line in tripReport' class="ritstaat-report-line">
+  <span>{{line.date}}</span>
+  <span>{{line.departure}}</span>
+  <span>{{line.destination}}</span>
+  <span>{{line.startodo}}</span>
+  <span>{{line.endodo}}</span>
+  <span>{{line.totalkm}}</span>
+  <!-- <span>{{line.pvtkm}}</span> -->
+  <span>{{line.client}}</span>
+  <span>{{line.tollgates}}</span>
+  <!-- <span>{{line.vehicle}}</span> -->
+</div>
+
 <hr color="black">

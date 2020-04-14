@@ -369,7 +369,7 @@
           pvtkm: 0,
           client: $scope.reporter.name,
           tollgates: $scope.doc.callid,
-          vehicle: "FT60LCGP",
+          vehicle: "FT60LXGP",
         });
         $scope.jobcard = new Jobcard();
       };
