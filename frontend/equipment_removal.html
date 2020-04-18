@@ -187,12 +187,12 @@
           <!-- SITA Ref -->
           <td style="text-align: right;">SITA Ref:</td>
           <td colspan="2">
-            <input style="border-bottom: 0.5px solid;" class="input" type="text" ng-model="doc.sitaref">
+            <input style="border-bottom: 0.5px solid;" class="input" type="text" ng-model="newcall.sitaref">
           </td>
           <td></td>
           <td style="text-align: right;">WEB No:</td>
           <td colspan="2">
-            <input style="border-bottom: 0.5px solid;" class="input " type="text" ng-model="equipment.asset">
+            <input style="border-bottom: 0.5px solid;" class="input " type="text" ng-model="newcall.assetnr">
           </td>
         </tr>
         
@@ -200,12 +200,12 @@
           <!-- HEAT row -->
           <td style="text-align: right;">Heat Ref:</td>
           <td colspan="2">
-            <input style="border-bottom: 0.5px solid;" class="input" ctype="text" ng-model="doc.callid">
+            <input style="border-bottom: 0.5px solid;" class="input" ctype="text" ng-model="newcall.callid">
           </td>
           <td></td>
           <td style="text-align: right;">Date:</td>
           <td colspan="2">
-            <input style="border-bottom: 0.5px solid;" class="input" ctype="text" ng-model="sla.arrival">
+            <input style="border-bottom: 0.5px solid;" class="input" ctype="text" ng-model="newcall.calldate">
           </td>
         </tr>
         
@@ -219,14 +219,14 @@
         <tr class="noborder">
           <!-- Item Removed -->
           <td style="text-align: right">Item Removed:</td>
-          <td colspan="4" style="border-bottom: 0.5px solid;">{{equipment.make}} {{equipment.model}}</td>
+          <td colspan="4" style="border-bottom: 0.5px solid;">{{jobcard.equipment.make}} {{jobcard.equipment.model}}</td>
         </tr>
         
         <tr class="noborder">
           <!-- Item Serial -->
           <td style="text-align: right">Item Serial:</td>
           <td colspan="4" style="border-bottom: 0.5px solid;">
-            {{equipment.serial}}
+            {{jobcard.equipment.serial}}
           </td>
         </tr>
         
@@ -334,7 +334,8 @@
         <tr class="noborder">
           <td style="text-align: right;">Client Name:</td>
           <td colspan="2" style="border-bottom: 0.5px solid;">
-            <input type="text" ng-model="reporter.name">
+            <span ng-if="jobcard.signoff.samename"> {{jobcard.reporter.name}}</span>
+            <span ng-if="!jobcard.signoff.samename"> {{jobcard.signoff.name}}</span>
           </td>
           <td colspan="2" style="text-align: right;">Technician Name:</td>
           <td colspan="2" style="border-bottom: 0.5px solid;"> Jaco Swart</td>

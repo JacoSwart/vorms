@@ -2,8 +2,8 @@
     <div id="user-damage" ng-if="activeForm === 'USER_DAMAGE'">
       <img id="logo" class="imagedisplay" src="img/khauleza.png" alt="Khauleza Logo: " height="50">
       <h3 id="title" style="text-align:center">STATEMENT REGARDING DAMAGE</h3>
-      <div id="kh-ref" class="khauleza-reference">Khauleza Reference # {{doc.callid}}</div>
-      <div id="cl-ref" class="client-reference">Client Reference # {{doc.sitaref}}</div>
+      <div id="kh-ref" class="khauleza-reference">Khauleza Reference # {{newcall.callid}}</div>
+      <div id="cl-ref" class="client-reference">Client Reference # {{newcall.sitaref}}</div>
       <div style="text-align: center; font-size: 20px;" id="completion">To be completed by Khauleza Technician:</div>
       <div id="declaration">
         I, <span style="font-style: italic">Jaco Swart</span> with ID Number 
@@ -20,9 +20,9 @@
         Equipment Serial Number :
       </div>
       <div id="equip-det1">
-        {{equipment.asset}}<br>
-        {{equipment.make}} {{equipment.model}} <br>
-        {{equipment.serial}} 
+        {{newcall.assetnr}}<br>
+        {{jobcard.equipment.make}} {{jobcard.equipment.model}} <br>
+        {{jobcard.equipment.serial}} 
       </div>
       <div id="eqstatus">
         <br>
@@ -56,10 +56,10 @@
       </div>
       <div id="description">
         Please supply details if available :
-        <textarea></textarea><br>
+        <textarea class="prob" ng-model="damage.description"></textarea><br>
         I reported my findings to : 
-        <span ng-if="signoff.samename">{{reporter.name}} </span> 
-        <span ng-if="!signoff.samename">{{signoff.name}} </span> <br>
+        <span ng-if="jobcard.signoff.samename">{{jobcard.reporter.name}} </span> 
+        <span ng-if="!jobcard.signoff.samename">{{jobcard.signoff.name}} </span> <br>
       </div>
       <div id="custname"></div>
       <div id="custname1" > 
@@ -88,8 +88,8 @@
       
       <div id="clientcom1">
         I, 
-        <span ng-if="signoff.samename">{{reporter.name}} </span> 
-        <span ng-if="!signoff.samename">{{signoff.name}} </span> <br>
+        <span ng-if="jobcard.signoff.samename">{{jobcard.reporter.name}} </span> 
+        <span ng-if="!jobcard.samename">{{jobcard.signoff.name}} </span> <br>
         (Client : Print Name and Position)<br><br><br><br>
       </div>
       
@@ -103,7 +103,7 @@
       </div>
       
       <div id="clientdate">
-        Date:  {{sla.arrival}}<br>
+        Date:  {{newcall.calldate}}<br>
       </div>
       
     </div>

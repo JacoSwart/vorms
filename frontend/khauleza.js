@@ -17,11 +17,7 @@
 
     class Jobcard {
       constructor() {
-        this.doc = {
-          callid: "",
-          sitaref: "",
-          client: false,
-        }
+        this.client = false;
         this.ov = {
           ss: localStorage.getItem("endkilos"),
           sse: 0,
@@ -61,6 +57,7 @@
           arrive: false,
           complete: false,
         };
+
         this.faulty = {
           make1: "",
           model1: "",
@@ -131,6 +128,51 @@
       }
     }
 
+    class Partsreplacement {
+      constructor(call) {
+        this.partsrep = {
+          faultymb: "",
+          faultymbserial: "",
+          faultycpu: "",
+          faultycpuserial: "UNKNOWN",
+          faultyram1: "",
+          faultyram1serial: "",
+          faultyram2: "",
+          faultyram2serial: "",
+          faultydvd: "",
+          faultydvdserial: "",
+          faultyhdd: "",
+          faultyhddserial: "",
+          faultypsu: "",
+          faultypsuserial: "",
+          replacedmb: "",
+          replacedmbserial: "",
+          replacedcpu: "",
+          replacedcpuserial: "",
+          replacedram1: "",
+          replacedram1serial: "",
+          replacedram2: "",
+          replacedram2serial: "",
+          replaceddvd: "",
+          replaceddvdserial: "",
+          replacedhdd: "",
+          replacedhddserial: "",
+          replacedpsu: "",
+          replacedpsuserial: "",
+        };
+
+      }
+    }
+
+    class Call {
+      constructor(callid = "", sitaref = "", assetnr = "", date="") {
+        this.callid = callid;
+        this.sitaref = sitaref;
+        this.assetnr = assetnr;
+        this.calldate = date;
+      }
+    }
+
     jobcardapp.controller('Jobcard_controller', function ($scope) {
       
 
@@ -167,6 +209,7 @@
         missingvalue: "",
         surgeyes: false,
         surgevalue: "",
+        description: "",
       };
 
       
@@ -182,9 +225,10 @@
 
       $scope.tripReport = [];
 
+      $scope.newcall = new Call();
       $scope.trip = new Trip();
-
       $scope.jobcard = new Jobcard();
+      $scope.newparts = new Partsreplacement();
 
       $scope.savekilos = (departure, endkilos) => {
         localStorage.setItem("endkilos", endkilos);
@@ -243,36 +287,7 @@
         }
       };
 
-      $scope.partsrep = {
-        faultymb: "",
-        faultymbserial: "",
-        faultycpu: "",
-        faultycpuserial: "unknown",
-        faultyram1: "",
-        faultyram1serial: "",
-        faultyram2: "",
-        faultyram2serial: "",
-        faultydvd: "",
-        faultydvdserial: "",
-        faultyhdd: "",
-        faultyhddserial: "",
-        faultypsu: "",
-        faultypsuserial: "",
-        replacedmb: "",
-        replacedmbserial: "",
-        replacedcpu: "",
-        replacedcpuserial: "",
-        replacedram1: "",
-        replacedram1serial: "",
-        replacedram2: "",
-        replacedram2serial: "",
-        replaceddvd: "",
-        replaceddvdserial: "",
-        replacedhdd: "",
-        replacedhddserial: "",
-        replacedpsu: "",
-        replacedpsuserial: "",
-      };
+      
 
       
 
@@ -297,17 +312,14 @@
         };
         // $scope.displayTripDialog = !$scope.displayTripDialog;
       };
-
-      // $scope.trip = new Trip();
-      // $scope.trip.startodo = localStorage.getItem("endkilos");
-      // alert($scope.trip.startodo);
-      
+     
       $scope.parseCallSMS = () => {
         $scope.SMS = $scope.SMS.split('/');
+        let newCallId, newSitaRef, newAssetNr, callDate;
         for (let line of $scope.SMS) {
           line = line.split(':');
-          if (line[0].trim().toLowerCase() === 'heatref') $scope.jobcard.doc.callid = line[1];
-          else if (line[0].trim().toLowerCase() === 'custref') $scope.jobcard.doc.sitaref = line[1];
+          if (line[0].trim().toLowerCase() === 'heatref') newCallId = line[1];
+          else if (line[0].trim().toLowerCase() === 'custref') newSitaRef = line[1];
           else if (line[0].trim().toLowerCase() === 'user') $scope.jobcard.reporter.name = line[1];
           else if (line[0].trim().toLowerCase() === 'tel') {
             line[1] = line[1].replace(/ /g, "");
@@ -327,15 +339,16 @@
             for (let assetAttribute of line[1].split('-')) {
               asset.push(assetAttribute.trim());
             }
-            $scope.jobcard.equipment.asset = asset[0];
+            newAssetNr = asset[0];
             $scope.jobcard.equipment.make = asset[2] + ' ' + asset[3];
             $scope.jobcard.equipment.model = asset[4];
           } else if (line[0].trim().toLowerCase() === 'issue') $scope.jobcard.problem.issue = 'Problem Reported :\n' + line[1].split('SLA ')[0];
         }
         document.querySelector("div#call").classList.add("hide_on_screen");
-        $scope.jobcard.sla.reported = '20' + $scope.jobcard.doc.sitaref.slice(0,2) + '/' + $scope.jobcard.doc.sitaref.slice(2,4) + '/' + $scope.jobcard.doc.sitaref.slice(4,6);
+        $scope.jobcard.sla.reported = '20' + newSitaRef.slice(0,2) + '/' + newSitaRef.slice(2,4) + '/' + newSitaRef.slice(4,6);
         $scope.jobcard.sla.arrivetime = $scope.padZeros(now.getHours()) + ":" + $scope.padZeros(now.getMinutes());
-        $scope.jobcard.sla.arrival = $scope.jsDatetoSQLDate(now);
+        callDate = $scope.jsDatetoSQLDate(now);
+        $scope.newcall = new Call(newCallId, newSitaRef, newAssetNr, callDate);
       };
 
       $scope.navigateTo = (page) => {
@@ -381,7 +394,7 @@
           endodo: $scope.jobcard.ov.sse,
           pvtkm: 0,
           client: $scope.jobcard.reporter.name,
-          tollgates: $scope.jobcard.doc.callid,
+          tollgates: $scope.newcall.callid,
           vehicle: "FT60LXGP",
         });
       };
@@ -430,7 +443,11 @@
       };
 
       $scope.getTitle = () => {
-        return $scope.jobcard.doc.callid + ' ' + toTitleCase($scope.activeForm);
+        if ($scope.newcall.callid) {
+          return $scope.newcall.callid + ' ' + toTitleCase($scope.activeForm); 
+        } else {
+          return toTitleCase($scope.activeForm); 
+        }
       };
 
       $scope.autoFillEqRem = () => {

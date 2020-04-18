@@ -5,16 +5,16 @@
         <img id="jc-logo" class="imagedisplay" src="img/khauleza.png" alt="Khauleza Logo: " height="50">
         <h3 id="jc-title" style="text-align:center">TECHNICIAN REPORT</h3>
         <div id="khau-ref">
-          Call #  :  {{jobcard.doc.callid}}
+          Call #  :  {{newcall.callid}}
         </div>
         <div id="client">
-          Client  : <input class="hide_on_print" ng-model="jobcard.doc.client" type="checkbox">
-          <span ng-if="!jobcard.doc.client">SAPS</span>
-          <span ng-if="jobcard.doc.client">MECER</span><br>
+          Client  : <input class="hide_on_print" ng-model="jobcard.client" type="checkbox">
+          <span ng-if="!jobcard.client">SAPS</span>
+          <span ng-if="jobcard.client">MECER</span><br>
           <span>{{jobcard.site.town}} </span>
         </div>
         <div id="sita-ref">
-          Client Ref : {{jobcard.doc.sitaref}}<br>
+          Client Ref : {{newcall.sitaref}}<br>
           OtherRef   :.....................
         </div>
       </div>
@@ -58,8 +58,8 @@
         </div>
         <div class="bordernw" >Asset #</div>
         <div class="bordernw" >
-          <input class="hide_on_print inputclass" ng-model="jobcard.equipment.asset">
-          <span class="hide_on_screen">{{jobcard.equipment.asset}} </span>
+          <input class="hide_on_print inputclass" ng-model="newcall.assetnr">
+          <span class="hide_on_screen">{{newcall.assetnr}} </span>
         </div>
         
         <div class="bordernw" >Building</div>
@@ -145,7 +145,7 @@
         <div class="span2 bordernw"><input class="inputclass" size="15" ng-model="jobcard.replacement.model1"> </div>
         
         <div class="bordernw" >Arrival :</div>
-        <div class="datetime bordernw">{{jobcard.sla.arrival}} {{jobcard.sla.arrivetime}} </div>
+        <div class="datetime bordernw">{{newcall.calldate}} {{jobcard.sla.arrivetime}} </div>
         <div class="bordernw" >Serial</div>
         <div class="bordernw" ><input class="inputclass" size="15" ng-model="jobcard.faulty.serial1"> </div>
         <div class="span2 bordernw"><input class="inputclass" size="15" ng-model="jobcard.replacement.serial1"> </div>
