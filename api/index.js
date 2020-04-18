@@ -70,7 +70,7 @@ async function saveFuelTransaction(fuel) {
     try {
       conn = await pool.getConnection();
       const res = await conn.query(
-        "SELECT * FROM vorms.fuel ORDER BY date asc LIMIT 30;"
+        "SELECT * FROM vorms.fuel ORDER BY date asc;"
         );
       resolve(JSON.stringify(res));
     } catch (err) {
@@ -137,7 +137,7 @@ async function saveTripTransaction(trip) {
           `client`,\
           `tollgates`,\
           `vehicle`\
-          FROM vorms.trips ORDER BY date asc LIMIT 30;"
+          FROM vorms.trips ORDER BY date asc;"
           );
           res = res.map(line => {
             line.date = jsDatetoShortDate(line.date);

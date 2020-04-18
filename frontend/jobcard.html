@@ -5,16 +5,16 @@
         <img id="jc-logo" class="imagedisplay" src="img/khauleza.png" alt="Khauleza Logo: " height="50">
         <h3 id="jc-title" style="text-align:center">TECHNICIAN REPORT</h3>
         <div id="khau-ref">
-          Call #  :  {{doc.callid}}
+          Call #  :  {{jobcard.doc.callid}}
         </div>
         <div id="client">
-          Client  : <input class="hide_on_print" ng-model="doc.client" type="checkbox">
-          <span ng-if="!doc.client">SAPS</span>
-          <span ng-if="doc.client">MECER</span><br>
-          <span>{{site.town}} </span>
+          Client  : <input class="hide_on_print" ng-model="jobcard.doc.client" type="checkbox">
+          <span ng-if="!jobcard.doc.client">SAPS</span>
+          <span ng-if="jobcard.doc.client">MECER</span><br>
+          <span>{{jobcard.site.town}} </span>
         </div>
         <div id="sita-ref">
-          Client Ref : {{doc.sitaref}}<br>
+          Client Ref : {{jobcard.doc.sitaref}}<br>
           OtherRef   :.....................
         </div>
       </div>
@@ -24,27 +24,27 @@
         
         <div class="bordernw">Name</div>
         <div class="bordernw">
-          <input class="hide_on_print inputclass" ng-model="reporter.name">
-          <span class="hide_on_screen">{{reporter.name}} </span>
+          <input class="hide_on_print inputclass" ng-model="jobcard.reporter.name">
+          <span class="hide_on_screen">{{jobcard.reporter.name}} </span>
         </div>
         <div class="bordernw">Name</div>
-        <div class="bordernw">{{reporter.name}} </div>
+        <div class="bordernw">{{jobcard.reporter.name}} </div>
         
         <div class="bordernw">Tel</div>
         <div class="bordernw">
-          <input class="hide_on_print inputclass" ng-model="reporter.tel">
-          <span class="hide_on_screen">{{reporter.tel}} </span>
+          <input class="hide_on_print inputclass" ng-model="jobcard.reporter.tel">
+          <span class="hide_on_screen">{{jobcard.reporter.tel}} </span>
         </div>
         <div class="bordernw">Tel</div>
-        <div class="bordernw">{{reporter.tel}} </div>
+        <div class="bordernw">{{jobcard.reporter.tel}} </div>
         
         <div class="bordernw">Cell</div>
         <div class="bordernw">
-          <input class="hide_on_print  inputclass" ng-model="reporter.cell">
-          <span class="hide_on_screen">{{reporter.cell}} </span>
+          <input class="hide_on_print  inputclass" ng-model="jobcard.reporter.cell">
+          <span class="hide_on_screen">{{jobcard.reporter.cell}} </span>
         </div>
         <div class="bordernw">Cell</div>
-        <div class="bordernw">{{reporter.cell}} </div>
+        <div class="bordernw">{{jobcard.reporter.cell}} </div>
       </div>
       
       <div class="borderse" id="jobcard-site-grid" ng-if="activeForm === 'JOBCARD'">
@@ -53,60 +53,60 @@
         
         <div class="bordernw" >Street</div>
         <div class="bordernw" >
-          <input class="hide_on_print inputclass" ng-model="site.street">
-          <span class="hide_on_screen">{{site.street}} </span>
+          <input class="hide_on_print inputclass" ng-model="jobcard.site.street">
+          <span class="hide_on_screen">{{jobcard.site.street}} </span>
         </div>
         <div class="bordernw" >Asset #</div>
         <div class="bordernw" >
-          <input class="hide_on_print inputclass" ng-model="equipment.asset">
-          <span class="hide_on_screen">{{equipment.asset}} </span>
+          <input class="hide_on_print inputclass" ng-model="jobcard.equipment.asset">
+          <span class="hide_on_screen">{{jobcard.equipment.asset}} </span>
         </div>
         
         <div class="bordernw" >Building</div>
         <div class="bordernw" >
-          <input class="hide_on_print inputclass" ng-model="site.building">
-          <span class="hide_on_screen">{{site.building}} </span>
+          <input class="hide_on_print inputclass" ng-model="jobcard.site.building">
+          <span class="hide_on_screen">{{jobcard.site.building}} </span>
         </div>
         <div class="bordernw" >Make</div>
         <div class="bordernw" >
-          <input class="hide_on_print inputclass" ng-model="equipment.make">
-          <span class="hide_on_screen">{{equipment.make}} </span>
+          <input class="hide_on_print inputclass" ng-model="jobcard.equipment.make">
+          <span class="hide_on_screen">{{jobcard.equipment.make}} </span>
         </div>
         
         <div class="bordernw" >Site</div>
         <div class="bordernw" >
-          <input class="hide_on_print inputclass" ng-model="site.site">
-          <span class="hide_on_screen">{{site.site}} </span>
+          <input class="hide_on_print inputclass" ng-model="jobcard.site.site">
+          <span class="hide_on_screen">{{jobcard.site.site}} </span>
         </div>
         <div class="bordernw" >Model</div>
         <div class="bordernw" >
-          <input class="hide_on_print inputclass" ng-model="equipment.model">
-          <span class="hide_on_screen">{{equipment.model}} </span>
+          <input class="hide_on_print inputclass" ng-model="jobcard.equipment.model">
+          <span class="hide_on_screen">{{jobcard.equipment.model}} </span>
         </div>
         
         <div class="bordernw" >Floor #</div>
         <div class="bordernw" >
-          <input class="hide_on_print inputclass" ng-model="site.floor">
-          <span class="hide_on_screen">{{site.floor}} </span>
+          <input class="hide_on_print inputclass" ng-model="jobcard.site.floor">
+          <span class="hide_on_screen">{{jobcard.site.floor}} </span>
         </div>
         <div class="bordernw" >Serial #</div>
         <div class="bordernw" >
-          <input class="hide_on_print inputclass" ng-model="equipment.serial">
-          <span class="hide_on_screen">{{equipment.serial}} </span>
+          <input class="hide_on_print inputclass" ng-model="jobcard.equipment.serial">
+          <span class="hide_on_screen">{{jobcard.equipment.serial}} </span>
         </div>
         
         <div class="bordernw" >Room</div>
         <div class="bordernw"  >
-          <input class="hide_on_print inputclass" ng-model="site.room">
-          <span class="hide_on_screen">{{site.room}} </span>
+          <input class="hide_on_print inputclass" ng-model="jobcard.site.room">
+          <span class="hide_on_screen">{{jobcard.site.room}} </span>
         </div>
         <div class="bordernw" >Barcode #</div>
-        <div  class="bordernw" >{{equipment.barcode}} </div>
+        <div  class="bordernw" >{{jobcard.equipment.barcode}} </div>
         
         <div class="bordernw" >Town</div>
         <div class="bordernw"  >
-          <input class="hide_on_print inputclass" ng-model="site.town">
-          <span class="hide_on_screen">{{site.town}} </span>
+          <input class="hide_on_print inputclass" ng-model="jobcard.site.town">
+          <span class="hide_on_screen">{{jobcard.site.town}} </span>
         </div>
         <div class="bordernw"  id="warranty-text">Warranty End Date</div>
         <div class="bordernw"  id="warranty-input"></div>
@@ -135,40 +135,40 @@
         <div class="bordernw" >Group :</div>
         <div class="datetime bordernw">Khauleza</div>
         <div class="bordernw" >Make</div>
-        <div class="bordernw" ><input class="inputclass" size="15" ng-model="faulty.make1"> </div>
-        <div class="span2 bordernw"><input class="inputclass" size="15" ng-model="replacement.make1"> </div>
+        <div class="bordernw" ><input class="inputclass" size="15" ng-model="jobcard.faulty.make1"> </div>
+        <div class="span2 bordernw"><input class="inputclass" size="15" ng-model="jobcard.replacement.make1"> </div>
         
         <div class="bordernw" >Reported :</div>
-        <div class="datetime bordernw">{{sla.reported}} </div>
+        <div class="datetime bordernw">{{jobcard.sla.reported}} </div>
         <div class="bordernw" >Model</div>
-        <div class="bordernw" ><input class="inputclass" size="15" ng-model="faulty.model1"> </div>
-        <div class="span2 bordernw"><input class="inputclass" size="15" ng-model="replacement.model1"> </div>
+        <div class="bordernw" ><input class="inputclass" size="15" ng-model="jobcard.faulty.model1"> </div>
+        <div class="span2 bordernw"><input class="inputclass" size="15" ng-model="jobcard.replacement.model1"> </div>
         
         <div class="bordernw" >Arrival :</div>
-        <div class="datetime bordernw">{{sla.arrival}} {{sla.arrivetime}} </div>
+        <div class="datetime bordernw">{{jobcard.sla.arrival}} {{jobcard.sla.arrivetime}} </div>
         <div class="bordernw" >Serial</div>
-        <div class="bordernw" ><input class="inputclass" size="15" ng-model="faulty.serial1"> </div>
-        <div class="span2 bordernw"><input class="inputclass" size="15" ng-model="replacement.serial1"> </div>
+        <div class="bordernw" ><input class="inputclass" size="15" ng-model="jobcard.faulty.serial1"> </div>
+        <div class="span2 bordernw"><input class="inputclass" size="15" ng-model="jobcard.replacement.serial1"> </div>
         
         <div class="bordernw" >Completed :</div>
         <div class="datetime bordernw">
-          <span ng-if="signoff.completed">
-            {{sla.completed}} {{sla.completedtime}}
+          <span ng-if="jobcard.signoff.completed">
+            {{jobcard.sla.completed}} {{jobcard.sla.completedtime}}
           </span>
-          <span ng-if="signoff.notcompleted">
-            {{sla.completed}} {{sla.completedtime}}
+          <span ng-if="jobcard.signoff.notcompleted">
+            {{jobcard.sla.completed}} {{jobcard.sla.completedtime}}
           </span>
         </div>
         <div class="bordernw" >Make :</div>
-        <div class="bordernw" ><input class="inputclass" size="15" ng-model="faulty.make2"> </div>
-        <div class="span2 bordernw"><input class="inputclass" size="15" ng-model="replacement.make2"> </div>
+        <div class="bordernw" ><input class="inputclass" size="15" ng-model="jobcard.faulty.make2"> </div>
+        <div class="span2 bordernw"><input class="inputclass" size="15" ng-model="jobcard.replacement.make2"> </div>
         
         <div class="bordernw" ></div>
         <div class="original-visit bordernw">Original Visit</div>
         <div class="return-visit bordernw">Return Visit</div>
         <div class="bordernw" >Model</div>
-        <div class="bordernw" ><input class="inputclass" size="15" ng-model="faulty.model2"> </div>
-        <div class="span2 bordernw"><input class="inputclass" size="15" ng-model="replacement.model2"> </div>
+        <div class="bordernw" ><input class="inputclass" size="15" ng-model="jobcard.faulty.model2"> </div>
+        <div class="span2 bordernw"><input class="inputclass" size="15" ng-model="jobcard.replacement.model2"> </div>
         
         <div class="bordernw"  >Travel :</div>
         <div class="bordernw" >Single</div>
@@ -176,8 +176,8 @@
         <div class="bordernw" >Single</div>
         <div class="bordernw" >Return</div>
         <div class="bordernw" >Serial</div>
-        <div class="bordernw" ><input class="inputclass" size="15" ng-model="faulty.serial2"> </div>
-        <div class="span2 bordernw"><input class="inputclass"  size="15" ng-model="replacement.serial2"> </div>
+        <div class="bordernw" ><input class="inputclass" size="15" ng-model="jobcard.faulty.serial2"> </div>
+        <div class="span2 bordernw"><input class="inputclass"  size="15" ng-model="jobcard.replacement.serial2"> </div>
         
         <div class="bordernw" >Start :</div>
         <div class="bordernw" ><input class="inputclass" size="6" ng-model="jobcard.ov.ss"> </div>
@@ -185,8 +185,8 @@
         <div class="bordernw" ></div>
         <div class="bordernw" ></div>
         <div class="labels bordernw">Make</div>
-        <div class="bordernw" ><input class="inputclass" size="15" ng-model="faulty.make3"> </div>
-        <div class="span2 bordernw"><input class="inputclass"  size="15" ng-model="replacement.make3"> </div>
+        <div class="bordernw" ><input class="inputclass" size="15" ng-model="jobcard.faulty.make3"> </div>
+        <div class="span2 bordernw"><input class="inputclass"  size="15" ng-model="jobcard.replacement.make3"> </div>
         
         <div class="bordernw" >End :</div>
         <div class="bordernw" ><input class="inputclass" size="6" ng-model="jobcard.ov.sse"> </div>
@@ -194,13 +194,13 @@
         <div class="bordernw" ></div>
         <div class="bordernw" ></div>
         <div class="bordernw" >Model :</div>
-        <div class="bordernw" ><input class="inputclass" size="15" ng-model="faulty.model3"> </div>
-        <div class="span2 bordernw"><input class="inputclass"  size="15" ng-model="replacement.model3"> </div>
+        <div class="bordernw" ><input class="inputclass" size="15" ng-model="jobcard.faulty.model3"> </div>
+        <div class="span2 bordernw"><input class="inputclass"  size="15" ng-model="jobcard.replacement.model3"> </div>
         
         <div class="lastrow bordernw"></div>
         <div class="bordernw" >Serial :</div>
-        <div class="bordernw" ><input class="inputclass" size="15" ng-model="faulty.serial3"> </div>
-        <div class="span2 bordernw"><input class="inputclass"  size="15" ng-model="replacement.serial3"> </div>
+        <div class="bordernw" ><input class="inputclass" size="15" ng-model="jobcard.faulty.serial3"> </div>
+        <div class="span2 bordernw"><input class="inputclass"  size="15" ng-model="jobcard.replacement.serial3"> </div>
         
       </div>
       
@@ -209,102 +209,102 @@
         <div class="bordernw">Repair Target</div>    
         <div class="bordernw">Call Status</div> 
         <div class="prob">
-          <textarea class="prob" ng-model="problem.issue" ></textarea> 
+          <textarea class="prob" ng-model="jobcard.problem.issue" ></textarea> 
         </div>
         <div class="prob">
-          <textarea class="prob" ng-model="problem.resolution" ></textarea>  
+          <textarea class="prob" ng-model="jobcard.problem.resolution" ></textarea>  
         </div>
       </div>
       
       <div class="borderse" id="jobcard-backup-grid" ng-if="activeForm === 'JOBCARD'">
         <div class="header bordernw">Equipment Removed
-          <span class="hide_on_print"><input type="checkbox" ng-model="equipmentrem.eqremautofill" ng-click="autoFillEqRem()">Autofill</span>
+          <span class="hide_on_print"><input type="checkbox" ng-model="jobcard.equipmentrem.eqremautofill" ng-click="autoFillEqRem()">Autofill</span>
         </div>
         <div class="header bordernw">Backup Installed
-          <span class="hide_on_print"><input type="checkbox" ng-model="backup.backupautofill" ng-click="autoFillBackup()">Autofill</span>
+          <span class="hide_on_print"><input type="checkbox" ng-model="jobcard.backup.backupautofill" ng-click="autoFillBackup()">Autofill</span>
         </div>
         <div class="header bordernw">Equipment Returned
-          <span class="hide_on_print"><input type="checkbox" ng-model="equipmentret.eqretautofill" ng-click="autoFillEqRet()">Autofill</span>
+          <span class="hide_on_print"><input type="checkbox" ng-model="jobcard.equipmentret.eqretautofill" ng-click="autoFillEqRet()">Autofill</span>
         </div>
         
         <div class="bordernw" >Make</div>
         <div class="textentry bordernw">
-          <input class="hide_on_print inputclass" ng-model="equipmentrem.make">
-          <span class="hide_on_screen">{{equipmentrem.make}} </span>
+          <input class="hide_on_print inputclass" ng-model="jobcard.equipmentrem.make">
+          <span class="hide_on_screen">{{jobcard.equipmentrem.make}} </span>
         </div>
         <div class="bordernw" >Make</div>
         <div class="textentry bordernw">
-          <input class="hide_on_print inputclass" ng-model="backup.make">
-          <span class="hide_on_screen">{{backup.make}} </span>
+          <input class="hide_on_print inputclass" ng-model="jobcard.backup.make">
+          <span class="hide_on_screen">{{jobcard.backup.make}} </span>
         </div>
         <div class="bordernw" >Make</div>
         <div class="textentry bordernw">
-          <input class="hide_on_print inputclass" ng-model="equipmentret.make">
-          <span class="hide_on_screen">{{equipmentret.make}} </span>
+          <input class="hide_on_print inputclass" ng-model="jobcard.equipmentret.make">
+          <span class="hide_on_screen">{{jobcard.equipmentret.make}} </span>
         </div>
         
         <div class="bordernw" >Model</div>
         <div class="textentry bordernw">
-          <input class="hide_on_print inputclass" ng-model="equipmentrem.model">
-          <span class="hide_on_screen">{{equipmentrem.model}} </span>
+          <input class="hide_on_print inputclass" ng-model="jobcard.equipmentrem.model">
+          <span class="hide_on_screen">{{jobcard.equipmentrem.model}} </span>
         </div>
         <div class="bordernw" >Model</div>
         <div class="textentry bordernw">
-          <input class="hide_on_print inputclass" ng-model="backup.model">
-          <span class="hide_on_screen">{{backup.model}} </span>
+          <input class="hide_on_print inputclass" ng-model="jobcard.backup.model">
+          <span class="hide_on_screen">{{jobcard.backup.model}} </span>
         </div>
         <div class="bordernw" >Model</div>
         <div class="textentry bordernw">
-          <input class="hide_on_print inputclass" ng-model="equipmentret.model">
-          <span class="hide_on_screen">{{equipmentret.model}} </span>
+          <input class="hide_on_print inputclass" ng-model="jobcard.equipmentret.model">
+          <span class="hide_on_screen">{{jobcard.equipmentret.model}} </span>
         </div>
         
         <div class="bordernw" >Serial</div>
         <div class="textentry bordernw">
-          <input class="hide_on_print inputclass" ng-model="equipmentrem.serial">
-          <span class="hide_on_screen">{{equipmentrem.serial}} </span>
+          <input class="hide_on_print inputclass" ng-model="jobcard.equipmentrem.serial">
+          <span class="hide_on_screen">{{jobcard.equipmentrem.serial}} </span>
         </div>
         <div class="bordernw" >Serial</div>
         <div class="textentry bordernw">
-          <input class="hide_on_print inputclass" ng-model="backup.serial">
-          <span class="hide_on_screen">{{backup.serial}} </span>
+          <input class="hide_on_print inputclass" ng-model="jobcard.backup.serial">
+          <span class="hide_on_screen">{{jobcard.backup.serial}} </span>
         </div>
         <div class="bordernw" >Serial</div>
         <div class="textentry bordernw">
-          <input class="hide_on_print inputclass" ng-model="equipmentret.serial">
-          <span class="hide_on_screen">{{equipmentret.serial}} </span>
+          <input class="hide_on_print inputclass" ng-model="jobcard.equipmentret.serial">
+          <span class="hide_on_screen">{{jobcard.equipmentret.serial}} </span>
         </div>
         
         <div class="bordernw" >Date</div>
         <div class="textentry bordernw">
-          <input class="hide_on_print inputclass" ng-model="equipmentrem.date">
-          <span class="hide_on_screen">{{equipmentrem.date}} </span>
+          <input class="hide_on_print inputclass" ng-model="jobcard.equipmentrem.date">
+          <span class="hide_on_screen">{{jobcard.equipmentrem.date}} </span>
         </div>
         <div class="bordernw" >Date</div>
         <div class="textentry bordernw">
-          <input class="hide_on_print inputclass" ng-model="backup.date">
-          <span class="hide_on_screen">{{backup.date}} </span>
+          <input class="hide_on_print inputclass" ng-model="jobcard.backup.date">
+          <span class="hide_on_screen">{{jobcard.backup.date}} </span>
         </div>
         <div class="bordernw" >Date</div>
         <div class="textentry bordernw">
-          <input class="hide_on_print inputclass" ng-model="equipmentret.date">
-          <span class="hide_on_screen">{{equipmentret.date}} </span>
+          <input class="hide_on_print inputclass" ng-model="jobcard.equipmentret.date">
+          <span class="hide_on_screen">{{jobcard.equipmentret.date}} </span>
         </div>
         
         <div class="bordernw" >Time</div>
         <div class="textentry bordernw">
-          <input class="hide_on_print inputclass" ng-model="equipmentrem.time">
-          <span class="hide_on_screen">{{equipmentrem.time}} </span>
+          <input class="hide_on_print inputclass" ng-model="jobcard.equipmentrem.time">
+          <span class="hide_on_screen">{{jobcard.equipmentrem.time}} </span>
         </div>
         <div class="bordernw" >Time</div>
         <div class="textentry bordernw">
-          <input class="hide_on_print inputclass" ng-model="backup.time">
-          <span class="hide_on_screen">{{backup.time}} </span>
+          <input class="hide_on_print inputclass" ng-model="jobcard.backup.time">
+          <span class="hide_on_screen">{{jobcard.backup.time}} </span>
         </div>
         <div class="bordernw" >Time</div>
         <div class="textentry bordernw">
-          <input class="hide_on_print inputclass" ng-model="equipmentret.time">
-          <span class="hide_on_screen">{{equipmentret.time}} </span>
+          <input class="hide_on_print inputclass" ng-model="jobcard.equipmentret.time">
+          <span class="hide_on_screen">{{jobcard.equipmentret.time}} </span>
         </div>
         
         <div id="equipmentRemovedSignatureBackground" class="signature_holder clientsign bordernw">
@@ -320,64 +320,64 @@
       </div>
       <div class="borderse" id="jobcard-signoff-grid" ng-if="activeForm === 'JOBCARD'">
         <div class="bordernw span10">I, 
-          <span ng-if="signoff.samename">
-            {{reporter.name}}, agree that :
+          <span ng-if="jobcard.signoff.samename">
+            {{jobcard.reporter.name}}, agree that :
           </span>
-          <span ng-if="!signoff.samename">
-            <input class="inputclass" ng-model="signoff.name">agree that : 
+          <span ng-if="!jobcard.signoff.samename">
+            <input class="inputclass" ng-model="jobcard.signoff.name">agree that : 
           </span>
           <span class="hide_on_print">
-            <input type="checkbox"  ng-model="signoff.samename">Check to autofill user name. 
+            <input type="checkbox"  ng-model="jobcard.signoff.samename">Check to autofill user name. 
           </span>
         </div>
         <div class="bordernw span9">I have tested the equipment and am satisfied that it works</div>
-        <div class="bordernw span1"><input type="checkbox" ng-model="signoff.completed" ng-click="setcompletedtime()" >
-          <span ng-if="signoff.completed">
-            <span ng-value="signoff.completed=true"></span>
-            <span ng-value="signoff.notcompleted=false"></span>
+        <div class="bordernw span1"><input type="checkbox" ng-model="jobcard.signoff.completed" ng-click="setcompletedtime()" >
+          <span ng-if="jobcard.signoff.completed">
+            <span ng-value="jobcard.signoff.completed=true"></span>
+            <span ng-value="jobcard.signoff.notcompleted=false"></span>
           </span>
         </div>
         <div class="bordernw span9">The equipment is non-operational due to other factors</div>
-        <div class="bordernw span1"><input type="checkbox" ng-model="signoff.notcompleted" ng-click="setcompletedtime()" >
-          <span ng-if="signoff.notcompleted">
-            <span ng-value="signoff.notcompleted=true"></span>
-            <span ng-value="signoff.completed=false"></span>
+        <div class="bordernw span1"><input type="checkbox" ng-model="jobcard.signoff.notcompleted" ng-click="setcompletedtime()" >
+          <span ng-if="jobcard.signoff.notcompleted">
+            <span ng-value="jobcard.signoff.notcompleted=true"></span>
+            <span ng-value="jobcard.signoff.completed=false"></span>
           </span>
         </div>
         <div class="bordernw span6">User Comments</div>
         <div class="bordernw span4">Service rating</div>
         <div class="bordernw span6text"><textarea style="height: 5em;"></textarea></div>
         <div class="bordernw span4">Please rate our service : X</div>
-        <div class="bordernw span1"><input type="checkbox" ng-model="slalvlsel.excellent" >
-          <span ng-if="slalvlsel.excellent">
-            <span ng-value="slalvlsel.excellent=true"></span>
-            <span ng-value="slalvlsel.good=false"></span>
-            <span ng-value="slalvlsel.avg=false"></span>
-            <span ng-value="slalvlsel.poor=false"></span>
+        <div class="bordernw span1"><input type="checkbox" ng-model="jobcard.slalvlsel.excellent" >
+          <span ng-if="jobcard.slalvlsel.excellent">
+            <span ng-value="jobcard.slalvlsel.excellent=true"></span>
+            <span ng-value="jobcard.slalvlsel.good=false"></span>
+            <span ng-value="jobcard.slalvlsel.avg=false"></span>
+            <span ng-value="jobcard.slalvlsel.poor=false"></span>
           </span>
         </div>
-        <div class="bordernw span1"><input type="checkbox" ng-model="slalvlsel.good" >
-          <span ng-if="slalvlsel.good">
-            <span ng-value="slalvlsel.excellent=false"></span>
-            <span ng-value="slalvlsel.good=true"></span>
-            <span ng-value="slalvlsel.avg=false"></span>
-            <span ng-value="slalvlsel.poor=false"></span>
+        <div class="bordernw span1"><input type="checkbox" ng-model="jobcard.slalvlsel.good" >
+          <span ng-if="jobcard.slalvlsel.good">
+            <span ng-value="jobcard.slalvlsel.excellent=false"></span>
+            <span ng-value="jobcard.slalvlsel.good=true"></span>
+            <span ng-value="jobcard.slalvlsel.avg=false"></span>
+            <span ng-value="jobcard.slalvlsel.poor=false"></span>
           </span>
         </div>
-        <div class="bordernw span1"><input type="checkbox" ng-model="slalvlsel.avg" >
-          <span ng-if="slalvlsel.avg">
-            <span ng-value="slalvlsel.excellent=false"></span>
-            <span ng-value="slalvlsel.good=false"></span>
-            <span ng-value="slalvlsel.avg=true"></span>
-            <span ng-value="slalvlsel.poor=false"></span>
+        <div class="bordernw span1"><input type="checkbox" ng-model="jobcard.slalvlsel.avg" >
+          <span ng-if="jobcard.slalvlsel.avg">
+            <span ng-value="jobcard.slalvlsel.excellent=false"></span>
+            <span ng-value="jobcard.slalvlsel.good=false"></span>
+            <span ng-value="jobcard.slalvlsel.avg=true"></span>
+            <span ng-value="jobcard.slalvlsel.poor=false"></span>
           </span>
         </div>
-        <div class="bordernw span1"><input type="checkbox" ng-model="slalvlsel.poor" >
-          <span ng-if="slalvlsel.poor">
-            <span ng-value="slalvlsel.excellent=false"></span>
-            <span ng-value="slalvlsel.good=false"></span>
-            <span ng-value="slalvlsel.avg=false"></span>
-            <span ng-value="slalvlsel.poor=true"></span>
+        <div class="bordernw span1"><input type="checkbox" ng-model="jobcard.slalvlsel.poor" >
+          <span ng-if="jobcard.slalvlsel.poor">
+            <span ng-value="jobcard.slalvlsel.excellent=false"></span>
+            <span ng-value="jobcard.slalvlsel.good=false"></span>
+            <span ng-value="jobcard.slalvlsel.avg=false"></span>
+            <span ng-value="jobcard.slalvlsel.poor=true"></span>
           </span>
         </div>
         <div class="bordernw span1">Excellent</div>
@@ -391,10 +391,10 @@
         <div id="callClosedClientSignatureBackground" class="signature_holder noborder "></div>
         <div id="callClosedTechSignatureBackground" class="signature_holder noborder "></div>
         <div class="noborder textdisplay" >
-          <span class="vtextalign" ng-if="signoff.completed">{{sla.completed}}</span>
-          <span ng-if="!signoff.completed"></span>
-          <span class="vtextalign" ng-if="signoff.notcompleted">{{sla.completed}}</span>
-          <span ng-if="!signoff.notcompleted"></span>
+          <span class="vtextalign" ng-if="jobcard.signoff.completed">{{jobcard.sla.completed}}</span>
+          <span ng-if="!jobcard.signoff.completed"></span>
+          <span class="vtextalign" ng-if="jobcard.signoff.notcompleted">{{jobcard.sla.completed}}</span>
+          <span ng-if="!jobcard.signoff.notcompleted"></span>
         </div>
         <div class="bordernw borderse textdisplay" >
           <a href="#callClosedClientSignature" id="callClosedClientSignature" ng-click="sign('#callClosedClientSignatureBackground')">Client Signature</a>
