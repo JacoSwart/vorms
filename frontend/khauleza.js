@@ -387,7 +387,7 @@
 
       $scope.submitTripData = () => {
         $scope.saveTripData({
-          date: $scope.jobcard.sla.arrival,
+          date: $scope.newcall.calldate,
           departure: $scope.jobcard.site.departure || "Cradock",
           destination: $scope.jobcard.site.town,
           startodo: $scope.jobcard.ov.ss,
