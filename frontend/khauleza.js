@@ -290,7 +290,7 @@
           $scope.equipmentret.time = "";
         }
       };
-      
+
       $scope.newjobcard = () => {
         $scope.jobcard = new Jobcard();
         $scope.SMS = "";
@@ -350,7 +350,6 @@
         callDate = $scope.jsDatetoSQLDate(now);
         $scope.newCallHeader = new CallHeader(newCallId, newSitaRef, newAssetNr, callDate);
         $scope.fuelEntry = new Fuel(newCallId, callDate)
-        alert(callDate)
       };
 
       $scope.navigateTo = (page) => {
