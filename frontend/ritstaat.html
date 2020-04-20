@@ -63,6 +63,12 @@
   <div id="rtolgates">
     Tolgates :
   </div>
+  <div id="fuelliters">
+    Fuel :
+  </div>  
+  <div id="fuelamount">
+    Amount :
+  </div>
 </div>
 
 <div ng-repeat='line in tripReport' class="ritstaat-report-line">
@@ -74,6 +80,8 @@
   <span>{{line.totalkm}}</span>
   <span>{{line.client}}</span>
   <span>{{line.tollgates}}</span>
+  <span>{{line.liters}}</span>
+  <span>{{line.amount}}</span>
 </div>
 
 <hr color="black">

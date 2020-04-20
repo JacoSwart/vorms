@@ -1,9 +1,9 @@
 #ritstaat-table, .ritstaat-report-line {
     display: grid;
     grid-row-gap: 0.5em;
-    grid-template-columns: 1fr 1.5fr 1.5fr 1fr 1fr 1fr 2fr 1fr;
+    grid-template-columns: 1fr 1.5fr 1.5fr 1fr 1fr 1fr 2fr 1fr 1fr 1fr;
     grid-template-areas: 
-        "rdate rdepart rdest rstartodo rendodo rkmtotal rclient rtolgates"
+        "rdate rdepart rdest rstartodo rendodo rkmtotal rclient rtolgates fuelliters fuelamount"
         ;
     border-bottom: solid blue 0.5px;
 }
@@ -74,6 +74,17 @@
 #ritstaat-table .ritstaat-report-line span {
     text-align: center;
     border-right: solid blue 0.5px;
+}
+
+#ritstaat-table #fuelliters{
+    grid-area: fuelliters;
+    text-align: center;
+    border-right: solid black 1px;
+}
+#ritstaat-table #fuelamount{
+    grid-area: fuelamount;
+    text-align: center;
+    border-right: solid black 1px;
 }
 
 .addTrip {

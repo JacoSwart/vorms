@@ -2,8 +2,8 @@
     <div id="user-damage" ng-if="activeForm === 'USER_DAMAGE'">
       <img id="logo" class="imagedisplay" src="img/khauleza.png" alt="Khauleza Logo: " height="50">
       <h3 id="title" style="text-align:center">STATEMENT REGARDING DAMAGE</h3>
-      <div id="kh-ref" class="khauleza-reference">Khauleza Reference # {{newcall.callid}}</div>
-      <div id="cl-ref" class="client-reference">Client Reference # {{newcall.sitaref}}</div>
+      <div id="kh-ref" class="khauleza-reference">Khauleza Reference # {{newCallHeader.callid}}</div>
+      <div id="cl-ref" class="client-reference">Client Reference # {{newCallHeader.sitaref}}</div>
       <div style="text-align: center; font-size: 20px;" id="completion">To be completed by Khauleza Technician:</div>
       <div id="declaration">
         I, <span style="font-style: italic">Jaco Swart</span> with ID Number 
@@ -20,7 +20,7 @@
         Equipment Serial Number :
       </div>
       <div id="equip-det1">
-        {{newcall.assetnr}}<br>
+        {{newCallHeader.assetnr}}<br>
         {{jobcard.equipment.make}} {{jobcard.equipment.model}} <br>
         {{jobcard.equipment.serial}} 
       </div>
@@ -103,7 +103,7 @@
       </div>
       
       <div id="clientdate">
-        Date:  {{newcall.calldate}}<br>
+        Date:  {{newCallHeader.calldate}}<br>
       </div>
       
     </div>

@@ -16,7 +16,7 @@ app.use(express.json());
 app.post('/api/fuel', (req, res) => {
   saveFuelTransaction(req.body);
   res.send();
-})
+});
 
 app.get('/api/fuel', (req, res) => {
   getFuelTransactions()
@@ -49,7 +49,7 @@ app.listen(port, () => console.log(`Example app listening at http://localhost:${
 
 
 async function saveFuelTransaction(fuel) {
-  let date = jsDatetoShortDate(new Date(fuel.date));
+  // let date = jsDatetoShortDate(new Date(fuel.date));
   let conn;
   try {
     conn = await pool.getConnection();
@@ -69,9 +69,13 @@ async function saveFuelTransaction(fuel) {
   return new Promise(async resolve => {
     try {
       conn = await pool.getConnection();
-      const res = await conn.query(
+      let res = await conn.query(
         "SELECT * FROM vorms.fuel ORDER BY date asc;"
         );
+        res = res.map(line => {
+          line.date = jsDatetoShortDate(line.date);
+          return line;
+        });  
       resolve(JSON.stringify(res));
     } catch (err) {
       console.log(err);
@@ -127,17 +131,21 @@ async function saveTripTransaction(trip) {
         conn = await pool.getConnection();
         let res = await conn.query(
           "SELECT \
-          `date`, \
-          `departure`, \
-          `destination`,\
-          `startodo`,\
-          `endodo`,\
-          `totalkm`,\
-          `pvtkm`,\
-          `client`,\
-          `tollgates`,\
-          `vehicle`\
-          FROM vorms.trips ORDER BY date asc;"
+          trips.date, \
+          trips.departure, \
+          trips.destination, \
+          trips.startodo, \
+          trips.endodo, \
+          trips.totalkm, \
+          trips.pvtkm, \
+          trips.client, \
+          trips.tollgates, \
+          fuel.liters, \
+          fuel.amount\
+          FROM vorms.trips as trips\
+          left join vorms.fuel as fuel \
+          on trips.tollgates=fuel.jobcard\
+          ORDER BY trips.date asc;"
           );
           res = res.map(line => {
             line.date = jsDatetoShortDate(line.date);

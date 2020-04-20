@@ -164,12 +164,22 @@
       }
     }
 
-    class Call {
-      constructor(callid = "", sitaref = "", assetnr = "", date="") {
+    class CallHeader {
+      constructor( callid = "",sitaref = "", assetnr = "", date="") {
         this.callid = callid;
         this.sitaref = sitaref;
         this.assetnr = assetnr;
         this.calldate = date;
+      }
+    }
+
+    class Fuel {
+      constructor(jobcard = "") {
+        this.liters = 0;
+        this.amount = 0;
+        this.jobcard = jobcard;
+        this.vehicle = "FT60LXGP";
+        this.fueldate = new Date();
       }
     }
 
@@ -213,22 +223,16 @@
       };
 
       
-      $scope.fuel = {
-        liters: 0,
-        amount: 0,
-        jobcard: "",
-        vehicle: "FT60LXGP",
-        date: now,
-      };
+      
 
       $scope.fuelReport = [];
 
       $scope.tripReport = [];
-
-      $scope.newcall = new Call();
+      $scope.newCallHeader = new CallHeader();
       $scope.trip = new Trip();
       $scope.jobcard = new Jobcard();
       $scope.newparts = new Partsreplacement();
+     
 
       $scope.savekilos = (departure, endkilos) => {
         localStorage.setItem("endkilos", endkilos);
@@ -286,11 +290,7 @@
           $scope.equipmentret.time = "";
         }
       };
-
       
-
-      
-
       $scope.newjobcard = () => {
         $scope.jobcard = new Jobcard();
         $scope.SMS = "";
@@ -309,7 +309,7 @@
             $scope.trip = new Trip();
             $scope.displayTripDialog = true;
             break;
-        };
+        }
         // $scope.displayTripDialog = !$scope.displayTripDialog;
       };
      
@@ -348,7 +348,9 @@
         $scope.jobcard.sla.reported = '20' + newSitaRef.slice(0,2) + '/' + newSitaRef.slice(2,4) + '/' + newSitaRef.slice(4,6);
         $scope.jobcard.sla.arrivetime = $scope.padZeros(now.getHours()) + ":" + $scope.padZeros(now.getMinutes());
         callDate = $scope.jsDatetoSQLDate(now);
-        $scope.newcall = new Call(newCallId, newSitaRef, newAssetNr, callDate);
+        $scope.newCallHeader = new CallHeader(newCallId, newSitaRef, newAssetNr, callDate);
+        $scope.fuelEntry = new Fuel(newCallId, callDate)
+        alert(callDate)
       };
 
       $scope.navigateTo = (page) => {
@@ -376,25 +378,25 @@
           },
           credentials: 'include',
           body: JSON.stringify({
-            liters: $scope.fuel.liters,
-            amount: $scope.fuel.amount,
-            vehicle: $scope.fuel.vehicle,
-            date: $scope.fuel.date,
-            jobcard: $scope.fuel.jobcard,
+            liters: $scope.fuelEntry.liters,
+            amount: $scope.fuelEntry.amount,
+            vehicle: $scope.fuelEntry.vehicle,
+            date: $scope.jsDatetoSQLDate($scope.fuelEntry.date),
+            jobcard: $scope.fuelEntry.jobcard,
           }),
         });
       };
 
       $scope.submitTripData = () => {
         $scope.saveTripData({
-          date: $scope.newcall.calldate,
+          date: $scope.newCallHeader.calldate,
           departure: $scope.jobcard.site.departure || "Cradock",
           destination: $scope.jobcard.site.town,
           startodo: $scope.jobcard.ov.ss,
           endodo: $scope.jobcard.ov.sse,
           pvtkm: 0,
           client: $scope.jobcard.reporter.name,
-          tollgates: $scope.newcall.callid,
+          tollgates: $scope.newCallHeader.callid,
           vehicle: "FT60LXGP",
         });
       };
@@ -443,8 +445,8 @@
       };
 
       $scope.getTitle = () => {
-        if ($scope.newcall.callid) {
-          return $scope.newcall.callid + ' ' + toTitleCase($scope.activeForm); 
+        if ($scope.newCallHeader.callid) {
+          return $scope.newCallHeader.callid + ' ' + toTitleCase($scope.activeForm); 
         } else {
           return toTitleCase($scope.activeForm); 
         }
