@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="index.css">
   <link rel="stylesheet" href="ritstaat.css">
+  <link rel="stylesheet" href="audit.css">
 </head>
 
 <body lang="EN-ZA"> 
@@ -37,11 +38,15 @@
         <a style="font-size: 10pt" href="#" ng-click="navigateTo(3)">Equipment Removal</a>
       </li>
       <li>
+        <a style="font-size: 10pt" href="#" ng-click="navigateTo(6)">Audit</a>
+      </li>
+      <li>
         <a style="font-size: 10pt" href="#" ng-click="navigateTo(4)">Fuel</a>
       </li>
       <li>
         <a style="font-size: 10pt" href="#" ng-click="navigateTo(5)">Trips</a>
       </li>
+
     </ul>
     <ul class="flex-right">
       <li>
@@ -61,6 +66,7 @@
     <div ng-include = "'equipment_removal.html'" ng-if="activeForm === 'EQUIPMENT_REMOVAL'"></div>
     <div ng-include = "'fuel.html'" ng-if="activeForm === 'FUEL'"></div>
     <div ng-include = "'ritstaat.html'" ng-if="activeForm === 'TRIPS'"></div>
+    <div ng-include = "'audit.html'" ng-if="activeForm === 'AUDIT'"></div>
 
 
     <!-- Signature Pad -->

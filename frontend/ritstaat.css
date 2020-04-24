@@ -8,7 +8,13 @@
     border-bottom: solid blue 0.5px;
 }
 .ritstaat-report-line {
-    text-align: center;
+    text-align: left;
+    font-size: 10px;
+    border-left: solid black 1px;
+}
+
+.ritstaat-report-line span {
+    border-right: solid black 1px;
 }
 
 .header{

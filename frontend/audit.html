@@ -1,0 +1,202 @@
+<div class="auditForm">
+
+<div class="audit_grid">
+    <div class="formName">SAPS AUDIT FORM</div>
+    <div class="formVer headerFontDisplay auditfont">Version 10 (2014)</div>
+    <div class="formISM">ISM use Only</div>
+    <div class="right-side-bar formDate">{{newCallHeader.calldate}}</div>
+    <div class="comp">Component Nr</div>
+    <div class="compEntry"><input type="text" size="4" ng-model="audit.compNr"></div>
+    <div class="subComp">Subcomponent nr</div>
+    <div class="subCompEntry"><input type="text" size="4" ng-model="audit.subCompNr"></div>
+    <div class="ARS" >ARS Call Number</div>
+    <div class="ARSEntry"><input type="text" size="30" ng-model="newCallHeader.sitaref"></div>
+    <div class="khauRef" >Jobcard Number</div>
+    <div class="khauRefEntry"><input type="text" size="30" ng-model="newCallHeader.callid"></div>
+    <div class="ISMuse">
+        <div class="ISMchk"></div>
+        <div class="ISMuse1">VIP</div>   
+        <div class="ISMchk">&nbsp</div>
+        <div class="ISMuse2">MISSION CRITICAL</div> 
+        <div class="ISMchk">&nbsp</div>
+        <div class="ISMuse3">PRIORITY</div> 
+        <div class="ISMuse4">OPERATIONAL</div>      
+    </div>
+
+    <div class="right-side-bar serviceGroup">
+        <div class="SGheader">Service Group</div>
+        <div class="SGentries">SAPS</div>
+        <div class="SGvalues"></div>
+        <div class="SGentries">AVL (HQ)</div>
+        <div class="SGvalues"></div>
+        <div class="SGentries">AFIS (Sagem)</div>
+        <div class="SGvalues"></div>
+        <div class="SGentries">DCB (HPIS Booth)</div>
+        <div class="SGvalues"></div>
+        <div class="SGentries">GSPS (HQ)</div>
+        <div class="SGvalues"></div>
+        <div class="SGentries">SAPS id Card</div>
+        <div class="SGvalues"></div>
+        <div class="SGentries">LCRC light S</div>
+        <div class="SGvalues"></div>
+        <div class="SGentries">IJS (HQ)</div>
+        <div class="SGvalues"></div>
+        <div class="SGentries">Excaminers Friend</div>
+        <div class="SGvalues"></div>
+    </div>
+    <div class="right-side-bar softwareOS">
+        <div class="osheader">Software OS</div>
+        <div class="osentries">Dos 6</div>
+        <div class="osvalues"></div>
+        <div class="osentries">Windows 98</div>
+        <div class="osvalues"></div>
+        <div class="osentries">Windows 2000</div>
+        <div class="osvalues"></div>
+        <div class="osentries">Windows XP</div>
+        <div class="osvalues"></div>
+        <div class="osentries">Windows NT</div>
+        <div class="osvalues"></div>
+        <div class="osentries">Windows 7</div>
+        <div class="osvalues"></div>
+    </div>
+    <div class="right-side-bar softwarePack">
+        <div class="SPheader">Software Package</div>
+        <div class="SPentries">Corel Office 2000</div>
+        <div class="SPvalues"></div>
+        <div class="SPentries">Corel Office 7</div>
+        <div class="SPvalues"></div>
+        <div class="SPentries">Corel Office 8</div>
+        <div class="SPvalues"></div>
+        <div class="SPentries">Corel Office 9</div>
+        <div class="SPvalues"></div>
+        <div class="SPentries">Corel Office 11</div>
+        <div class="SPvalues"></div>
+        <div class="SPentries">Corel Office 12</div>
+        <div class="SPvalues"></div>
+        <div class="SPentries">MS Office 97</div>
+        <div class="SPvalues"></div>
+        <div class="SPentries">MS Office 2000</div>
+        <div class="SPvalues"></div>
+        <div class="SPentries">MS Office 2003</div>
+        <div class="SPvalues"></div>
+        <div class="SPentries">MS Office 2007</div>
+        <div class="SPvalues"></div>
+        <div class="SPentries">MS Office 2010</div>
+        <div class="SPvalues"></div>
+        <div class="SPentries">MS Project</div>
+        <div class="SPvalues"></div>
+        <div class="SPentries">MS Outlook</div>
+        <div class="SPvalues"></div>
+        <div class="SPentries">Corel Draw</div>
+        <div class="SPvalues"></div>
+        <div class="SPentries">Internet Explorer</div>
+        <div class="SPvalues"></div>
+        <div class="SPentries">WinZip</div>
+        <div class="SPvalues"></div>
+        <div class="SPentries">Winplayer</div>
+        <div class="SPvalues"></div>
+    </div>
+    <div class="right-side-bar softwareSys">
+        <div class="SSheader">Software System</div>
+        <div class="SSentries">SER</div>
+        <div class="SSvalues"></div>
+    </div>
+    <div class="right-side-bar networkOS">
+        <div class="nosheader">Software System</div>
+        <div class="nosentries">EPC 32bit</div>
+        <div class="nosvalues"></div>
+        <div class="nosentries">Client 32 (Novel)</div>
+        <div class="nosvalues"></div>
+        <div class="nosentries">My Extra</div>
+        <div class="nosvalues"></div>
+    </div>
+    <div class="right-side-bar networkSys">
+        <div class="nsysheader">Network System</div>
+        <div class="nsysentries">Internet</div>
+        <div class="nsysvalues"></div>
+        <div class="nsysentries">Intranet</div>
+        <div class="nsysvalues"></div>
+        <div class="nsysentries">BIU</div>
+        <div class="nsysvalues"></div>
+        <div class="nsysentries">Netwizard</div>
+        <div class="nsysvalues"></div>
+        <div class="nsysentries">Norton AV</div>
+        <div class="nsysvalues"></div>
+        <div class="nsysentries">PPM</div>
+        <div class="nsysvalues"></div>
+        <div class="nsysentries">TMS</div>
+        <div class="nsysvalues"></div>
+        <div class="nsysentries">AIS</div>
+        <div class="nsysvalues"></div>
+        <div class="nsysentries">AFIS</div>
+        <div class="nsysvalues"></div>
+        <div class="nsysentries">NPIS</div>
+        <div class="nsysvalues"></div>
+        <div class="nsysentries">FES</div>
+        <div class="nsysvalues"></div>
+    </div>
+    <div class="right-side-bar other">
+        <div class="otherheader">Other</div>
+        <div class="otherentries">Service Pack installed</div>
+        <div class="othervalues"></div>
+        <div class="otherentries">SUS updated</div>
+        <div class="othervalues"></div>
+        <div class="otherentries">Admin Password Removed</div>
+        <div class="othervalues"></div>
+    </div>
+    <div class="left_hand_bar userinfo">
+        <div class="userinfoheader">USER INFO</div>
+        <div class="userinfoentries">Persal no</div>
+        <div class="userinfovalues"><input type="text" ng-model="audit.persal" size="25"></div>
+        <div class="userinfoentries">Rank</div>
+        <div class="userinfovalues"><input type="text" ng-model="audit.rank" size="25"></div>
+        <div class="userinfoentries">Client</div>
+        <div class="userinfovalues"><input type="text" ng-model="jobcard.reporter.name" size="25"></div>
+    </div>
+
+    <div class="left_hand_bar currAdd">
+        <div class="userinfoheader">CURRENT ADDRESS</div>
+        <div class="userinfoentries">Unit</div>
+        <div class="userinfovalues"><input type="text" ng-model="jobcard.site.site" size="25"></div>
+        <div class="userinfoentries">Building</div>
+        <div class="userinfovalues"><input type="text" ng-model="jobcard.site.building" size="25"></div>
+        <div class="userinfoentries">Street</div>
+        <div class="userinfovalues"><input type="text" ng-model="jobcard.site.street" size="25"></div>
+        <div class="userinfoentries">Suburb</div>
+        <div class="userinfovalues"><input type="text" ng-model="audit.suburb" size="25"></div>
+        <div class="userinfoentries">Town / City</div>
+        <div class="userinfovalues"><input type="text" ng-model="jobcard.site.town" size="25"></div>
+        <div class="userinfoentries">Floor no</div>
+        <div class="userinfovalues"><input type="text" ng-model="jobcard.site.floor" size="25"></div>
+        <div class="userinfoentries">Room no</div>
+        <div class="userinfovalues"><input type="text" ng-model="jobcard.site.room" size="25"></div>
+        <div class="userinfoentries">Tel number</div>
+        <div class="userinfovalues"><input type="text" ng-model="jobcard.reporter.tel" size="25"></div>
+    </div>
+
+    <div class="center_bar accPerson">
+        <div class="accheader">ACCOUNTABLE PERSON</div>
+        <div class="accentries">Persal no</div>
+        <div class="accvalues"><input type="text" ng-model="audit.persal" ></div>
+        <div class="accentries">Rank</div>
+        <div class="accvalues"><input type="text" ng-model="audit.rank" size="30"></div>
+        <div class="accentries">Client</div>
+        <div class="accvalues"><input type="text" ng-model="jobcard.reporter.name" size="30"></div>
+        <div class="accentries">Tel no</div>
+        <div class="accvalues"><input type="text" ng-model="jobcard.reporter.tel" size="30"></div>
+        <div class="accentries">
+            <a href="#accsignlink" id="accsignlink signature_holder" ng-click="sign('#accsignbackground')">Signature:</a>
+        </div>
+        <div id="accsignbackground" class="accsign signature_holder"></div>
+    </div>
+
+    <div class="auditTechnician center_bar">
+        <div class="audtechheader">TECHNICIAN</div>
+
+    </div>
+
+  
+  </div>
+
+
+</div>

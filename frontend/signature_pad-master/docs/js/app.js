@@ -4,16 +4,7 @@ var changeColorButton = wrapper.querySelector("[data-action=change-color]");
 var undoButton = wrapper.querySelector("[data-action=undo]");
 var saveJPGButton = wrapper.querySelector("[data-action=save-jpg]");
 var canvas = wrapper.querySelector("canvas");
-var equipmentRemoved = document.body.querySelector("#equipmentRemovedSignature");
-var backupInstalled = document.body.querySelector("#backupInstalledSignature");
-var equipmentReturned = document.body.querySelector("#equipmentReturnedSignature");
-var callClosedClient = document.body.querySelector("#callClosedClientSignature");
-var callClosedTech = document.body.querySelector('#callClosedTechSignature');
-var prclientsign1 = document.body.querySelector('#prclientsign1');
-var prclientsign2 = document.body.querySelector('#prclientsign2');
-var techniciansignpr = document.body.querySelector('#techsignpr');
-var clientsigner = document.body.querySelector('#clientSignEquipRemove');
-var techniciansigner = document.body.querySelector('#technicianSignEquipRemove');
+
 var signaturePad = new SignaturePad(canvas, {
   // It's Necessary to use an opaque color when saving image as JPEG;
   // this option can be omitted if only saving as PNG or SVG

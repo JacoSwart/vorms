@@ -183,6 +183,21 @@
       }
     }
 
+    class Audit {
+      constructor() {
+        this.compNr = 0;
+        this.subCompNr = 0;
+        this.persal = "";
+        this.rank = "";
+        this.suburb = "";
+        
+
+
+        
+
+      }
+    }
+
     jobcardapp.controller('Jobcard_controller', function ($scope) {
       
 
@@ -196,8 +211,8 @@
         );
       }
 
-      let forms = ['JOBCARD', 'PARTS_REPLACEMENT', 'USER_DAMAGE', 'EQUIPMENT_REMOVAL', 'FUEL', 'TRIPS'];
-      $scope.activeForm = forms[0];
+      let forms = ['JOBCARD', 'PARTS_REPLACEMENT', 'USER_DAMAGE', 'EQUIPMENT_REMOVAL', 'FUEL', 'TRIPS' ,'AUDIT'];
+      $scope.activeForm = forms[6];
       let now = new Date();
 
       setInterval(() => {
