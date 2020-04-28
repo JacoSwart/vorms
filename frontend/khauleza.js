@@ -467,55 +467,55 @@
       };
 
       $scope.autoFillEqRem = () => {
-        if ($scope.equipmentrem.eqremautofill === true) {
-          $scope.equipmentrem.make = $scope.equipment.make;
-          $scope.equipmentrem.model = $scope.equipment.model;
-          $scope.equipmentrem.serial = $scope.equipment.serial;
-          $scope.equipmentrem.date = $scope.jsDatetoSQLDate(now);
-          $scope.equipmentrem.time = $scope.padZeros(now.getHours()) + ":" + $scope.padZeros(now.getMinutes());
+        if ($scope.jobcard.equipmentrem.eqremautofill === true) {
+          $scope.jobcard.equipmentrem.make = $scope.jobcard.equipment.make;
+          $scope.jobcard.equipmentrem.model = $scope.jobcard.equipment.model;
+          $scope.jobcard.equipmentrem.serial = $scope.jobcard.equipment.serial;
+          $scope.jobcard.equipmentrem.date = $scope.jsDatetoSQLDate(now);
+          $scope.jobcard.equipmentrem.time = $scope.padZeros(now.getHours()) + ":" + $scope.padZeros(now.getMinutes());
         }
         else {
-          $scope.equipmentrem.make = "";
-          $scope.equipmentrem.model = "";
-          $scope.equipmentrem.serial = "";
-          $scope.equipmentrem.date = "";
-          $scope.equipmentrem.time ="";
+          $scope.jobcard.equipmentrem.make = "";
+          $scope.jobcard.equipmentrem.model = "";
+          $scope.jobcard.equipmentrem.serial = "";
+          $scope.jobcard.equipmentrem.date = "";
+          $scope.jobcard.equipmentrem.time ="";
         }
         
       };
 
       $scope.autoFillBackup = () => {
-        if ($scope.backup.backupautofill === true) {
-          $scope.backup.make = $scope.equipment.make;
-          $scope.backup.model = $scope.equipment.model;
-          $scope.backup.serial = $scope.equipment.serial;
-          $scope.backup.date = $scope.jsDatetoSQLDate(now);
-          $scope.backup.time = $scope.padZeros(now.getHours()) + ":" + $scope.padZeros(now.getMinutes());
+        if ($scope.jobcard.backup.backupautofill === true) {
+          $scope.jobcard.backup.make = $scope.jobcard.equipment.make;
+          $scope.jobcard.backup.model = $scope.jobcard.equipment.model;
+          $scope.jobcard.backup.serial = $scope.jobcard.equipment.serial;
+          $scope.jobcard.backup.date = $scope.jsDatetoSQLDate(now);
+          $scope.jobcard.backup.time = $scope.padZeros(now.getHours()) + ":" + $scope.padZeros(now.getMinutes());
         }
         else {
-          $scope.backup.make = "";
-          $scope.backup.model = "";
-          $scope.backup.serial = "";
-          $scope.backup.date = "";
-          $scope.backup.time ="";
+          $scope.jobcard.backup.make = "";
+          $scope.jobcard.backup.model = "";
+          $scope.jobcard.backup.serial = "";
+          $scope.jobcard.backup.date = "";
+          $scope.jobcard.backup.time ="";
         }
         
       };
 
       $scope.autoFillEqRet = () => {
-        if ($scope.equipmentret.eqretautofill === true) {
-          $scope.equipmentret.make = $scope.equipment.make;
-          $scope.equipmentret.model = $scope.equipment.model;
-          $scope.equipmentret.serial = $scope.equipment.serial;
-          $scope.equipmentret.date = $scope.jsDatetoSQLDate(now);
-          $scope.equipmentret.time = $scope.padZeros(now.getHours()) + ":" + $scope.padZeros(now.getMinutes());
+        if ($scope.jobcard.equipmentret.eqretautofill === true) {
+          $scope.jobcard.equipmentret.make = $scope.jobcard.equipment.make;
+          $scope.jobcard.equipmentret.model = $scope.jobcard.equipment.model;
+          $scope.jobcard.equipmentret.serial = $scope.jobcard.equipment.serial;
+          $scope.jobcard.equipmentret.date = $scope.jsDatetoSQLDate(now);
+          $scope.jobcard.equipmentret.time = $scope.padZeros(now.getHours()) + ":" + $scope.padZeros(now.getMinutes());
         }
         else {
-          $scope.equipmentret.make = "";
-          $scope.equipmentret.model = "";
-          $scope.equipmentret.serial = "";
-          $scope.equipmentret.date = "";
-          $scope.equipmentret.time ="";
+          $scope.jobcard.equipmentret.make = "";
+          $scope.jobcard.equipmentret.model = "";
+          $scope.jobcard.equipmentret.serial = "";
+          $scope.jobcard.equipmentret.date = "";
+          $scope.jobcard.equipmentret.time ="";
         }
         
       };
