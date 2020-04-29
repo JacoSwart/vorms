@@ -19,7 +19,7 @@
       constructor() {
         this.client = false;
         this.ov = {
-          ss: localStorage.getItem("endkilos"),
+          ss: 0,
           sse: 0,
           rs: 0,
           re: 0,
@@ -31,7 +31,7 @@
           floor: "",
           room: "",
           town: "",
-          departure: localStorage.getItem("departure"),
+          departure: "",
         };
         this.reporter = {
           name: "",
@@ -219,6 +219,7 @@
         now = new Date();
       }, 3000);
 
+
       $scope.SMS = "";
 
       $scope.fsa = false;
@@ -237,14 +238,13 @@
         description: "",
       };
 
-      
-      
-
       $scope.fuelReport = [];
 
       $scope.tripReport = [];
+      $scope.newDeparture = [];
       $scope.newCallHeader = new CallHeader();
       $scope.trip = new Trip();
+      
       $scope.jobcard = new Jobcard();
       $scope.newparts = new Partsreplacement();
      
@@ -364,7 +364,9 @@
         $scope.jobcard.sla.arrivetime = $scope.padZeros(now.getHours()) + ":" + $scope.padZeros(now.getMinutes());
         callDate = $scope.jsDatetoSQLDate(now);
         $scope.newCallHeader = new CallHeader(newCallId, newSitaRef, newAssetNr, callDate);
-        $scope.fuelEntry = new Fuel(newCallId, callDate)
+        $scope.fuelEntry = new Fuel(newCallId, callDate);
+        $scope.determineDeparture();
+
       };
 
       $scope.navigateTo = (page) => {
@@ -400,6 +402,33 @@
           }),
         });
       };
+
+      $scope.determineDeparture = async () => {
+        response = await fetch('/api/trips/departure', {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          credentials: 'include',
+        });
+        $scope.newDeparture = (await response.json());
+        switch ($scope.newDeparture[0].date) {
+          case $scope.newDeparture[0].date = $scope.jsDatetoSQLDate(now):
+            $scope.jobcard.site.departure = $scope.newDeparture[0].destination;
+            break;
+
+          case $scope.newDeparture[0].date < $scope.jsDatetoSQLDate(now):
+            $scope.jobcard.site.departure = "CRADOCK";
+            break;
+        }
+        $scope.jobcard.ov.ss = $scope.newDeparture[0].endodo;
+
+        console.log($scope.jobcard.site.departure);
+        console.log($scope.jobcard.ov.ss);
+      };
+    
+
 
       $scope.submitTripData = () => {
         $scope.saveTripData({
@@ -456,6 +485,8 @@
           credentials: 'include',
         });
         $scope.tripReport = (await response.json());
+    
+        // console.log($scope.tripReport);
       };
 
       $scope.getTitle = () => {

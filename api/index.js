@@ -45,6 +45,13 @@ app.get('/api/trips/download', (req, res) => {
     });
 });
 
+app.get('/api/trips/departure', (req, res) => {
+  getTripDeparture()
+  .then(sqlRes => {
+    res.send(sqlRes);
+  });
+});
+
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
 
 
@@ -160,6 +167,37 @@ async function saveTripTransaction(trip) {
       }
     });
   }
+
+  async function getTripDeparture() {
+    return new Promise(async resolve => {
+      try {
+        conn = await pool.getConnection();
+        let res = await conn.query(
+          "WITH lastdetail as ( \
+            select *\
+              , row_number() over (order by endodo) jaco\
+              from vorms.trips as trip\
+          )\
+          SELECT z.endodo\
+              , z.date\
+              , z.destination\
+          FROM lastdetail as z\
+          WHERE endodo = (select max(endodo) from lastdetail)"
+          );
+          res = res.map(line => {
+            line.date = jsDatetoShortDate(line.date);
+            return line;
+          });
+        resolve(JSON.stringify(res));
+      } catch (err) {
+        console.log(err);
+        throw err;
+      } finally {
+        if (conn) return conn.end();
+      }
+    });
+  }
+
 
   function jsDatetoShortDate(date) {
     return date.getFullYear() + "/" + padZeros((date.getMonth() + 1)) + "/" + padZeros(date.getDate());

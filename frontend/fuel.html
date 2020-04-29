@@ -8,22 +8,39 @@
   <hr color=black>
   
   <div id="fuel-entry" >
-    <div id="fueldate">
-      Date :<input ng-model="fuelEntry.fueldate" type="date">
+    <div>
+      <Span>Date</Span>
     </div>
-    <div id="fuelliters">
-      Liters :<input ng-model="fuelEntry.liters" type="number"> 
+    <div>
+      <span>Liters</span> 
     </div>
-    <div id="fuelamount">
-      Amount :<input ng-model="fuelEntry.amount" type="number">
+    <div>
+      <span>Amount</span> 
     </div>
-    <div id="fueljobcard">
-      Jobcard :<input class="hide_on_print" ng-model="fuelEntry.jobcard" type="text">
+    <div>
+      <span>Jobcard</span>
     </div>
-    <div id="fuelvehicle">
-      Vehicle :<input class="hide_on_print" ng-model="fuelEntry.vehicle" type="text">
+    <div>
+     <span>Vehicle</span>
     </div>
+    <div>
+      <input ng-model="fuelEntry.fueldate" type="date">
+    </div>
+    <div>
+      <input ng-model="fuelEntry.liters" type="number" min="1" max="55" step="0.01" size="6">  
+    </div>
+    <div>
+      <input ng-model="fuelEntry.amount" type="number" min="1" step="0.01" size="10">
+    </div>
+    <div>
+      <input class="hide_on_print" ng-model="fuelEntry.jobcard" type="text" size="8">
+    </div>
+    <div>
+      <input class="hide_on_print" ng-model="fuelEntry.vehicle" type="text" size="8">
+    </div>
+    <hr color="black">
   </div>
+  
   <div id="submitbutton" >
     <button ng-click="submitFuelData()">Submit</button>
     <button ng-click="getFuelData()">Generate Report</button>
