@@ -414,7 +414,7 @@
         });
         $scope.newDeparture = (await response.json());
         switch ($scope.newDeparture[0].date) {
-          case $scope.newDeparture[0].date = $scope.jsDatetoSQLDate(now):
+          case $scope.newDeparture[0].date = $scope.jsDatetoSQLDate(now): // TODO: ==
             $scope.jobcard.site.departure = $scope.newDeparture[0].destination;
             break;
 
@@ -423,6 +423,7 @@
             break;
         }
         $scope.jobcard.ov.ss = $scope.newDeparture[0].endodo;
+        $scope.$apply();
 
         console.log($scope.jobcard.site.departure);
         console.log($scope.jobcard.ov.ss);
@@ -431,9 +432,10 @@
 
 
       $scope.submitTripData = () => {
+
         $scope.saveTripData({
           date: $scope.newCallHeader.calldate,
-          departure: $scope.jobcard.site.departure || "Cradock",
+          departure: $scope.jobcard.site.departure,
           destination: $scope.jobcard.site.town,
           startodo: $scope.jobcard.ov.ss,
           endodo: $scope.jobcard.ov.sse,
@@ -461,7 +463,20 @@
           credentials: 'include',
           body: JSON.stringify(trip),              
         });
+        switch (response.status) {
+          case 200: 
+            $scope.alertDialog("Trip submitted successfully");
+            break;
+          default:
+            $scope.alertDialog("An error occurred");
+            break;
+        }
+        console.log(response);
       };
+
+      $scope.alertDialog = async (message) => {
+        alert(message);
+      }
 
       $scope.getFuelData = async() => {
         response = await fetch('/api/fuel', {
