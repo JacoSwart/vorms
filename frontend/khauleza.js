@@ -488,6 +488,7 @@
           credentials: 'include',
         });
         $scope.fuelReport = (await response.json());
+        $scope.$apply();
       };
 
       $scope.getTripData = async() => {
@@ -500,6 +501,7 @@
           credentials: 'include',
         });
         $scope.tripReport = (await response.json());
+        $scope.$apply();
     
         // console.log($scope.tripReport);
       };

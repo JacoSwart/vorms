@@ -467,57 +467,7 @@ h6 {
    
 }
 
-#fuel-entry {
-    display: grid;
-    grid-row-gap: 0.5em;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-   
-}
-#fuel-entry span {
-    font-size: 12px;
-}
 
-
-#fuel-table, .fuel-report-line {
-    display: grid;
-    grid-row-gap: 0.5em;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-areas: 
-        "tfueldate tfuelliters tfuelamount tfueljobcard tfuelvehicle"
-        ;
-}
-#fuel-table #tfueldate{
-    grid-area: tfueldate;
-    text-align: center;
-    border-right: solid black 1px;
-}
-#fuel-table #tfuelliters{
-    grid-area: tfuelliters;
-    text-align: center;
-    border-right: solid black 1px;
-}
-#fuel-table #tfuelamount{
-    grid-area: tfuelamount;
-    text-align: center;
-    border-right: solid black 1px;
-}
-#fuel-table #tfueljobcard{
-    grid-area: tfueljobcard;
-    text-align: center;
-    border-right: solid black 1px;
-}
-#fuel-table #tfuelvehicle{
-    grid-area: tfuelvehicle;
-    text-align: center;
-}
-
-#fuel-table .fuel-report-line {
-    grid-column: 1 / span 5;
-}
-
-#fuel-table .fuel-report-line span {
-    text-align: center;
-}
 
 .page table {
     width: 100%;

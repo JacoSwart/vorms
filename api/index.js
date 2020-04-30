@@ -152,7 +152,7 @@ async function saveTripTransaction(trip) {
           FROM vorms.trips as trips\
           left join vorms.fuel as fuel \
           on trips.tollgates=fuel.jobcard\
-          ORDER BY trips.date asc;"
+          ORDER BY trips.date asc, trips.endodo asc;"
           );
           res = res.map(line => {
             line.date = jsDatetoShortDate(line.date);
@@ -173,16 +173,7 @@ async function saveTripTransaction(trip) {
       try {
         conn = await pool.getConnection();
         let res = await conn.query(
-          "WITH lastdetail as ( \
-            select *\
-              , row_number() over (order by endodo) jaco\
-              from vorms.trips as trip\
-          )\
-          SELECT z.endodo\
-              , z.date\
-              , z.destination\
-          FROM lastdetail as z\
-          WHERE endodo = (select max(endodo) from lastdetail)"
+          "SELECT * FROM vorms.trips ORDER BY trips.endodo DESC LIMIT 1"
           );
           res = res.map(line => {
             line.date = jsDatetoShortDate(line.date);

@@ -1,0 +1,43 @@
+#fuel-entry {
+    display: grid;
+    grid-row-gap: 0.5em;
+    grid-template-columns: repeat(5, 1fr);
+   
+}
+#fuel-entry span {
+    font-size: 12px;
+}
+
+#fuel-entry input {
+    font-size: 12px;
+    width: 80%;
+}
+
+
+
+
+.fuel_table {
+    display: grid;
+    grid-row-gap: 0.5em;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.fuel_header {
+    background-color: aquamarine; 
+    border-bottom: solid black 1px;
+}
+
+.fuel_table div {
+    font-size: 12px;
+    text-align: left;
+
+}
+
+/* #fuel-table .fuel-report-line {
+    grid-column: 1 / span 5;
+} */
+
+.fuel-report-line span {
+    text-align: left;
+    padding-left: 10px;
+}
