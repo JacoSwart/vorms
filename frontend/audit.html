@@ -13,15 +13,14 @@
     <div class="ARSEntry"><input type="text" size="30" ng-model="newCallHeader.sitaref"></div>
     <div class="khauRef" >Jobcard Number</div>
     <div class="khauRefEntry"><input type="text" size="30" ng-model="newCallHeader.callid"></div>
-    <div class="ISMuse">
-        <div class="ISMchk"></div>
-        <div class="ISMuse1">VIP</div>   
-        <div class="ISMchk">&nbsp</div>
-        <div class="ISMuse2">MISSION CRITICAL</div> 
-        <div class="ISMchk">&nbsp</div>
-        <div class="ISMuse3">PRIORITY</div> 
-        <div class="ISMuse4">OPERATIONAL</div>      
-    </div>
+    <div class="ISMcolor ISMbordercolom1 ISMchk"></div>
+    <div class="ISMcolor ISMbordercolom2 ISMuse1">VIP</div>   
+    <div class="ISMcolor ISMbordercolom1 ISMchk"></div>
+    <div class="ISMcolor ISMbordercolom2 ISMuse2">MISSION CRITICAL</div> 
+    <div class="ISMcolor ISMbordercolom1 ISMchk"></div>
+    <div class="ISMcolor ISMbordercolom2 ISMuse3">PRIORITY</div> 
+    <div class="ISMcolor ISMborderlastrow ISMchk"></div>
+    <div class="ISMcolor ISMborderlastrowcol2 ISMuse4">OPERATIONAL</div> 
 
     <div class="right-side-bar serviceGroup">
         <div class="SGheader">Service Group</div>
@@ -147,39 +146,39 @@
     <div class="left_hand_bar userinfo">
         <div class="userinfoheader">USER INFO</div>
         <div class="userinfoentries">Persal no</div>
-        <div class="userinfovalues"><input type="text" ng-model="audit.persal" size="25"></div>
+        <div class="userinfovalues"><input type="text" ng-model="audit.persal"></div>
         <div class="userinfoentries">Rank</div>
-        <div class="userinfovalues"><input type="text" ng-model="audit.rank" size="25"></div>
+        <div class="userinfovalues"><input type="text" ng-model="audit.rank"></div>
         <div class="userinfoentries">Client</div>
-        <div class="userinfovalues"><input type="text" ng-model="jobcard.reporter.name" size="25"></div>
+        <div class="userinfovalues"><input type="text" ng-model="jobcard.reporter.name" ></div>
     </div>
 
     <div class="left_hand_bar currAdd">
         <div class="userinfoheader">CURRENT ADDRESS</div>
         <div class="userinfoentries">Unit</div>
-        <div class="userinfovalues"><input type="text" ng-model="jobcard.site.site" size="25"></div>
+        <div class="userinfovalues"><input type="text" ng-model="jobcard.site.site"></div>
         <div class="userinfoentries">Building</div>
-        <div class="userinfovalues"><input type="text" ng-model="jobcard.site.building" size="25"></div>
+        <div class="userinfovalues"><input type="text" ng-model="jobcard.site.building"></div>
         <div class="userinfoentries">Street</div>
-        <div class="userinfovalues"><input type="text" ng-model="jobcard.site.street" size="25"></div>
+        <div class="userinfovalues"><input type="text" ng-model="jobcard.site.street" ></div>
         <div class="userinfoentries">Suburb</div>
-        <div class="userinfovalues"><input type="text" ng-model="audit.suburb" size="25"></div>
+        <div class="userinfovalues"><input type="text" ng-model="audit.suburb" ></div>
         <div class="userinfoentries">Town / City</div>
-        <div class="userinfovalues"><input type="text" ng-model="jobcard.site.town" size="25"></div>
+        <div class="userinfovalues"><input type="text" ng-model="jobcard.site.town" ></div>
         <div class="userinfoentries">Floor no</div>
-        <div class="userinfovalues"><input type="text" ng-model="jobcard.site.floor" size="25"></div>
+        <div class="userinfovalues"><input type="text" ng-model="jobcard.site.floor" ></div>
         <div class="userinfoentries">Room no</div>
-        <div class="userinfovalues"><input type="text" ng-model="jobcard.site.room" size="25"></div>
+        <div class="userinfovalues"><input type="text" ng-model="jobcard.site.room" ></div>
         <div class="userinfoentries">Tel number</div>
-        <div class="userinfovalues"><input type="text" ng-model="jobcard.reporter.tel" size="25"></div>
+        <div class="userinfovalues"><input type="text" ng-model="jobcard.reporter.tel" ></div>
     </div>
 
     <div class="center_bar accPerson">
         <div class="accheader">ACCOUNTABLE PERSON</div>
         <div class="accentries">Persal no</div>
-        <div class="accvalues"><input type="text" ng-model="audit.persal" ></div>
+        <div class="accvalues"><input type="text" ng-model="audit.persal" size="100%" ></div>
         <div class="accentries">Rank</div>
-        <div class="accvalues"><input type="text" ng-model="audit.rank" size="30"></div>
+        <div class="accvalues"><input type="text" ng-model="audit.rank" size="39fr"></div>
         <div class="accentries">Client</div>
         <div class="accvalues"><input type="text" ng-model="jobcard.reporter.name" size="30"></div>
         <div class="accentries">Tel no</div>
@@ -192,11 +191,114 @@
 
     <div class="auditTechnician center_bar">
         <div class="audtechheader">TECHNICIAN</div>
+        <div class="accentries">Name / Surname</div>
+        <div class="techName">Jaco Swart</div>
+        <div class="accentries">
+            <a href="#techSignLink" id="techSignLink signature_holder" ng-click="sign('#techsignbackground')">Signature:</a>
+        </div>
+        <div id="techsignbackground" class="techSign signature_holder"></div>
+
 
     </div>
 
-  
-  </div>
+    <div class="connect">
+        <div class="connectLables">T-Number</div>         
+        <div><input class="connectEntries" type="text"></div>
+        <div class="connectLables">P-Number</div>
+        <div><input class="connectEntries" type="text"></div>
+    </div>
+    <div class="offline">
+        <div class="offlineLables">Online</div>         
+        <div><input class="offlineEntries" type="checkbox"></div>
+        <div class="offlineLables">Offline</div>
+        <div><input class="offlineEntries" type="checkbox"></div>
+    </div>
+    <div class="email">
+        <div class="emailHeader">Email</div>
+        <div class="emailLables">Mailbox Name</div>         
+        <div><input class="emailEntries" type="text"></div>
+        <div class="emailLables">User Name</div>
+        <div><input class="emailEntries" type="text"></div>
+    </div>
+    <div class="userName">
+        <div class="userLables">User Name</div>         
+        <div><input class="userEntries" type="text"></div>
+    </div>
+    <div class="pcName">
+        <div class="pcLables">PC Name</div>         
+        <input class="pcEntries" type="text">
+    </div>
+    <div class="wallName">
+        <div class="wallLables">Wallbox number</div>         
+        <input class="wallEntries" type="text">
+    </div>
+    <div class="macName">
+        <div class="macLables1">Mac Address</div>         
+        <div class="macEntries1"><input type="text" class="noborder"></div>
+        <div class="macLables2">I.P. Address</div>         
+        <div class="macEntries2"><input type="text" class="noborder"></div>
+        <div class="macLables1">Netwizard Name</div>         
+        <div class="macEntries1"><input type="text" class="noborder"></div>
+        <div class="macLables2">Printer IP Workgroup</div>         
+        <div class="macEntries2"><input type="text" class="noborder"></div>
+    </div>
+    <div class="pasName">Cardboard Box Serial (PAS)</div>
+    <div class="pcDetailsHeader">
+        <div class="C1">Type</div>
+        <div class="C2">Make and model</div>
+        <div class="C3">Web Number</div>
+        <div class="C4">Service Tag</div>
+        <div class="C5">Serial Number</div>
+    </div>
+    <div class="pcDetails">
+        <div class="pcDetailsLables1">Processor</div>
+        <div class="pcDetailsEntries1"><input type="text" class="noborder"></div>
+        <div class="pcDetailsEntries2"><input type="text" class="noborder"></div>
+        <div class="pcDetailsEntries3"><input type="text" class="noborder"></div>
+        <div class="pcDetailsEntries4"><input type="text" class="noborder"></div>
+        <div class="pcDetailsLables1">CPU Speed</div>
+        <div class="pcDetailsEntries1"><input type="text" class="noborder"></div>
+        <div class="pcDetailsEntries2"><input type="text" class="noborder"></div>
+        <div class="pcDetailsEntries3">Processor used as</div>
+        <div class="pcDetailsEntries4 pcDetailsEntries4sub">
+            <span class="pcDetailsEntries4sub1"><span>Server</span><input type="checkbox"></span> 
+            <span class="pcDetailsEntries4sub2"><span>Notebook</span><input type="checkbox"></span>
+            <span class="pcDetailsEntries4sub3"><span>PC</span> <input type="checkbox"></span> 
+        </div>
+        <div class="pcDetailsLables1">Screen 1 CRT/LCD</div>
+        <div class="pcDetailsEntries1"><input type="text" class="noborder"></div>
+        <div class="pcDetailsEntries2"><input type="text" class="noborder"></div>
+        <div class="pcDetailsEntries3"><input type="text" class="noborder"></div>
+        <div class="pcDetailsEntries4"><input type="text" class="noborder"></div>
+        <div class="pcDetailsLables1">Screen 2 CRT/LCD</div>
+        <div class="pcDetailsEntries1"><input type="text" class="noborder"></div>
+        <div class="pcDetailsEntries2"><input type="text" class="noborder"></div>
+        <div class="pcDetailsEntries3"><input type="text" class="noborder"></div>
+        <div class="pcDetailsEntries4"><input type="text" class="noborder"></div>
+        <div class="pcDetailsLables1">Screen 3 CRT/LCD</div>
+        <div class="pcDetailsEntries1"><input type="text" class="noborder"></div>
+        <div class="pcDetailsEntries2"><input type="text" class="noborder"></div>
+        <div class="pcDetailsEntries3"><input type="text" class="noborder"></div>
+        <div class="pcDetailsEntries4"><input type="text" class="noborder"></div>
+        <div class="pcDetailsLables1">Screen 4 CRT/LCD</div>
+        <div class="pcDetailsEntries1"><input type="text" class="noborder"></div>
+        <div class="pcDetailsEntries2"><input type="text" class="noborder"></div>
+        <div class="pcDetailsEntries3"><input type="text" class="noborder"></div>
+        <div class="pcDetailsEntries4"><input type="text" class="noborder"></div>
+        <div class="pcDetailsLables1">Keyboard</div>
+        <div class="pcDetailsEntries1"><input type="text" class="noborder"></div>
+        <div class="pcDetailsEntries2"><input type="text" class="noborder"></div>
+        <div class="pcDetailsEntries3"><input type="text" class="noborder"></div>
+        <div class="pcDetailsEntries4"><input type="text" class="noborder"></div>
+        <div class="pcDetailsLables1">Mouse</div>
+        <div class="pcDetailsEntries1"><input type="text" class="noborder"></div>
+        <div class="pcDetailsEntries2"><input type="text" class="noborder"></div>
+        <div class="pcDetailsEntries3"><input type="text" class="noborder"></div>
+        <div class="pcDetailsEntries4"><input type="text" class="noborder"></div>
+    </div>
+
+
+
 
 
 </div>

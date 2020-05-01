@@ -1,479 +1,709 @@
 .auditForm div {
-    font-size: 10px;
+  font-size: 8px;
 }
 
 .auditForm input {
-    font-size: 12px;
-    height: 16px;
+  font-size: 10px;
+  height: 16px;
+  width: 100%;
 }
 
 .auditInput {
-    border: none;
-    text-align: right;
+  border: none;
+  text-align: right;
 }
 
 .auditfont {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .auditHeader > div {
-    text-align: center;
+  text-align: center;
 }
 .headerFontDisplay {
-    font-style: italic;
+  font-style: italic;
 }
 
 .audit_grid {
-    display:grid;
-    grid-template-columns: repeat(20, 1fr) ;
-    grid-template-rows: repeat(79, 16px);
+  display:grid;
+  grid-template-columns: 13fr 5fr 3fr 5fr 3fr 6fr 14fr 3fr 2fr 5fr 3fr 3fr 1fr 12fr 4fr 7fr 6fr 10fr 2fr 15fr 2fr 2fr ;
+  grid-template-rows: repeat(79, 16px);
 }
 
 .audit_grid .formName {
-    grid-column: 1/7;
-    grid-row: 1/2;
-    font-size: 12px; 
-    font-weight: bold;
-    text-align: center;
+  grid-column: 1/8;
+  grid-row: 1/2;
+  font-size: 12px; 
+  font-weight: bold;
+  text-align: center;
 }
 .audit_grid .formVer {
-    grid-column: 7/12;
-    grid-row: 1/2;
-    text-align: center;
-    color: red;
+  grid-column: 8/15;
+  grid-row: 1/2;
+  text-align: center;
+  color: red;
+  font-size: 10px;
 }
 
 .audit_grid .formISM {
-    grid-column: 14/18;
-    grid-row: 1/2;
-    text-align: center;
+  grid-column: 16/19;
+  grid-row: 1/2;
+  text-align: center;
+  font-size: 10px;
 }
 
 .right-side-bar {
-    grid-column: 18/21;
+  grid-column: 20/23;
+  font-size: 8px;
 }
 
 .left_hand_bar {
-    grid-column: 1/8;
+  grid-column: 1/8;
 }
 
 .center_bar {
-    grid-column: 8/18;
+  grid-column: 8/19;
 }
 
-.audit_grid .formDate {
-    grid-row: 1/2;
-    text-align: center;
-    border: solid black 1px;
-    font-size: 12px;
+.noborder {
+  border: none;
+  border-bottom: solid black 1px;
+}
+
+.formDate {
+  grid-column: 20/22;
+  grid-row: 1/2;
+  text-align: center;
+  border: solid black 1px;
+  font-size: 10px;
 }
 
 .comp {
-   grid-column: 1/4; 
-   grid-row: 3/4;
+  grid-column: 1/3; 
+  grid-row: 3/4;
 }
 
 .compEntry {
-    grid-column: 4/5;
-    grid-row: 3/4;
+  grid-column: 3/5;
+  grid-row: 3/4;
 }
 .subComp {
-    grid-column: 1/4;
-    grid-row: 4/5;
+  grid-column: 1/3;
+  grid-row: 4/5;
 }
 .subCompEntry {
-    grid-column: 4/5;
-    grid-row: 4/5;
+  grid-column: 3/5;
+  grid-row: 4/5;
 }
 
 .ARS {
-    text-align: right;
-    grid-column: 5/8;
-    grid-row: 3/4;
-    background-color:#eee;
+  text-align: right;
+  grid-column: 6/8;
+  grid-row: 3/4;
+  background-color:#eee;
 }
 
 .ARSEntry {
-    grid-column: 8/14;
-    grid-row: 3/4;
+  grid-column: 8/15;
+  grid-row: 3/4;
 }
 
 .khauRef {
-    text-align: right;
-    grid-column: 5/8;
-    grid-row: 4/5;
-    background-color:#eee;
-    max-height: 16px;
+  text-align: right;
+  grid-column: 6/8;
+  grid-row: 4/5;
+  background-color:#eee;
+  max-height: 16px;
 }
 
 .khauRefEntry {
-    grid-column: 8/14;
-    grid-row: 4/5;
+  grid-column: 8/15;
+  grid-row: 4/5;
 }
 
-.ISMuse {
-    grid-column: 14/18;
-    grid-row: 2/6;
-    width: 90%;
-    display: grid;
-    background-color: lightblue;
-    grid-template-columns: repeat(4, 1fr);
-    border: solid black 1px;
-    max-height: 68px;
-}
-.ISMuse .ISMuse1 {
-    grid-column: 2/5;
-    grid-row: 1/2;
-    border-left: solid black 1px;
-    border-bottom: solid black 1px;
 
-}
-.ISMuse .ISMuse2 {
-    grid-column: 2/5;
-    grid-row: 2/3;
-    border-left: solid black 1px;
-    border-bottom: solid black 1px;
-}
-.ISMuse .ISMuse3 {
-    grid-column: 2/5;
-    grid-row: 3/4;
-    border-left: solid black 1px;
-    border-bottom: solid black 1px;
-}
-.ISMuse .ISMuse4 {
-    grid-column: 2/5;
-    grid-row: 4/5;
-    border-left: solid black 1px;
+.ISMcolor {
+  background-color: lightblue;
 }
 
-.ISMuse .ISMchk {
-    border-bottom: solid black 1px;
+.ISMbordercolom1 {
+  border-left: solid black 1px;
+  border-top: solid black 1px;
+}
+.ISMbordercolom2 {
+  border-left: solid black 1px;
+  border-top: solid black 1px;
+  border-right: solid black 1px;
+}
+
+.ISMborderlastrow {
+  border: solid black 1px;
+  border-right: none;
+}
+.ISMborderlastrowcol2 {
+  border: solid black 1px;
+
+}
+
+.ISMuse1 {
+  grid-column: 17/19;
+  grid-row: 2/3;
+  /* border-left: solid black 1px;
+  border-bottom: solid black 1px; */
+  
+}
+.ISMuse2 {
+  grid-column: 17/19;
+  grid-row: 3/4;
+  /* border-left: solid black 1px;
+  border-bottom: solid black 1px; */
+}
+.ISMuse3 {
+  grid-column: 17/19;
+  grid-row: 4/5;
+  /* border-left: solid black 1px;
+  border-bottom: solid black 1px; */
+}
+.ISMuse4 {
+  grid-column: 17/19;
+  grid-row: 5/6;
+  /* border-left: solid black 1px;
+  border-bottom:solid black 1px ; */
+}
+
+.ISMchk {
+  grid-column: 16/17;
+  /* border-bottom: solid black 1px;
+  border-left: solid black 1px; */
 }
 
 .serviceGroup {
-    display: grid;
-    grid-row-start: 4;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(12, 16px);
-
+  display: grid;
+  grid-row-start: 4;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(12, 16px);
+  
 }
 
-.serviceGroup .SGheader {
-    grid-column: 1/6;
-    text-align: center;
-    color: red;
-    border-bottom:solid black 1px;
-    font-size: 10px;
-    font-weight: bold;
-}
-.serviceGroup div {
-    font-size: 9px;
+.SGheader {
+  grid-column: 1/6;
+  text-align: center;
+  color: red;
+  font-size: 10px;
+  border-bottom:solid black 1px;
+  font-weight: bold;
 }
 
 .SGentries {
-    grid-column: 1/5;
-    border-right: solid black 1px;
-    border-left: solid black 1px;
-    border-bottom: solid black 1px;
+  grid-column: 1/5;
+  border-right: solid black 1px;
+  border-left: solid black 1px;
+  border-bottom: solid black 1px;
 }
 
 
 .SGvalues {
-   border-bottom: solid black 1px;
-   border-right: solid black 1px;
+  border-bottom: solid black 1px;
+  border-right: solid black 1px;
 }
 
 .softwareOS {
-    display: grid;
-    grid-row-start: 17;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(9, 16px);
+  display: grid;
+  grid-row-start: 17;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(9, 16px);
 }
 .osheader {
-    grid-column: 1/6;
-    text-align: center;
-    border: solid black 1px;
+  grid-column: 1/6;
+  text-align: center;
+  border: solid black 1px;
 }
 
 .osentries {
-    grid-column: 1/5;
-    border-right: solid black 1px;
-    border-left: solid black 1px;
-    border-bottom: solid black 1px;
-
+  grid-column: 1/5;
+  border-right: solid black 1px;
+  border-left: solid black 1px;
+  border-bottom: solid black 1px;
+  
 }
 
 .osvalues {
-    grid-column: 5/6;
-    border-bottom: solid black 1px;
-    border-right: solid black 1px;
- }
-
-.softwareOS div {
-    font-size: 9px;
+  grid-column: 5/6;
+  border-bottom: solid black 1px;
+  border-right: solid black 1px;
 }
 
 .softwarePack {
-    display: grid;
-    grid-row-start: 25;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(9, 16px);
+  display: grid;
+  grid-row-start: 25;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(9, 16px);
 }
 .SPheader {
-    grid-column: 1/6;
-    text-align: center;
-    border: solid black 1px;
+  grid-column: 1/6;
+  text-align: center;
+  border: solid black 1px;
 }
 
 .SPentries{
-    grid-column: 1/5;
-    border-right: solid black 1px;
-    border-left: solid black 1px;
-    border-bottom: solid black 1px;
-
+  grid-column: 1/5;
+  border-right: solid black 1px;
+  border-left: solid black 1px;
+  border-bottom: solid black 1px;
+  
 }
 
 .SPvalues {
-    grid-column: 5/6;
-    border-bottom: solid black 1px;
-    border-right: solid black 1px;
- }
-
-.softwarePack div {
-    font-size: 9px;
+  grid-column: 5/6;
+  border-bottom: solid black 1px;
+  border-right: solid black 1px;
 }
 
 .softwareSys {
-    display: grid;
-    grid-row-start: 45;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(9, 16px);
+  display: grid;
+  grid-row-start: 45;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(9, 16px);
 }
 .SSheader {
-    grid-column: 1/6;
-    text-align: center;
-    border: solid black 1px;
+  grid-column: 1/6;
+  text-align: center;
+  border: solid black 1px;
 }
 
 .SSentries{
-    grid-column: 1/5;
-    border-right: solid black 1px;
-    border-left: solid black 1px;
-    border-bottom: solid black 1px;
+  grid-column: 1/5;
+  border-right: solid black 1px;
+  border-left: solid black 1px;
+  border-bottom: solid black 1px;
 }
 
 .SSvalues {
-    grid-column: 5/6;
-    border-bottom: solid black 1px;
-    border-right: solid black 1px;
- }
-
-.softwareSys div {
-    font-size: 9px;
+  grid-column: 5/6;
+  border-bottom: solid black 1px;
+  border-right: solid black 1px;
 }
 
 .networkOS {
-    display: grid;
-    grid-row-start: 49;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(9, 16px);
+  display: grid;
+  grid-row-start: 49;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(9, 16px);
 }
 .nosheader {
-    grid-column: 1/6;
-    text-align: center;
-    border: solid black 1px;
+  grid-column: 1/6;
+  text-align: center;
+  border: solid black 1px;
 }
 
 .nosentries{
-    grid-column: 1/5;
-    border-right: solid black 1px;
-    border-left: solid black 1px;
-    border-bottom: solid black 1px;
-
+  grid-column: 1/5;
+  border-right: solid black 1px;
+  border-left: solid black 1px;
+  border-bottom: solid black 1px;
+  
 }
 
 .nosvalues {
-    grid-column: 5/6;
-    border-bottom: solid black 1px;
-    border-right: solid black 1px;
- }
-
-.networdOS div {
-    font-size: 9px;
+  grid-column: 5/6;
+  border-bottom: solid black 1px;
+  border-right: solid black 1px;
 }
 
 .networkSys {
-    display: grid;
-    grid-row-start: 56;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(9, 16px);
+  display: grid;
+  grid-row-start: 56;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(9, 16px);
 }
 .nsysheader {
-    grid-column: 1/6;
-    text-align: center;
-    border: solid black 1px;
+  grid-column: 1/6;
+  text-align: center;
+  border: solid black 1px;
 }
 
 .nsysentries{
-    grid-column: 1/5;
-    border-right: solid black 1px;
-    border-left: solid black 1px;
-    border-bottom: solid black 1px;
+  grid-column: 1/5;
+  border-right: solid black 1px;
+  border-left: solid black 1px;
+  border-bottom: solid black 1px;
 }
 
 .nsysvalues {
-    grid-column: 5/6;
-    border-bottom: solid black 1px;
-    border-right: solid black 1px;
- }
-
-.networdSys div {
-    font-size: 9px;
+  grid-column: 5/6;
+  border-bottom: solid black 1px;
+  border-right: solid black 1px;
 }
 
 .other {
-    display: grid;
-    grid-row-start: 68;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(9, 16px);
+  display: grid;
+  grid-row-start: 68;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(9, 16px);
 }
 .otherheader {
-    grid-column: 1/6;
-    text-align: center;
-    border: solid black 1px;
+  grid-column: 1/6;
+  text-align: center;
+  border: solid black 1px;
 }
 
 .otherentries{
-    grid-column: 1/5;
-    border-right: solid black 1px;
-    border-left: solid black 1px;
-    border-bottom: solid black 1px;
-
+  grid-column: 1/5;
+  border-right: solid black 1px;
+  border-left: solid black 1px;
+  border-bottom: solid black 1px;
+  
 }
 
 .othervalues {
-    grid-column: 5/6;
-    border-bottom: solid black 1px;
-    border-right: solid black 1px;
- }
+  grid-column: 5/6;
+  border-bottom: solid black 1px;
+  border-right: solid black 1px;
+}
 
 .other div {
-    font-size: 8px;
+  font-size: 8px;
 }
 
 .userinfo {
-    grid-column: 1/8;
-    display: grid;
-    grid-row: 6/9;
-    grid-template-columns: 2.2fr 4.8fr;
-    grid-template-rows: repeat(3, 16px);
+  display: grid;
+  grid-row: 6/9;
+  grid-template-columns: 13fr 35fr;
+  grid-template-rows: repeat(3, 16px);
 }
 
 .userinfoheader {
-    grid-column: 2/3;
-    text-align: left;
-    font-size: 12px;
-    font-weight: bold;
+  grid-column: 2/3;
+  text-align: left;
+  font-size: 12px;
+  font-weight: bold;
 }
 
 .userinfoentries{
-    grid-column: 1/2;
+  grid-column: 1/2;
 }
 
 .userinfovalues {
-    grid-column: 2/3; 
+  grid-column: 2/3; 
 }
 
- .userinfo div {
-     font-size: 10px;
- }
-
 .currAdd {
-    display: grid;
-    grid-row-start: 11;
-    grid-template-columns: 2.2fr 4.8fr;
-    grid-template-rows: repeat(9, 16px);
+  display: grid;
+  grid-row-start: 11;
+  grid-template-columns: 13fr 35fr;
+  grid-template-rows: repeat(9, 16px);
 }
 
 .currAddheader {
-    grid-column: 2/3;
-    text-align: left;
-    font-size: 12px;
-    font-weight: bold;
+  grid-column: 2/3;
+  text-align: left;
+  font-size: 12px;
+  font-weight: bold;
 }
 
 .currAddentries{
-    grid-column: 1/2;
+  grid-column: 1/2;
 }
 
 .currAddvalues {
-    grid-column: 2/3; 
+  grid-column: 2/3; 
 }
-
- .currAdd div {
-     font-size: 10px;
- }
 
 .accPerson {
-    display: grid;
-    grid-row-start: 6;
-    grid-template-columns: 3fr 6fr;
-    grid-template-rows: repeat(8, 16px);
-}
-
-.accPerson input {
-    width: 17em;
+  display: grid;
+  grid-row-start: 6;
+  grid-template-columns: 18fr 39fr;
+  grid-template-rows: repeat(8, 16px);
 }
 
 .accheader {
-    grid-column: 2/3;
-    text-align: left;
-    font-size: 12px;
-    font-weight: bold;
+  grid-column: 2/3;
+  text-align: left;
+  font-size: 12px;
+  font-weight: bold;
 }
 
 .accentries{
-    grid-column: 1/2;
+  grid-column: 1/2;
+  padding-left: 1em;
 }
 
 .accvalues {
-    grid-column: 2/3; 
+  grid-column: 2/3; 
+  
 }
 
- .accPerson div {
-     font-size: 10px;
- }
+.accsign {
+  border: solid black 2px;
+  width: 100%;
+  grid-column: 2/3;
+  grid-row: 6/9;
+}
 
- .accsign {
-     border: solid black 1px;
-     width: 20.5em;
-     grid-column: 2/3;
-     grid-row: 6/9;
- }
-
- .auditTechnician {
-     grid-row-start: 15;
-     display: grid;
-     grid-template-columns: 3fr 6fr;
-     grid-template-rows: repeat(3, 16px);
+.auditTechnician {
+  grid-row-start: 15;
+  display: grid;
+  grid-template-columns: 18fr 39fr;
+  grid-template-rows: repeat(2, 16px) 48px;
 }
 
 .audtechheader {
-     grid-column: 2/3;
-     width: 94%;
-     border: solid black 1px;
-     text-align: left;
-     font-size: 12px;
-     font-weight: bold;
+  grid-column: 2/3;
+  text-align: left;
+  font-size: 12px;
+  font-weight: bold;
 }
 
-.auditTechnician div {
-     font-size: 10px;
- }
+.techSign {
+  border: solid black 2px;
+  grid-column: 2/3;
+  grid-row: 3/6;
+}
 
- .udtechsign {
-     border: solid black 1px;
-     width: 94%;
-     grid-column: 2/3;
-     grid-row: 6/9;
- }
+.techName {
+  font-size: 10px;
+  border: solid black 1px;
+}
+
+.connect {
+  display: grid;
+  grid-column: 1/6;
+  grid-row-start: 21;
+  grid-template-columns: 13fr 15fr;
+  grid-template-rows: repeat(2, 16px);
+}
+
+.connectLables {
+  grid-column: 1/2;
+}
+
+.connectEntries {
+  grid-column: 2/3; 
+}
+
+.offline {
+  display: grid;
+  grid-column: 7/9;
+  grid-row-start: 21;
+  grid-template-columns: 14fr 3fr;
+  grid-template-rows: repeat(2, 16px);
+}
+
+.offlineLables {
+  grid-column: 1/2;
+  text-align: right;
+  padding-right: 1em;
+}
+
+.offlinetEntries {
+  grid-column: 2/3; 
+}
+
+.offline div {
+  font-size: 10px;
+}
+
+.email {  
+  grid-column: 10/19;
+  grid-row-start: 20;
+  display: grid;
+  grid-template-columns: 13fr 39fr;
+  grid-template-rows: repeat(3, 16px);
+}
+
+.emailHeader {
+  grid-column: 1/2;
+  text-align: center;
+  font-weight: bold;
+  font-size: 10px;
+}
+
+.emailLables {
+  grid-column: 1/2;
+  text-align: right;
+  padding-right: 5px;
+}
+
+.emailtEntries {
+  grid-column: 2/3; 
+}
+
+.userName {  
+  grid-column: 1/7;
+  grid-row-start: 24;
+  display: grid;
+  grid-template-columns: 13fr 21fr;
+  grid-template-rows: repeat(1, 16px);
+}
+
+.userLables {
+  grid-column: 1/2;
+  text-align: left;
+}
+
+.userEntries {
+  grid-column: 2/3; 
+}
+
+.pcName {  
+  grid-column: 8/15;
+  grid-row-start: 24;
+  display: grid;
+  grid-template-columns: 13fr 17fr;
+  grid-template-rows: repeat(1, 16px);
+}
+
+.pcLables {
+  grid-column: 1/2;
+  text-align: left;
+}
+
+.pcEntries {
+  grid-column: 2/3; 
+}
+
+.wallName {  
+  grid-column: 16/19;
+  grid-row-start: 24;
+  display: grid;
+  grid-template-columns: 13fr 10fr;
+  grid-template-rows: repeat(1, 16px);
+}
+
+.wallLables {
+  grid-column: 1/2;
+  text-align: left;
+  color: red;
+}
+
+.wallEntries {
+  grid-column: 2/3; 
+}
+
+.macName {  
+  grid-column: 1/19;
+  grid-row: 26/28;
+  display: grid;
+  grid-template-columns: 13fr 35fr 18fr 39fr;
+  grid-template-rows: repeat(2, 16px);
+  border-left: solid black 1px;
+  border-top: solid black 1px;
+}
+
+.macLables1 {
+  grid-column: 1/2;
+  text-align: left;
+  border-bottom: solid black 1px;
+
+}
+.macLables2 {
+  grid-column: 3/4;
+  text-align: left;
+  border-bottom: solid black 1px;
+}
+
+.macEntries1 {
+  grid-column: 2/3; 
+  border-bottom: solid black 1px;
+  border-right: solid black 1px;
+  border-left: solid black 1px;
+}
+.macEntries2 {
+  grid-column: 4/5; 
+  border-bottom: solid black 1px;
+  border-right: solid black 1px;
+  border-left: solid black 1px;
+}
+
+.pasName {  
+  grid-column: 7/15;
+  grid-row-start: 28;
+  color: red;
+  font-style: italic;
+  text-align: center;
+  height: 16px;
+}
+
+.pcDetailsHeader {
+  grid-column: 1/19;
+  grid-row: 29/29;
+  display: grid;
+  grid-template-columns: 13fr 21fr 14fr 18fr 39fr;
+
+}
+
+.pcDetailsHeader div{
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.pcDetails {  
+  grid-column: 1/19;
+  grid-row: 30/38;
+  display: grid;
+  grid-template-columns: 13fr 21fr 14fr 18fr 39fr;
+  grid-template-rows: repeat(8, 16px);
+  border-left: solid black 1px;
+  border-top: solid black 1px;
+}
+
+.pcDetailsLables1 {
+  grid-column: 1/2;
+  text-align: left;
+  border-bottom: solid black 1px;
+}
+.pcDetailsEntries1 {
+  grid-column: 2/3; 
+  border-bottom: solid black 1px;
+  border-right: solid black 1px;
+  border-left: solid black 1px;
+}
+.pcDetailsEntries2 {
+  grid-column: 3/4; 
+  border-bottom: solid black 1px;
+  border-right: solid black 1px;
+}
+.pcDetailsEntries3 {
+  grid-column: 4/5; 
+  border-bottom: solid black 1px;
+  border-right: solid black 1px;
+}
+.pcDetailsEntries4 {
+  grid-column: 5/6; 
+  border-bottom: solid black 1px;
+  border-right: solid black 1px;
+}
+.pcDetailsEntries4sub {
+  grid-column: 5/6;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 16px;
+}
+
+.pcDetailsEntries4sub span {
+  padding-top: 1px;
+}
+
+.pcDetailsEntries4sub1 {
+  grid-column: 1/2; 
+  display: grid;
+  grid-template-columns: auto auto;
+  width: auto;
+  padding-left: 5px;
+}
+.pcDetailsEntries4sub2 {
+  display: grid;
+  grid-template-columns: auto auto;
+  width: auto;
+  padding-left: 5px;
+  grid-column: 2/3; 
+  border-left: solid black 1px;
+  border-right: solid black 1px;
+}
+.pcDetailsEntries4sub3 {
+  grid-column: 3/4; 
+  display: grid;
+  grid-template-columns: auto auto;
+  width: auto;
+  padding-left: 5px;
+}
