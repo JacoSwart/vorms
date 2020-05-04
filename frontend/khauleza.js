@@ -397,10 +397,18 @@
             liters: $scope.fuelEntry.liters,
             amount: $scope.fuelEntry.amount,
             vehicle: $scope.fuelEntry.vehicle,
-            date: $scope.jsDatetoSQLDate($scope.fuelEntry.date),
+            fueldate: $scope.jsDatetoSQLDate($scope.fuelEntry.fueldate),
             jobcard: $scope.fuelEntry.jobcard,
           }),
         });
+        switch (response.status) {
+          case 200: 
+            $scope.alertDialog("Fuel record submitted successfully");
+            break;
+          default:
+            $scope.alertDialog("An error occurred");
+            break;
+        }
       };
 
       $scope.determineDeparture = async () => {
@@ -471,12 +479,11 @@
             $scope.alertDialog("An error occurred");
             break;
         }
-        console.log(response);
       };
 
       $scope.alertDialog = async (message) => {
         alert(message);
-      }
+      };
 
       $scope.getFuelData = async() => {
         response = await fetch('/api/fuel', {

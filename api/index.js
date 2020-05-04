@@ -62,7 +62,7 @@ async function saveFuelTransaction(fuel) {
     conn = await pool.getConnection();
     const res = await conn.query(
       "INSERT INTO `vorms`.`fuel` (`liters`, `amount`, `vehicle`, `date`, `jobcard`) VALUES (?, ?, ?, ?, ?);", 
-      [fuel.liters, fuel.amount, fuel.vehicle, date, fuel.jobcard]
+      [fuel.liters, fuel.amount, fuel.vehicle, fuel.fueldate, fuel.jobcard]
       );
     } catch (err) {
       console.log(err)
