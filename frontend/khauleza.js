@@ -4,9 +4,9 @@
     class Trip {
       constructor() {
         this.date = new Date();
-        this.departure = localStorage.getItem("departure");
+        this.departure = "";
         this.destination = "";
-        this.startodo = localStorage.getItem("endkilos");
+        this.startodo = "";
         this.endodo = 0;
         this.pvtkm = 0;
         this.client = "";
@@ -249,11 +249,6 @@
       $scope.newparts = new Partsreplacement();
      
 
-      $scope.savekilos = (departure, endkilos) => {
-        localStorage.setItem("endkilos", endkilos);
-        localStorage.setItem("departure", departure);
-      };
-
       $scope.padZeros = (str_p) => {
         if (str_p > 9) {
           return str_p;
@@ -421,20 +416,18 @@
           credentials: 'include',
         });
         $scope.newDeparture = (await response.json());
-        switch ($scope.newDeparture[0].date) {
-          case $scope.newDeparture[0].date = $scope.jsDatetoSQLDate(now): // TODO: ==
+        
+        switch ($scope.newDeparture[0].date == $scope.jsDatetoSQLDate(now)) {
+          case true: // TODO: ==
             $scope.jobcard.site.departure = $scope.newDeparture[0].destination;
             break;
 
-          case $scope.newDeparture[0].date < $scope.jsDatetoSQLDate(now):
+          case false:
             $scope.jobcard.site.departure = "CRADOCK";
             break;
         }
         $scope.jobcard.ov.ss = $scope.newDeparture[0].endodo;
         $scope.$apply();
-
-        console.log($scope.jobcard.site.departure);
-        console.log($scope.jobcard.ov.ss);
       };
     
 
@@ -461,7 +454,6 @@
       };
 
       $scope.saveTripData = async (trip) => {
-        $scope.savekilos(trip.departure, trip.endodo);
         response = await fetch('/api/trips', {
           method: 'POST',
           headers: {
