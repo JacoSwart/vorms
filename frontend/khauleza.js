@@ -310,6 +310,7 @@
       $scope.displayTripDialog = false;
 
       $scope.toggleAddTrip = () => {
+        $scope.determineDeparture();
         switch ($scope.displayTripDialog) {
           case true:    /* Close current window*/
             $scope.displayTripDialog = false; 
@@ -320,7 +321,6 @@
             $scope.displayTripDialog = true;
             break;
         }
-        // $scope.displayTripDialog = !$scope.displayTripDialog;
       };
      
       $scope.parseCallSMS = () => {
@@ -420,14 +420,20 @@
         switch ($scope.newDeparture[0].date == $scope.jsDatetoSQLDate(now)) {
           case true: // TODO: ==
             $scope.jobcard.site.departure = $scope.newDeparture[0].destination;
+            $scope.trip.departure = $scope.newDeparture[0].destination;
             break;
 
           case false:
             $scope.jobcard.site.departure = "CRADOCK";
+            $scope.trip.departure = "CRADOCK";
             break;
         }
         $scope.jobcard.ov.ss = $scope.newDeparture[0].endodo;
+        $scope.trip.startodo = $scope.newDeparture[0].endodo;
         $scope.$apply();
+        
+        console.log($scope.trip.startodo, $scope.jobcard.ov.ss);
+        console.log($scope.trip.departure, $scope.jobcard.site.departure);
       };
     
 
