@@ -431,9 +431,6 @@
         $scope.jobcard.ov.ss = $scope.newDeparture[0].endodo;
         $scope.trip.startodo = $scope.newDeparture[0].endodo;
         $scope.$apply();
-        
-        console.log($scope.trip.startodo, $scope.jobcard.ov.ss);
-        console.log($scope.trip.departure, $scope.jobcard.site.departure);
       };
     
 
@@ -573,17 +570,17 @@
         
       };
 
-      // window.onscroll = function() {myFunction()};
-      //   var navbar = document.querySelector("nav");
-      //   var sticky = navbar.offsetTop;
+      window.onscroll = function() {myFunction()};
+        var navbar = document.querySelector("nav");
+        var sticky = navbar.offsetTop;
 
-      //   function myFunction() {
-      //     if (window.pageYOffset > sticky) {
-      //       navbar.classList.add("sticky")
-      //     } else {
-      //       navbar.classList.remove("sticky");
-      //     }
-      //   };
+        function myFunction() {
+          if (window.pageYOffset > sticky) {
+            navbar.classList.add("sticky")
+          } else {
+            navbar.classList.remove("sticky");
+          }
+        };
 
 
     });
