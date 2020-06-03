@@ -212,7 +212,7 @@
       }
 
       let forms = ['JOBCARD', 'PARTS_REPLACEMENT', 'USER_DAMAGE', 'EQUIPMENT_REMOVAL', 'FUEL', 'TRIPS' ,'AUDIT'];
-      $scope.activeForm = forms[6];
+      $scope.activeForm = forms[0];
       let now = new Date();
 
       setInterval(() => {
