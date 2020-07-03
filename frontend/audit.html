@@ -5,22 +5,22 @@
     <div class="formVer headerFontDisplay auditfont">Version 10 (2014)</div>
     <div class="formISM">ISM use Only</div>
     <div class="right-side-bar formDate  borderLeftTop borderRightBottom">{{newCallHeader.calldate}}</div>
-    <div class="comp">Component Nr</div>
+    <div class="comp font11b">Component Nr</div>
     <div class="compEntry"><input type="text" size="4" ng-model="audit.compNr"></div>
-    <div class="subComp">Subcomponent nr</div>
+    <div class="subComp font11b">Subcomponent nr</div>
     <div class="subCompEntry"><input type="text" size="4" ng-model="audit.subCompNr"></div>
-    <div class="ARS" >ARS Call Number</div>
-    <div class="ARSEntry"><input type="text" size="30" ng-model="newCallHeader.sitaref"></div>
-    <div class="khauRef" >Jobcard Number</div>
-    <div class="khauRefEntry"><input type="text" size="30" ng-model="newCallHeader.callid"></div>
+    <div class="ARS " >ARS Call Number</div>
+    <div class="ARSEntry "><input type="text" size="30" ng-model="newCallHeader.sitaref"></div>
+    <div class="khauRef " >Jobcard Number</div>
+    <div class="khauRefEntry "><input type="text" size="30" ng-model="newCallHeader.callid"></div>
     <div class="ISMcolor borderLeftTop ISMchk"></div>
-    <div class="ISMcolor borderLeftTop borderRight ISMuse1">VIP</div>   
+    <div class="ISMcolor borderLeftTop borderRight ISMuse1 font11">VIP</div>   
     <div class="ISMcolor borderLeftTop ISMchk"></div>
-    <div class="ISMcolor borderLeftTop borderRight ISMuse2">MISSION CRITICAL</div> 
+    <div class="ISMcolor borderLeftTop borderRight ISMuse2 font11">MISSION CRITICAL</div> 
     <div class="ISMcolor borderLeftTop ISMchk"></div>
-    <div class="ISMcolor borderLeftTop borderRight ISMuse3">PRIORITY</div> 
+    <div class="ISMcolor borderLeftTop borderRight ISMuse3 font11">PRIORITY</div> 
     <div class="ISMcolor borderLeftTop borderBottom ISMchk"></div>
-    <div class="ISMcolor borderLeftTop borderRight borderBottom ISMuse4">OPERATIONAL</div> 
+    <div class="ISMcolor borderLeftTop borderRight borderBottom ISMuse4 font11">OPERATIONAL</div> 
 
     <div class="right-side-bar serviceGroup">
         <div class="SGheader">Service Group</div>
@@ -143,8 +143,8 @@
         <div class="otherentries borderLeftTop borderBottom">Adm Pass Removed</div>
         <div class="othervalues borderLeftTop borderRightBottom"></div>
     </div>
-    <div class="left_hand_bar userinfo">
-        <div class="userinfoheader">USER INFO</div>
+    <div class="left_hand_bar userinfo font10">
+        <div class="userinfoheader font12b">USER INFO</div>
         <div class="userinfoentries">Persal no</div>
         <div class="userinfovalues"><input type="text" ng-model="audit.persal"></div>
         <div class="userinfoentries">Rank</div>
@@ -153,8 +153,8 @@
         <div class="userinfovalues"><input type="text" ng-model="jobcard.reporter.name" ></div>
     </div>
 
-    <div class="left_hand_bar currAdd">
-        <div class="userinfoheader">CURRENT ADDRESS</div>
+    <div class="left_hand_bar currAdd font10">
+        <div class="userinfoheader font12b">CURRENT ADDRESS</div>
         <div class="userinfoentries">Unit</div>
         <div class="userinfovalues"><input type="text" ng-model="jobcard.site.site"></div>
         <div class="userinfoentries">Building</div>
@@ -173,8 +173,8 @@
         <div class="userinfovalues"><input type="text" ng-model="jobcard.reporter.tel" ></div>
     </div>
 
-    <div class="center_bar accPerson">
-        <div class="accheader">ACCOUNTABLE PERSON</div>
+    <div class="center_bar accPerson font10">
+        <div class="accheader font12b">ACCOUNTABLE PERSON</div>
         <div class="accentries">Persal no</div>
         <div class="accvalues"><input type="text" ng-model="audit.persal" size="100%" ></div>
         <div class="accentries">Rank</div>
@@ -189,8 +189,8 @@
         <div id="accsignbackground" class="accsign borderLeftTop borderRightBottom signature_holder"></div>
     </div>
 
-    <div class="auditTechnician center_bar">
-        <div class="audtechheader">TECHNICIAN</div>
+    <div class="auditTechnician center_bar font10">
+        <div class="audtechheader font12b">TECHNICIAN</div>
         <div class="accentries">Name / Surname</div>
         <div class="techName borderLeftTop borderRight">Jaco Swart</div>
         <div class="accentries">
@@ -201,7 +201,7 @@
 
     </div>
 
-    <div class="connect">
+    <div class="connect font10">
         <div class="connectLables">T-Number</div>         
         <div><input class="connectEntries" type="text"></div>
         <div class="connectLables">P-Number</div>
@@ -213,26 +213,26 @@
         <div class="offlineLables">Offline</div>
         <div><input class="offlineEntries" type="checkbox"></div>
     </div>
-    <div class="email">
+    <div class="email font10">
         <div class="emailHeader">Email</div>
         <div class="emailLables">Mailbox Name</div>         
         <div><input class="emailEntries" type="text"></div>
         <div class="emailLables">User Name</div>
         <div><input class="emailEntries" type="text"></div>
     </div>
-    <div class="userName">
+    <div class="userName font10">
         <div class="userLables">User Name</div>         
         <div><input class="userEntries" type="text"></div>
     </div>
-    <div class="pcName">
+    <div class="pcName font10">
         <div class="pcLables">PC Name</div>         
         <input class="pcEntries" type="text">
     </div>
-    <div class="wallName">
+    <div class="wallName font10">
         <div class="wallLables">Wallbox number</div>         
         <input class="wallEntries" type="text">
     </div>
-    <div class="macName">
+    <div class="macName font8">
         <div class="macLables1 borderLeftTop">Mac Address</div>         
         <div class="macEntries1 borderLeftTop  "><input type="text" class="noborder"></div>
         <div class="macLables2 borderLeftTop ">I.P. Address</div>         
@@ -243,14 +243,14 @@
         <div class="macEntries2 borderLeftTop borderRightBottom"><input type="text" class="noborder"></div>
     </div>
     <div class="pasName">Cardboard Box Serial (PAS)</div>
-    <div class="pcDetailsHeader">
+    <div class="pcDetailsHeader font10">
         <div>Type</div>
         <div>Make and model</div>
         <div>Web Number</div>
         <div>Service Tag</div>
         <div>Serial Number</div>
     </div>
-    <div class="pcDetails">
+    <div class="pcDetails font8">
         <div class="pcDetailsLables1 borderLeftTop">Processor</div>
         <div class="pcDetailsEntries1 borderLeftTop"><input type="text" class="noborder"></div>
         <div class="pcDetailsEntries2 borderLeftTop"><input type="text" class="noborder"></div>
@@ -309,7 +309,7 @@
         <div class="pcDetailsEntries4 borderLeftTop borderRightBottom"><input type="text" class="noborder"></div>
     </div>
 
-    <div class="pcHardware">
+    <div class="pcHardware font8">
         <div class="pcHardwareLables borderLeftTop">Harddrive (1) size</div>         
         <div class="borderLeftTop borderRight"><input class="pcHardwareEntries noborder" type="text"></div>
         <div class="pcHardwareLables borderLeftTop">Harddrive (2) size</div>
@@ -341,7 +341,7 @@
         </div>
     </div>
 
-    <div class="pcHardware2">
+    <div class="pcHardware2 font8">
         <div class="pcHardwareLables borderLeftTop">CD Writer</div>         
         <div class="pcHardwareEntriesSubGrid borderRight">
             <span class=" borderLeftTop">Yes</span>
@@ -400,8 +400,8 @@
         </div>
     </div>
 
-    <div class="netHardware">
-        <div style="font-weight: bold;">Network Card</div>
+    <div class="netHardware font8">
+        <div class="font12b">Network Card</div>
         <div class="pcHardwareLables borderLeftTop">SMC 8000 card</div>         
         <div class="pcHardwareEntriesSubGrid borderRight">
             <span class=" borderLeftTop">Yes</span>
@@ -454,7 +454,7 @@
         
     </div>
 
-    <div class="pcDetails2">
+    <div class="pcDetails2 font8">
         <div class="pcDetailsLables1 borderLeftTop">Laser Printer</div>
         <div class="pcDetailsEntries1 borderLeftTop"><input type="text" class="noborder"></div>
         <div class="pcDetailsEntries2 borderLeftTop"><input type="text" class="noborder"></div>
@@ -587,7 +587,7 @@
     <div class="commentsLabel">Comments</div>
     <div class="comments"><textarea ></textarea></div>
 
-    <div class="action">
+    <div class="action font9b">
         <div class="actionLabel borderLeftTop">Replacement</div>
         <div class="borderLeftTop borderRight"><input type="Checkbox"></div>
         <div class="actionLabel borderLeftTop">Transfer</div>
@@ -596,19 +596,19 @@
         <div class="borderLeftTop borderRightBottom"><input type="Checkbox"></div>
     </div>
 
-    <div class="replacedDetails">
+    <div class="replacedDetails font9b">
         <div class="actionLabel ">Replaced Item</div>
         <div class="actionLabel ">Web Number</div>
         <div class="actionLabel ">Serial</div>
-        <div class="borderLeftTop"><input class="noborder" type="text"></div>
-        <div class="borderLeftTop"><input class="noborder" type="text"></div>
-        <div class="borderLeftTop borderRight"><input class="noborder" type="text"></div>
+        <div class="borderLeftTop">{{jobcard.equipment.make}}</div>
+        <div class="borderLeftTop">{{newCallHeader.assetnr}}</div>
+        <div class="borderLeftTop borderRight">{{jobcard.equipment.serial}}</div>
         <div class="borderLeftTop borderBottom"><input class="noborder" type="text"></div>
         <div class="borderLeftTop borderBottom"><input class="noborder" type="text"></div>
         <div class="borderLeftTop borderRightBottom"><input class="noborder" type="text"></div>
     </div>
 
-    <div class="relocationDetails">
+    <div class="relocationDetails font9b">
         <div class="actionLabel ">Relocation Item</div>
         <div class="actionLabel ">Web Number</div>
         <div class="actionLabel ">Serial</div>
