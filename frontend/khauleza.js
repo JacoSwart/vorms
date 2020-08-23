@@ -11,7 +11,7 @@
         this.pvtkm = 0;
         this.client = "";
         this.tollgates = "";
-        this.vehicle = "FT60LXGP";
+        this.vehicle = "JP28LRGP";
       }
     }
 
@@ -178,7 +178,7 @@
         this.liters = 0;
         this.amount = 0;
         this.jobcard = jobcard;
-        this.vehicle = "FT60LXGP";
+        this.vehicle = "JP28LRGP";
         this.fueldate = new Date();
       }
     }
@@ -446,7 +446,7 @@
           pvtkm: 0,
           client: $scope.jobcard.reporter.name,
           tollgates: $scope.newCallHeader.callid,
-          vehicle: "FT60LXGP",
+          vehicle: "JP28LRGP",
         });
       };
 
