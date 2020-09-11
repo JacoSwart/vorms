@@ -356,7 +356,7 @@
           } else if (line[0].trim().toLowerCase() === 'issue') $scope.jobcard.problem.issue = 'Problem Reported :\n' + line[1].split('SLA ')[0];
         }
         document.querySelector("div#call").classList.add("hide_on_screen");
-        $scope.jobcard.sla.reported = '20' + newSitaRef.slice(1,3) + '/' + newSitaRef.slice(3,5) + '/' + newSitaRef.slice(5,7);
+        $scope.jobcard.sla.reported = '20' + newSitaRef.trim().slice(0,2) + '/' + newSitaRef.trim().slice(2,4) + '/' + newSitaRef.trim().slice(4,6);
         $scope.jobcard.sla.arrivetime = $scope.padZeros(now.getHours()) + ":" + $scope.padZeros(now.getMinutes());
         callDate = $scope.jsDatetoSQLDate(now);
         $scope.newCallHeader = new CallHeader(newCallId, newSitaRef, newAssetNr, callDate);
