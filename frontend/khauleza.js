@@ -328,7 +328,7 @@
         let newCallId, newSitaRef, newAssetNr, callDate;
         for (let line of $scope.SMS) {
           line = line.split(':');
-          if (line[0].trim().toLowerCase() === 'heatref') newCallId = line[1];
+          if (line[0].trim().toLowerCase() === 'heatref' || line[0].trim().toLowerCase() === 'hearef') newCallId = line[1];
           else if (line[0].trim().toLowerCase() === 'custref') newSitaRef = line[1];
           else if (line[0].trim().toLowerCase() === 'user') $scope.jobcard.reporter.name = line[1];
           else if (line[0].trim().toLowerCase() === 'tel') {
