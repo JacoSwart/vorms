@@ -17,7 +17,7 @@
 
     class Jobcard {
       constructor() {
-        this.client = false;
+        
         this.ov = {
           ss: 0,
           sse: 0,

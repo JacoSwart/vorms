@@ -8,9 +8,8 @@
           Call #  :  {{newCallHeader.callid}}
         </div>
         <div id="client">
-          Client  : <input class="hide_on_print" ng-model="jobcard.client" type="checkbox">
-          <span ng-if="!jobcard.client">SAPS</span>
-          <span ng-if="jobcard.client">MECER</span><br>
+          Client  : <input class="noborder" ng-model="jobcard.client" >
+          
           <span>{{jobcard.site.town}} </span>
         </div>
         <div id="sita-ref">
